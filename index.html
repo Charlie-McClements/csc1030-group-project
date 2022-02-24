@@ -14,20 +14,26 @@
                 background-color: rgb(96, 85, 141);
                 
             }
-            #board {
-                display: grid;
-                grid-template-rows: auto;
-                align-items: center;
-                justify-items: center; 
-                margin:auto;                               
+            #board{
+                position:absolute;
+                left:50%;
+                top:60%;
+                transform:translate(-50%, -50%);
+                                               
             } 
 
             #buttons{
-                text-align: center;
-                height:20%;
+                position:absolute;                
+                height:100px;
+                width: 610px;
+                text-align: center; 
+                top:30px;                               
+                left:50%;
+                transform:translate(-50%);
             }
 
             #up{
+                margin-bottom:5px;
                 width:30%;
                 height:50%;
             }
@@ -52,9 +58,10 @@
         <input onclick="buttonLeft()" type="button" value="left" id="left"/>
         <input onclick="buttonDown()" type="button" value="down" id="down"/>
         <input onclick="buttonRight()" type="button" value="right" id="right"/> 
-        </div>           
+        </div>  
+    </br>         
         <div id="board">
-            <canvas id="gameCanvas" width="600" height="600"></canvas>
+            <canvas id="gameCanvas" width="610" height="610"></canvas>
             <script src = "main.js"></script>
         </div>  
     </body>
