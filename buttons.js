@@ -14,3 +14,5 @@ function buttonDown(){
     gameCanvas.dispatchEvent(new KeyboardEvent('keydown', {'key': 's'}))
 }
 
+//just some code to map the buttons on the html page to keypresses
+
