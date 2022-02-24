@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Group project</title>
+        <script src="jquery-3.6.0.min.js"></script>
+        <script src="buttons.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+        <style> 
+            body, html {
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                background-color: rgb(96, 85, 141);
+                
+            }
+            #board {
+                display: grid;
+                grid-template-rows: auto;
+                align-items: center;
+                justify-items: center; 
+                margin:auto;                               
+            } 
+
+            #buttons{
+                text-align: center;
+                height:20%;
+            }
+
+            #up{
+                width:30%;
+                height:50%;
+            }
+            #down{
+                width:30%;
+                height:50%;
+            }
+            #right{
+                width:30%;
+                height:50%;
+            }
+            #left{
+                width:30%;
+                height:50%;
+            }
+                   
+        </style>
+    </head>
+    <body>
+        <div id = "buttons">
+        <input onclick="buttonUp()" type="button" value="up" id="up"/></br>
+        <input onclick="buttonLeft()" type="button" value="left" id="left"/>
+        <input onclick="buttonDown()" type="button" value="down" id="down"/>
+        <input onclick="buttonRight()" type="button" value="right" id="right"/> 
+        </div>           
+        <div id="board">
+            <canvas id="gameCanvas" width="600" height="600"></canvas>
+            <script src = "main.js"></script>
+        </div>  
+    </body>
+</html>
