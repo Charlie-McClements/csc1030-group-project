@@ -9,11 +9,13 @@ const FPS = 60;
 var charx, chary;     //position of the top left of the squares
 var canvas, context;
 var difficulty = 5;
+var torchStrength = 200;
 var wallSize = 1 * difficulty;
 var charSize = 10 * difficulty;    //size of square in pixels
 var square = wallSize + charSize;   //size of each grid square on the board
-var boardSize = Math.floor(canvas.width / (wallSize + charSize)) * square;
-var Cells = (boardSize / square); 
+var boardSize = Math.floor(canvas.width / (square)) * square; //number of pixels wide
+var Cells = (boardSize / square);   //number of squares wide
+var maze = [];  //array containing every square with two values per square, indicating if the right and down walls are present or not
 var allCells = [] 
     for(let incx = 0; incx < Cells; incx++){
         for(let incy =0; incy < Cells; incy++){
@@ -40,9 +42,35 @@ setInterval(update, 1000/FPS);
 charx = wallSize;
 chary = wallSize;
 
-function getRndInteger(min, max) {  //random number generator function
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
-  }
+function xmur3(str) {
+    for(var i = 0, h = 1779033703 ^ str.length; i < str.length; i++)
+        h = Math.imul(h ^ str.charCodeAt(i), 3432918353),
+        h = h << 13 | h >>> 19;
+    return function() {
+        h = Math.imul(h ^ h >>> 16, 2246822507);
+        h = Math.imul(h ^ h >>> 13, 3266489909);
+        return (h ^= h >>> 16) >>> 0;
+    }
+}
+
+function mulberry32(a) {
+    return function() {
+      var t = a += 0x6D2B79F5;
+      t = Math.imul(t ^ t >>> 15, t | 1);
+      t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    }
+}
+
+let seedFunction = xmur3("bugs");
+let rand = mulberry32(seedFunction());
+/*function getRndInteger(max) {   //produces a random rumber between 0 and max based off the seed
+    return Math.floor((rand() * max));
+  }*/
+
+function getRndInteger(max){
+    return Math.floor(Math.random() * max);
+}
 
 function move(direction){
     switch(direction){
@@ -122,17 +150,50 @@ function win_check(){
         chary = wallSize;
     }
 }
-function draw_grid(){
+
+function populate_grid(){
     wallNumber = (canvas.width + wallSize) / difficulty;
     wallSpace = charSize + wallSize;
     x=0;
-    for(let inc=0; inc<wallNumber; inc++){   //draw grey lines spaced apart evenly until the board is full  
-    context.fillStyle = wallColour;
-    context.fillRect(x, 0, wallSize, boardSize);
-    context.fillRect(0, x, boardSize + wallSize, wallSize);
-    x += wallSpace;
+    for(let inc=0; inc<Cells*Cells; inc++){
+        maze.push([true, true]);
     }
-
+    for(let inc=0; inc<wallNumber; inc++){  //draw grey lines spaced apart evenly until the board is full  
+        context.fillStyle = wallColour;
+        context.fillRect(x, 0, wallSize, boardSize);
+        context.fillRect(0, x, boardSize + wallSize, wallSize);
+        x += wallSpace;
+    }
+}
+function draw_grid(){    
+    currentCell = [wallSize,wallSize];  
+    wallNumber = (canvas.width + wallSize) / difficulty;
+    wallSpace = charSize + wallSize;
+    x=0;
+    context.fillStyle = wallColour; //draw grey lines spaced apart evenly until the board is full  
+    context.fillRect(0,0,boardSize,wallSize);
+    context.fillRect(0,0,wallSize,boardSize);
+    for(let inc=0; inc<wallNumber; inc++){  
+        context.fillStyle = wallColour;
+        context.fillRect(x, 0, wallSize, boardSize);
+        context.fillRect(0, x, boardSize + wallSize, wallSize);
+        x += wallSpace;
+    }   
+    for(let inc=0; inc<Cells*Cells; inc++){    //remove certain walls to make the maze    
+        if(maze[inc][0] == false){
+            context.fillStyle = floorColour;
+            context.fillRect(currentCell[0] + charSize,currentCell[1],wallSize,charSize);
+        }
+        if(maze[inc][1] == false){
+            context.fillStyle = floorColour;
+            context.fillRect(currentCell[0],currentCell[1] + charSize,charSize,wallSize);
+        }
+        currentCell[0] += square;
+        if (currentCell[0] > boardSize){   //once you reach the edge of the board go back to the left side and down a square
+            currentCell[0] = wallSize; 
+            currentCell[1] += square;
+        }
+    }       
 }
 
 function in_array(array, coord){
@@ -144,13 +205,23 @@ function in_array(array, coord){
     return false;
 }
 
+function findIndex(coords){
+    x = coords[0];
+    y = coords[1]
+    x -= wallSize;
+    y -= wallSize;
+    x = x / square;
+    y = y / square;    
+    y = y * Cells;
+    return x+y;
+}
+
 function generate_maze(){
-    draw_grid();
+    var currentIndex = 0;
     var currentCell = [wallSize,wallSize]   //start in the top right    
-    var totalCells = (boardSize / square) * (boardSize / square);  
-    console.log(totalCells)
-    var forceQuit = false;  
-    var visited = [];    //array containing the coordinates of all the squares that have been visited    
+    var totalCells = Cells * Cells;  
+    var forceQuit = false; 
+    var visited = [currentCell];    //array containing the coordinates of all the squares that have been visited    
     while(visited.length < totalCells && forceQuit == false){               
         var choices = [];
         var right = [currentCell[0] + square, currentCell[1]];
@@ -170,29 +241,39 @@ function generate_maze(){
             choices.push(down);
         }
         if(choices.length != 0){   
-            option = choices[getRndInteger(0, choices.length -1)];   
+            option = choices[getRndInteger(choices.length)];   
                      
             if(option[0] > currentCell[0]){ //delete wall to right if you're moving to the right
                 //delete right wall
-                context.fillStyle = floorColour;
-                context.fillRect(currentCell[0] + charSize,currentCell[1],wallSize,charSize);
+                maze[currentIndex][0] = false;
+                currentCell = option;
+                currentIndex = findIndex(currentCell);
+                draw_grid();
+
             }
             else if(option[0] < currentCell[0]){
                 //delete left wall
-                context.fillStyle = floorColour;
-                context.fillRect(currentCell[0] - wallSize,currentCell[1],wallSize,charSize);
+                currentCell = option;
+                currentIndex = findIndex(currentCell);
+                maze[currentIndex][0] = false;
+                draw_grid();
             }
             else if(option[1] > currentCell[1]){
                 //delete down wall
-                context.fillStyle = floorColour;
-                context.fillRect(currentCell[0],currentCell[1] + charSize,charSize,wallSize);
+                maze[currentIndex][1] = false;
+                currentCell = option;
+                currentIndex = findIndex(currentCell);
+                draw_grid();
             }
             else if (option[1] < currentCell[1]){
                 //delete up wall
-                context.fillStyle = floorColour;
-                context.fillRect(currentCell[0],currentCell[1] - wallSize,charSize,wallSize);                              
-            }
-            currentCell = option;
+                currentCell = option;
+                currentIndex = findIndex(currentCell);
+                maze[currentIndex][1] = false;                                             
+                draw_grid();
+            }            
+            context.fillStyle="orange";
+            context.fillRect(currentCell[0], currentCell[1], charSize, charSize);
             visited.push(currentCell); 
         }
         else{
@@ -205,28 +286,41 @@ function generate_maze(){
                 var len = visited.length - inc;
                 x = visited[len][0];
                 y = visited[len][1];
-                currentCell = [x,y];
+                currentCell = [x,y];                                
                 var choices = [];
                 var right = [currentCell[0] + square, currentCell[1]];
                 var left = [currentCell[0] - square, currentCell[1]];
                 var up = [currentCell[0], currentCell[1] - square];
                 var down = [currentCell[0], currentCell[1] + square];    
                 if(right[0] < boardSize && in_array(visited,right) == false){
+                    currentIndex = findIndex(currentCell);
+                    console.log(currentIndex);
+                    console.log(currentCell);
                     break;         
                 }
                 if(left[0] >= wallSize && in_array(visited,left) == false){
+                    currentIndex = findIndex(currentCell);
+                    console.log(currentIndex);
+                    console.log(currentCell);
                     break;
                 }
                 if(up[1] >= wallSize && in_array(visited,up) == false){
+                    currentIndex = findIndex(currentCell);
+                    console.log(currentIndex);
+                    console.log(currentCell);
                     break;
                 }
                 if(down[1] < boardSize && in_array(visited, down) == false){
+                    currentIndex = findIndex(currentCell);
+                    console.log(currentIndex);
+                    console.log(currentCell);
                     break;
                 }   
             } 
         }     
     }    
 }
+populate_grid();
 generate_maze();
 
 // update function
@@ -235,15 +329,26 @@ function update() {
     win_check();
 
     // draw background      
-    for(let inc = 0;inc<allCells.length;inc++){
+    /*for(let inc = 0;inc<allCells.length;inc++){
         context.fillStyle = floorColour;
         context.fillRect(allCells[inc][0], allCells[inc][1], charSize, charSize);
-    }
+    }*/
+    context.fillStyle = floorColour;
+    context.fillRect(0,0,boardSize,boardSize);
+    draw_grid();
     //draw player
     context.fillStyle = charColour;
     context.fillRect(charx, chary, charSize, charSize);
     //draw finish
     context.fillStyle = winColour;
     context.fillRect(boardSize - charSize, boardSize - charSize, charSize, charSize);
+    //draw the light source
+    context.fillStyle = 'rgba(20,20,20,1)';
+    context.beginPath();
+    context.arc(charx + charSize / 2, chary + charSize / 2, torchStrength, 0, 2 * Math.PI);
+    context.rect(boardSize, 0, -boardSize, boardSize);
+    context.fill();
+
+    
     
 }
