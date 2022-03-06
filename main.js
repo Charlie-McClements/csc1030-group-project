@@ -352,3 +352,18 @@ function update() {
     
     
 }
+
+var dialogue=1;
+function dialogueButton() {
+    if(dialogue<8) {
+        document.getElementById('dialogue'+dialogue).className = "hideMe";
+        dialogue++;
+        document.getElementById('dialogue'+dialogue).className = "showMe";
+    } else {
+        document.getElementById('dialogue'+dialogue).className = "hideMe";
+        document.getElementById('gameText').className = "hideMe";
+                    // dialogue++;
+                    // document.getElementById('dialogue'+dialogue).className = "hideMe";
+    }
+                
+}
