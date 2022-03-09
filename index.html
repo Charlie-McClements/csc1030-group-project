@@ -4,92 +4,199 @@
         <title>Group project</title>
         <script src="jquery-3.6.0.min.js"></script>
         <script src="buttons.js"></script>
+        <script src="ruari.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">	
         <style> 
-            body, html {
+            * {
+                box-sizing: border-box;
+            }
+            
+            /*body, html {
                 height: 100%;
                 width: 100%;
                 margin: 0;
                 padding: 0;
                 background-color: rgb(96, 85, 141);
                 
-            }
-            #board{
-                position:absolute;
-                left:50%;
-                top:60%;
-                transform:translate(-50%, -50%);
-                                               
-            } 
-            
-            #buttons{
-                position:absolute;                
-                height:100px;
-                width: 610px;
-                text-align: center; 
-                top:30px;                               
-                left:50%;
-                transform:translate(-50%);
+            } */
+            body {
+                background-color: rgb(96, 85, 141);
             }
 
-            #up{
-                margin-bottom:5px;
-                width:30%;
-                height:50%;
+            #wrapper {
+                width: 90%;
+                background-color: rgb(96, 85, 141);
+                margin: auto;
+                overflow: auto;
             }
-            #down{
-                width:30%;
-                height:50%;
+
+            .showMe {
+                display:initial;
             }
-            #right{
-                width:30%;
-                height:50%;
+            
+            .hideMe {
+                display:none;
             }
-            #left{
-                width:30%;
-                height:50%;
+            
+            #startScreen {
+                text-align: center;
+                font-family: monospace;
+                color:rgb(83, 83, 83);
             }
+
+            #title {
+                background-color: black;
+                color: white;
+                padding: 10px;
+                font-size: 500%;
+                font-weight: bold;
+            }
+
+            #characterSelect {
+                border: 5px solid #930C10;
+                background-color: #FFFEBD;
+                font-size: 30px;
+                margin: auto;
+                padding: 20px;
+            }
+
+            input[type=text] {
+                border: 2px solid #930C10;
+                border-radius: 10px;
+                padding: 10px;
+                margin: 10px;
+                width: 20%;
+                font-size: 16px;
+                font-family: monospace;
+            }
+            input[type=text]:focus {
+                border: 4px solid #930C10;
+            }
+
+            .radio input[type="radio"] {
+                opacity: 0;
+                position: fixed;
+                width: 0;
+            }
+            .radio label {
+                display: inline-block;
+                background-color: rgb(255, 255, 255);
+                border: 2px solid #930C10;
+                border-radius: 10px;
+                padding: 10px 20px;
+                margin: 10px;
+                /*font-family: sans-serif, Arial;*/
+                font-size: 16px;
+                
+            }
+            .radio label:hover {
+                background-color: rgb(255, 221, 221);
+            }
+            .radio input[type="radio"]:checked + label {
+                background-color: rgb(255, 187, 187);
+                border-color: rgb(204, 68, 68);
+            }
+
+            select {
+                border: 2px solid #930C10;
+                border-radius: 10px;
+                padding: 10px;
+                margin: 10px;
+                width: 15%;
+                font-size: 16px;
+                font-family: monospace;
+            }
+            select:focus {
+                border: 4px solid #930C10;
+            }
+
+            #button {
+                /*background-color: rgb(96, 85, 141);*/
+                padding: 20px;
+                margin: 20px;
+            }
+
+            #startButton{
+                padding: 5px;
+                font-size: 250%;
+                font-weight: bold;
+                background-color: #FFFEBD;
+                color: rgb(83, 83, 83);
+                border: 4px #930C10 solid;
+                border-radius: 15px;
+                cursor: pointer;
+            }
+            #startButton:hover {
+                background-color: rgb(255, 187, 187);
+            }
+
+            #gameScreen {
+                text-align: center;
+                font-family: monospace;
+                color:rgb(83, 83, 83);
+                /*background-color: rgb(96, 85, 141);*/
+                height: 100%;
+            }
+
+            #timer{
+                background-color: #FFFEBD;
+                font-family: monospace;
+                font-size: large;
+                font-weight: bold;
+                display: inline-block;
+                border-radius: 30px;
+                border: 2px #930C10 solid;
+                margin: 10px;
+                padding: 10px;
+            }
+
                    
         </style>
     </head>
     <body>
-        <div id="gameText">
-            <div id="dialogue1" class="showMe">
-                Welcome to the maze, Avatar.<br><br>
+        <div id="wrapper">
+            <div id="startScreen" class="showMe">
+                <div id="title">
+                    Oubliette
+                </div>
+                <div id="characterSelect">
+                    <label for="characterName"><u>Character Name</u></label><br>
+                    <input type="text" name="characterName" id="characterName">
+                    <br><br>
+                            
+                    <u>Gender</u><br>
+                    <div class="radio">
+                        <input type="radio" name="gender" id="male" value="Male">
+                        <label for="male">Male</label>
+                        
+                        <input type="radio" name="gender" id="female" value="Female">
+                        <label for="female">Female</label>
+                        <br><br>
+                    </div>
+                    
+
+                    <label for="difficulty"><u>Maze Difficulty</u></label><br>
+                    <select name="difficulty" id="difficulty">
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                    </select>
+                    <br><br>
+                </div>
+                <div id="button">
+                    <button id="startButton" onclick="startButton();">Start Game</button>
+                </div>
             </div>
-            <div id="dialogue2" class="hideMe">
-                blah blah blah<br><br>
+            <div id="gameScreen" class="hideMe">
+                <div id="timer">
+                    Time Left: <span id="minutes"></span>:<span id="seconds"></span>
+                </div>
+                <br>       
+                <div id="board">
+                    <canvas id="gameCanvas" width="610" height="610"></canvas>
+                    <script src = "main.js"></script>
+                </div>
             </div>
-            <div id="dialogue3" class="hideMe">
-                blah blah blah here is some more backstory<br><br>
-            </div>
-            <div id="dialogue4" class="hideMe">
-               more backstory blah blah blah<br><br>
-            </div>
-            <div id="dialogue5" class="hideMe">
-                our game is superior to everyone else's<br><br>
-            </div>
-            <div id="dialogue6" class="hideMe">
-                onions have layers<br><br>
-            </div>
-            <div id="dialogue7" class="hideMe">
-                yippee ki yay mofo<br><br>
-            </div>
-            <div id="dialogue8" class="hideMe">
-                yuo escaped the maze, congratulations<br><br>
-            </div>
-            <button id="dialogueButton" onclick="dialogueButton();">Continue</button>
         </div>
-        <div id = "buttons">
-        <input onclick="buttonUp()" type="button" value="up" id="up"/></br>
-        <input onclick="buttonLeft()" type="button" value="left" id="left"/>
-        <input onclick="buttonDown()" type="button" value="down" id="down"/>
-        <input onclick="buttonRight()" type="button" value="right" id="right"/> 
-        </div>  
-    </br>         
-        <div id="board">
-            <canvas id="gameCanvas" width="610" height="610"></canvas>
-            <script src = "main.js"></script>
-        </div>          
     </body>
 </html>

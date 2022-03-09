@@ -113,7 +113,7 @@ function move(direction){
     }
 }
 
-window.addEventListener("keydown", function (event) {   //handles keyboard input, for now allows you to use arrow keys to move the character
+/*window.addEventListener("keydown", function (event) {   //handles keyboard input, for now allows you to use arrow keys to move the character
     if (event.defaultPrevented) {
       return; // Do nothing if the event was already processed
     }  
@@ -139,7 +139,7 @@ window.addEventListener("keydown", function (event) {   //handles keyboard input
     }
 
     event.preventDefault();
-  }, true);
+  }, true);*/
 
 function win_check(){
     var canvas = gameCanvas.getContext('2d');
@@ -351,19 +351,4 @@ function update() {
 
     
     
-}
-
-var dialogue=1;
-function dialogueButton() {
-    if(dialogue<8) {
-        document.getElementById('dialogue'+dialogue).className = "hideMe";
-        dialogue++;
-        document.getElementById('dialogue'+dialogue).className = "showMe";
-    } else {
-        document.getElementById('dialogue'+dialogue).className = "hideMe";
-        document.getElementById('gameText').className = "hideMe";
-                    // dialogue++;
-                    // document.getElementById('dialogue'+dialogue).className = "hideMe";
-    }
-                
 }

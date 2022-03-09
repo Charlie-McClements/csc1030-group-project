@@ -1,17 +1,17 @@
 function buttonLeft(){
-    gameCanvas.dispatchEvent(new KeyboardEvent('keydown', {'key': 'a'}))
+    move('left');
 }
 
 function buttonRight(){
-    gameCanvas.dispatchEvent(new KeyboardEvent('keydown', {'key': 'd'}))
+    move("right");
 }
 
 function buttonUp(){
-    gameCanvas.dispatchEvent(new KeyboardEvent('keydown', {'key': 'w'}))
+    move("up");
 }
 
 function buttonDown(){
-    gameCanvas.dispatchEvent(new KeyboardEvent('keydown', {'key': 's'}))
+    move("down");
 }
 
 //just some code to map the buttons on the html page to keypresses
