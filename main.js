@@ -329,6 +329,7 @@ torchStrengthDisplay.innerHTML = torchStrength;
 function update() {
     //check for win
     win_check();
+    
     // draw background      
     /*for(let inc = 0;inc<allCells.length;inc++){
         context.fillStyle = floorColour;
