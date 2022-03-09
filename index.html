@@ -6,7 +6,10 @@
         <script src="buttons.js"></script>
         <script src="ruari.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">	
-        <style> 
+        <style>
+            *{
+                box-sizing: border-box;
+            }
             body, html {
                 height: 100%;
                 width: 100%;
@@ -25,18 +28,6 @@
                 padding-right: 3px;
                 padding-left: 3px;
             }
-            input {
-                color: #303030;
-                background-image: radial-gradient(100% 100% at 100% 0, lightgray 0, lightgray 100%);
-                text-transform: uppercase;
-                font-weight: bold;
-            }
-            #board{
-                position:absolute;
-                left:50%;
-                top:60%;
-                transform:translate(-50%, -50%);                
-            } 
 
             .showMe {
                 display:initial;
@@ -123,6 +114,21 @@
                 padding: 20px;
                 margin: 20px;
             }
+
+            #startButton{
+                padding: 5px;
+                font-size: 250%;
+                font-weight: bold;
+                background-color: #FFFEBD;
+                color: rgb(83, 83, 83);
+                border: 4px #930C10 solid;
+                border-radius: 15px;
+                cursor: pointer;
+            }
+            #startButton:hover {
+                background-color: rgb(255, 187, 187);
+            }
+
             #gameScreen {
                 text-align: center;
                 font-family: monospace;
@@ -143,61 +149,18 @@
                 padding: 10px;
             }
 
-            #startButton{
-                padding: 5px;
-                font-size: 250%;
-                font-weight: bold;
-                background-color: #FFFEBD;
-                color: rgb(83, 83, 83);
-                border: 4px #930C10 solid;
-                border-radius: 15px;
-                cursor: pointer;
-            }
-            #startButton:hover {
-                background-color: rgb(255, 187, 187);
-            }
-            
-            #buttons{
-                background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
-                box-shadow: 0px 5px;
-                position:absolute;                
-                height:100px;
-                width: 210px;
-                text-align: center; 
-                top:30px;                               
-                left:50%;
-                transform:translate(-145%);
-            }
-
-            #up{
-                margin-top:7px;
-                margin-bottom:5px;
-                width:30%;
-                height:40%;
-            }
-            #down{
-                width:30%;
-                height:40%;
-            }
-            #right{
-                width:30%;
-                height:40%;
-            }
-            #left{
-                width:30%;
-                height:40%;
-            }
-
             #storybox {
                 background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
-                box-shadow: 0px 5px;
-                position:absolute;                
-                height:100px;
-                width: 390px;
-                text-align: center; 
+                box-shadow: 0px 5px;                
+                height:125px;
+                width: 610px;
+                font-size: 20px;
+                padding: 10px;
+                margin: auto;
+                /* position:absolute;
                 top:30px;                               
                 left:50%;
-                transform:translate(-22%);
+                transform:translate(-22%); */
                 text-align: left;
             }
 
@@ -211,6 +174,53 @@
                 left: 0;
                 bottom: 0;
             }
+
+            #board{
+                position: relative;
+                /* position:absolute;
+                left:50%;
+                top:60%;
+                transform:translate(-50%, -50%);                 */
+            }
+
+            #buttons{
+                background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
+                box-shadow: 0px 5px;                
+                height:100px;
+                width: 210px;
+                text-align: center; 
+                position: relative;                             
+                left:50%;
+                transform:translate(-50%, 10%);
+                /* position:absolute;
+                top:30px;                               
+                left:50%;
+                transform:translate(-145%); */
+            }
+
+            #up, #down, #right, #left{
+                margin-top:7px;
+                margin-bottom:5px;
+                width:30%;
+                height:40%;
+                color: #303030;
+                background-image: radial-gradient(100% 100% at 100% 0, lightgray 0, lightgray 100%);
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+            /* #down{
+                width:30%;
+                height:40%;
+            }
+            #right{
+                width:30%;
+                height:40%;
+            }
+            #left{
+                width:30%;
+                height:40%;
+            } */
+ 
         </style>
     </head>
     <body>
@@ -233,7 +243,6 @@
                     <br><br>
                 </div>
                 
-
                 <label for="difficulty"><u>Maze Difficulty</u></label><br>
                 <select name="difficulty" id="difficulty">
                     <option value="Easy">Easy</option>
@@ -258,8 +267,7 @@
                 <p style="float: left; font-size: 21px; padding-left: 29px;">x4</p>
             </div>
         </div>  
-    </br>   
-    
+        </br>   
         <div id="board">
             <canvas id="gameCanvas" width="610" height="610"></canvas>
             <script src = "main.js"></script>
