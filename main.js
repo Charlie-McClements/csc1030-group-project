@@ -322,6 +322,8 @@ function generate_maze(){
 }
 populate_grid();
 generate_maze();
+var torchStrengthDisplay = document.getElementById('torchStrength');
+torchStrengthDisplay.innerHTML = torchStrength;
 
 // update function
 function update() {
