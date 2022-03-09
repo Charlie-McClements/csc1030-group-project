@@ -1,0 +1,226 @@
+
+        * {
+            font-family: monospace;
+        }
+
+
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(96, 85, 141);
+        }
+
+        p {
+            color: lightgray;
+            margin: 7px;
+            font-size: 15px;
+        }
+
+        b {
+            color: #303030;
+            background-color: lightgray;
+            padding-right: 3px;
+            padding-left: 3px;
+        }
+
+        input {
+            color: #303030;
+            background-image: radial-gradient(100% 100% at 100% 0, lightgray 0, lightgray 100%);
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        #board,
+        #challengeBoard {
+            position: absolute;
+            left: 50%;
+            top: 60%;
+            transform: translate(-50%, -50%);
+        }
+
+        .showMe {
+            display: initial;
+        }
+
+        .hideMe {
+            display: none;
+        }
+
+        #startScreen {
+            text-align: center;
+            font-family: monospace;
+            color: rgb(83, 83, 83);
+        }
+
+        #title {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            font-size: 500%;
+            font-weight: bold;
+        }
+
+        #characterSelect {
+            border: 5px solid #930C10;
+            background-color: #FFFEBD;
+            font-size: 30px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        input[type=text] {
+            border: 2px solid #930C10;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            width: 20%;
+            font-size: 16px;
+            font-family: monospace;
+        }
+
+        input[type=text]:focus {
+            border: 4px solid #930C10;
+        }
+
+        .radio input[type="radio"] {
+            opacity: 0;
+            position: fixed;
+            width: 0;
+        }
+
+        .radio label {
+            display: inline-block;
+            background-color: rgb(255, 255, 255);
+            border: 2px solid #930C10;
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin: 10px;
+            /*font-family: sans-serif, Arial;*/
+            font-size: 16px;
+
+        }
+
+        .radio label:hover {
+            background-color: rgb(255, 221, 221);
+        }
+
+        .radio input[type="radio"]:checked+label {
+            background-color: rgb(255, 187, 187);
+            border-color: rgb(204, 68, 68);
+        }
+
+        select {
+            border: 2px solid #930C10;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            width: 15%;
+            font-size: 16px;
+            font-family: monospace;
+        }
+
+        select:focus {
+            border: 4px solid #930C10;
+        }
+
+        #button {
+            /*background-color: rgb(96, 85, 141);*/
+            padding: 20px;
+            margin: 20px;
+        }
+
+        #gameScreen {
+            text-align: center;
+            font-family: monospace;
+            color: rgb(83, 83, 83);
+            /*background-color: rgb(96, 85, 141);*/
+            height: 100%;
+        }
+
+        #timer {
+            background-color: #FFFEBD;
+            font-family: monospace;
+            font-size: large;
+            font-weight: bold;
+            display: inline-block;
+            border-radius: 30px;
+            border: 2px #930C10 solid;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        #startButton {
+            padding: 5px;
+            font-size: 250%;
+            font-weight: bold;
+            background-color: #FFFEBD;
+            color: rgb(83, 83, 83);
+            border: 4px #930C10 solid;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        #startButton:hover {
+            background-color: rgb(255, 187, 187);
+        }
+
+        #buttons {
+            background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
+            box-shadow: 0px 5px;
+            position: absolute;
+            height: 100px;
+            width: 210px;
+            text-align: center;
+            top: 30px;
+            left: 50%;
+            transform: translate(-145%);
+        }
+
+        #up {
+            margin-top: 7px;
+            margin-bottom: 5px;
+            width: 30%;
+            height: 40%;
+        }
+
+        #down {
+            width: 30%;
+            height: 40%;
+        }
+
+        #right {
+            width: 30%;
+            height: 40%;
+        }
+
+        #left {
+            width: 30%;
+            height: 40%;
+        }
+
+        #storybox {
+            background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
+            box-shadow: 0px 5px;
+            position: absolute;
+            height: 100px;
+            width: 390px;
+            text-align: center;
+            top: 30px;
+            left: 50%;
+            transform: translate(-22%);
+            text-align: left;
+        }
+
+        .storybox-bottom {
+            position: relative;
+            height: 28px;
+        }
+
+        .storybox-bottom img {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
