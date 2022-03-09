@@ -12,79 +12,100 @@
                 margin: 0;
                 padding: 0;
                 background-color: rgb(96, 85, 141);
-                
+            }
+            p {
+                color: lightgray;
+                margin: 7px;
+                font-size: 15px;
+            }
+            b {
+                color: #303030;
+                background-color: lightgray;
+                padding-right: 3px;
+                padding-left: 3px;
+            }
+            input {
+                color: #303030;
+                background-image: radial-gradient(100% 100% at 100% 0, lightgray 0, lightgray 100%);
+                text-transform: uppercase;
+                font-weight: bold;
             }
             #board{
                 position:absolute;
                 left:50%;
                 top:60%;
-                transform:translate(-50%, -50%);
-                                               
+                transform:translate(-50%, -50%);                
             } 
             
             #buttons{
+                background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
+                box-shadow: 0px 5px;
                 position:absolute;                
                 height:100px;
-                width: 610px;
+                width: 210px;
                 text-align: center; 
                 top:30px;                               
                 left:50%;
-                transform:translate(-50%);
+                transform:translate(-145%);
             }
 
             #up{
+                margin-top:7px;
                 margin-bottom:5px;
                 width:30%;
-                height:50%;
+                height:40%;
             }
             #down{
                 width:30%;
-                height:50%;
+                height:40%;
             }
             #right{
                 width:30%;
-                height:50%;
+                height:40%;
             }
             #left{
                 width:30%;
-                height:50%;
+                height:40%;
             }
-                   
+
+            #storybox {
+                background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
+                box-shadow: 0px 5px;
+                position:absolute;                
+                height:100px;
+                width: 390px;
+                text-align: center; 
+                top:30px;                               
+                left:50%;
+                transform:translate(-22%);
+                text-align: left;
+            }
+
+            .storybox-bottom {
+                position: relative;
+                height: 28px;
+            }
+
+            .storybox-bottom img {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+            }
         </style>
     </head>
     <body>
-        <div id="gameText">
-            <div id="dialogue1" class="showMe">
-                Welcome to the maze, Avatar.<br><br>
-            </div>
-            <div id="dialogue2" class="hideMe">
-                blah blah blah<br><br>
-            </div>
-            <div id="dialogue3" class="hideMe">
-                blah blah blah here is some more backstory<br><br>
-            </div>
-            <div id="dialogue4" class="hideMe">
-               more backstory blah blah blah<br><br>
-            </div>
-            <div id="dialogue5" class="hideMe">
-                our game is superior to everyone else's<br><br>
-            </div>
-            <div id="dialogue6" class="hideMe">
-                onions have layers<br><br>
-            </div>
-            <div id="dialogue7" class="hideMe">
-                yippee ki yay mofo<br><br>
-            </div>
-            <div id="dialogue8" class="hideMe">
-                yuo escaped the maze, congratulations<br><br>
-            </div>
-            <button id="dialogueButton" onclick="dialogueButton();">Continue</button>
-        </div>
         <div id = "buttons">
         <input onclick="buttonUp()" type="button" value="up" id="up"/></br>
         <input onclick="buttonLeft()" type="button" value="left" id="left"/>
         <input onclick="buttonDown()" type="button" value="down" id="down"/>
         <input onclick="buttonRight()" type="button" value="right" id="right"/> 
+        </div>
+        <div id = "storybox">
+            <p>The story text would go <b>here</b> maybe. Although this isn't a lot of space so maybe we should put it on the side? Anyway I like <b>this method</b> of making text bold</p>
+            <div class="storybox-bottom">
+                <img style="float: left; padding: 2px 0px 0px 7px;" src="images/primitive-torch.png" alt="Image of a torch" height="25px">
+                <p style="float: left; font-size: 21px; padding-left: 29px;">x4</p>
+            </div>
         </div>  
     </br>         
         <div id="board">
