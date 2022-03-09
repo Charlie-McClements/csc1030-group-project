@@ -1,276 +1,319 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Group project</title>
-        <script src="jquery-3.6.0.min.js"></script>
-        <script src="buttons.js"></script>
-        <script src="ruari.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">	
-        <style> 
-            body, html {
-                height: 100%;
-                width: 100%;
-                margin: 0;
-                padding: 0;
-                background-color: rgb(96, 85, 141);
-            }
-            p {
-                color: lightgray;
-                margin: 7px;
-                font-size: 15px;
-            }
-            b {
-                color: #303030;
-                background-color: lightgray;
-                padding-right: 3px;
-                padding-left: 3px;
-            }
-            input {
-                color: #303030;
-                background-image: radial-gradient(100% 100% at 100% 0, lightgray 0, lightgray 100%);
-                text-transform: uppercase;
-                font-weight: bold;
-            }
-            #board{
-                position:absolute;
-                left:50%;
-                top:60%;
-                transform:translate(-50%, -50%);                
-            } 
 
-            .showMe {
-                display:initial;
-            }
-            
-            .hideMe {
-                display:none;
-            }
+<head>
+    <title>Group project</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="buttons.js"></script>
+    <script src="ruari.js"></script>
+    <script src="james.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(96, 85, 141);
+        }
 
-            #startScreen {
-                text-align: center;
-                font-family: monospace;
-                color:rgb(83, 83, 83);
-            }
+        p {
+            color: lightgray;
+            margin: 7px;
+            font-size: 15px;
+        }
 
-            #title {
-                background-color: black;
-                color: white;
-                padding: 10px;
-                font-size: 500%;
-                font-weight: bold;
-            }
+        b {
+            color: #303030;
+            background-color: lightgray;
+            padding-right: 3px;
+            padding-left: 3px;
+        }
 
-            #characterSelect {
-                border: 5px solid #930C10;
-                background-color: #FFFEBD;
-                font-size: 30px;
-                margin: auto;
-                padding: 20px;
-            }
+        input {
+            color: #303030;
+            background-image: radial-gradient(100% 100% at 100% 0, lightgray 0, lightgray 100%);
+            text-transform: uppercase;
+            font-weight: bold;
+        }
 
-            input[type=text] {
-                border: 2px solid #930C10;
-                border-radius: 10px;
-                padding: 10px;
-                margin: 10px;
-                width: 20%;
-                font-size: 16px;
-                font-family: monospace;
-            }
-            input[type=text]:focus {
-                border: 4px solid #930C10;
-            }
+        #board {
+            position: absolute;
+            left: 50%;
+            top: 60%;
+            transform: translate(-50%, -50%);
+        }
 
-            .radio input[type="radio"] {
-                opacity: 0;
-                position: fixed;
-                width: 0;
-            }
-            .radio label {
-                display: inline-block;
-                background-color: rgb(255, 255, 255);
-                border: 2px solid #930C10;
-                border-radius: 10px;
-                padding: 10px 20px;
-                margin: 10px;
-                /*font-family: sans-serif, Arial;*/
-                font-size: 16px;
-                
-            }
-            .radio label:hover {
-                background-color: rgb(255, 221, 221);
-            }
-            .radio input[type="radio"]:checked + label {
-                background-color: rgb(255, 187, 187);
-                border-color: rgb(204, 68, 68);
-            }
+        .showMe {
+            display: initial;
+        }
 
-            select {
-                border: 2px solid #930C10;
-                border-radius: 10px;
-                padding: 10px;
-                margin: 10px;
-                width: 15%;
-                font-size: 16px;
-                font-family: monospace;
-            }
-            select:focus {
-                border: 4px solid #930C10;
-            }
+        .hideMe {
+            display: none;
+        }
 
-            #button {
-                /*background-color: rgb(96, 85, 141);*/
-                padding: 20px;
-                margin: 20px;
-            }
-            #gameScreen {
-                text-align: center;
-                font-family: monospace;
-                color:rgb(83, 83, 83);
-                /*background-color: rgb(96, 85, 141);*/
-                height: 100%;
-            }
+        #startScreen {
+            text-align: center;
+            font-family: monospace;
+            color: rgb(83, 83, 83);
+        }
 
-            #timer{
-                background-color: #FFFEBD;
-                font-family: monospace;
-                font-size: large;
-                font-weight: bold;
-                display: inline-block;
-                border-radius: 30px;
-                border: 2px #930C10 solid;
-                margin: 10px;
-                padding: 10px;
-            }
+        #title {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            font-size: 500%;
+            font-weight: bold;
+        }
 
-            #startButton{
-                padding: 5px;
-                font-size: 250%;
-                font-weight: bold;
-                background-color: #FFFEBD;
-                color: rgb(83, 83, 83);
-                border: 4px #930C10 solid;
-                border-radius: 15px;
-                cursor: pointer;
-            }
-            #startButton:hover {
-                background-color: rgb(255, 187, 187);
-            }
-            
-            #buttons{
-                background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
-                box-shadow: 0px 5px;
-                position:absolute;                
-                height:100px;
-                width: 210px;
-                text-align: center; 
-                top:30px;                               
-                left:50%;
-                transform:translate(-145%);
-            }
+        #characterSelect {
+            border: 5px solid #930C10;
+            background-color: #FFFEBD;
+            font-size: 30px;
+            margin: auto;
+            padding: 20px;
+        }
 
-            #up{
-                margin-top:7px;
-                margin-bottom:5px;
-                width:30%;
-                height:40%;
-            }
-            #down{
-                width:30%;
-                height:40%;
-            }
-            #right{
-                width:30%;
-                height:40%;
-            }
-            #left{
-                width:30%;
-                height:40%;
-            }
+        input[type=text] {
+            border: 2px solid #930C10;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            width: 20%;
+            font-size: 16px;
+            font-family: monospace;
+        }
 
-            #storybox {
-                background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
-                box-shadow: 0px 5px;
-                position:absolute;                
-                height:100px;
-                width: 390px;
-                text-align: center; 
-                top:30px;                               
-                left:50%;
-                transform:translate(-22%);
-                text-align: left;
-            }
+        input[type=text]:focus {
+            border: 4px solid #930C10;
+        }
 
-            .storybox-bottom {
-                position: relative;
-                height: 28px;
-            }
+        .radio input[type="radio"] {
+            opacity: 0;
+            position: fixed;
+            width: 0;
+        }
 
-            .storybox-bottom img {
-                position: absolute;
-                left: 0;
-                bottom: 0;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="startScreen" class="showMe">
-            <div id="title">
-                Oubliette
-            </div>
-            <div id="characterSelect">
-                <label for="characterName"><u>Character Name</u></label><br>
-                <input type="text" name="characterName" id="characterName">
-                <br><br>
-                        
-                <u>Gender</u><br>
-                <div class="radio">
-                    <input type="radio" name="gender" id="male" value="Male">
-                    <label for="male">Male</label>
-                    
-                    <input type="radio" name="gender" id="female" value="Female">
-                    <label for="female">Female</label>
-                    <br><br>
-                </div>
-                
+        .radio label {
+            display: inline-block;
+            background-color: rgb(255, 255, 255);
+            border: 2px solid #930C10;
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin: 10px;
+            /*font-family: sans-serif, Arial;*/
+            font-size: 16px;
 
-                <label for="difficulty"><u>Maze Difficulty</u></label><br>
-                <select name="difficulty" id="difficulty">
-                    <option value="Easy">Easy</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Hard">Hard</option>
-                </select>
-                <br><br>
-            </div>
-            <div id="button">
-                <button id="startButton" onclick="startButton()">Start Game</button>
-            </div>
+        }
+
+        .radio label:hover {
+            background-color: rgb(255, 221, 221);
+        }
+
+        .radio input[type="radio"]:checked+label {
+            background-color: rgb(255, 187, 187);
+            border-color: rgb(204, 68, 68);
+        }
+
+        select {
+            border: 2px solid #930C10;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            width: 15%;
+            font-size: 16px;
+            font-family: monospace;
+        }
+
+        select:focus {
+            border: 4px solid #930C10;
+        }
+
+        #button {
+            /*background-color: rgb(96, 85, 141);*/
+            padding: 20px;
+            margin: 20px;
+        }
+
+        #gameScreen {
+            text-align: center;
+            font-family: monospace;
+            color: rgb(83, 83, 83);
+            /*background-color: rgb(96, 85, 141);*/
+            height: 100%;
+        }
+
+        #timer {
+            background-color: #FFFEBD;
+            font-family: monospace;
+            font-size: large;
+            font-weight: bold;
+            display: inline-block;
+            border-radius: 30px;
+            border: 2px #930C10 solid;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        #startButton {
+            padding: 5px;
+            font-size: 250%;
+            font-weight: bold;
+            background-color: #FFFEBD;
+            color: rgb(83, 83, 83);
+            border: 4px #930C10 solid;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        #startButton:hover {
+            background-color: rgb(255, 187, 187);
+        }
+
+        #buttons {
+            background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
+            box-shadow: 0px 5px;
+            position: absolute;
+            height: 100px;
+            width: 210px;
+            text-align: center;
+            top: 30px;
+            left: 50%;
+            transform: translate(-145%);
+        }
+
+        #up {
+            margin-top: 7px;
+            margin-bottom: 5px;
+            width: 30%;
+            height: 40%;
+        }
+
+        #down {
+            width: 30%;
+            height: 40%;
+        }
+
+        #right {
+            width: 30%;
+            height: 40%;
+        }
+
+        #left {
+            width: 30%;
+            height: 40%;
+        }
+
+        #storybox {
+            background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
+            box-shadow: 0px 5px;
+            position: absolute;
+            height: 100px;
+            width: 390px;
+            text-align: center;
+            top: 30px;
+            left: 50%;
+            transform: translate(-22%);
+            text-align: left;
+        }
+
+        .storybox-bottom {
+            position: relative;
+            height: 28px;
+        }
+
+        .storybox-bottom img {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        #endScreen {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Start Screen -->
+    
+    <div id="startScreen" class="showMe">
+        <div id="title">
+            Oubliette
         </div>
-        <div id="gameScreen" class="hideMe">
-            <div id="timer">
-                Time Left: <span id="minutes">00</span>:<span id="seconds">00</span>
+        <div id="characterSelect">
+            <label for="characterName"><u>Character Name</u></label><br>
+            <input type="text" name="characterName" id="characterName">
+            <br><br>
+
+            <u>Gender</u><br>
+            <div class="radio">
+                <input type="radio" name="gender" id="male" value="Male">
+                <label for="male">Male</label>
+
+                <input type="radio" name="gender" id="female" value="Female">
+                <label for="female">Female</label>
+                <br><br>
             </div>
-            <br>  
-        <div id = "storybox">
-            <p>The story text would go <b>here</b> maybe. Although this isn't a lot of space so maybe we should put it on the side? Anyway I like <b>this method</b> of making text bold</p>
+
+
+            <label for="difficulty"><u>Maze Difficulty</u></label><br>
+            <select name="difficulty" id="difficulty">
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select>
+            <br><br>
+        </div>
+        <div id="button">
+            <button id="startButton" onclick="startButton()">Start Game</button>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+
+    <div id="gameScreen" class="hideMe">
+
+        <div id="timer">
+            Time Left: <span id="minutes">00</span>:<span id="seconds">00</span>
+        </div>
+        <br>
+
+        <div id="storybox">
+            <p>The story text would go <b>here</b> maybe. Although this isn't a lot of space so maybe we should put it
+                on the side? Anyway I like <b>this method</b> of making text bold</p>
             <div class="storybox-bottom">
-                <img style="float: left; padding: 2px 0px 0px 7px;" src="images/primitive-torch.png" alt="Image of a torch" height="25px">
+                <img style="float: left; padding: 2px 0px 0px 7px;" src="images/primitive-torch.png"
+                    alt="Image of a torch" height="25px">
                 <p style="float: left; font-size: 21px; padding-left: 29px;">x4</p>
             </div>
-        </div>  
-    </br>   
-    
+        </div>
+        </br>
+
         <div id="board">
             <canvas id="gameCanvas" width="610" height="610"></canvas>
-            <script src = "main.js"></script>
+            <script src="main.js"></script>
         </div>
-        <div id = "buttons">
-            <input onclick="buttonUp()" type="button" value="up" id="up"/></br>
-            <input onclick="buttonLeft()" type="button" value="left" id="left"/>
-            <input onclick="buttonDown()" type="button" value="down" id="down"/>
-            <input onclick="buttonRight()" type="button" value="right" id="right"/> 
-            </div> 
-    </div>    
-             
-    </body>
+
+        <div id="buttons">
+            <input onclick="buttonUp()" type="button" value="up" id="up" /></br>
+            <input onclick="buttonLeft()" type="button" value="left" id="left" />
+            <input onclick="buttonDown()" type="button" value="down" id="down" />
+            <input onclick="buttonRight()" type="button" value="right" id="right" />
+        </div>
+    </div>
+
+    <!-- End Screen -->
+
+    <div id="endScreen" class="hideMe">
+        <h1>GAME OVER</h1>
+        You completed the game with <span id="minutes"></span>:<span id="seconds"></span> minutes remaining.
+    </div>
+
+</body>
+
 </html>
