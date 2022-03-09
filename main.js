@@ -113,24 +113,24 @@ function move(direction){
     }
 }
 
-/*window.addEventListener("keydown", function (event) {   //handles keyboard input, for now allows you to use arrow keys to move the character
+window.addEventListener("keydown", function (event) {   //handles keyboard input, for now allows you to use arrow keys to move the character
     if (event.defaultPrevented) {
       return; // Do nothing if the event was already processed
     }  
     switch (event.key) {
-      case "s":
+      case "ArrowDown":
         // code for "down arrow" key press.
          move("down");
          break;
-      case "w":
+      case "ArrowUp":
         // code for "up arrow" key press.
         move("up");
         break;
-      case "a":
+      case "ArrowLeft":
         // code for "left arrow" key press.
         move("left");
         break;
-      case "d":
+      case "ArrowRight":
         // code for "right arrow" key press.
         move("right");
         break;
@@ -139,7 +139,7 @@ function move(direction){
     }
 
     event.preventDefault();
-  }, true);*/
+  }, true);
 
 function win_check(){
     var canvas = gameCanvas.getContext('2d');
