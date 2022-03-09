@@ -145,7 +145,7 @@ function win_check(){
     var canvas = gameCanvas.getContext('2d');
     var colour = canvas.getImageData(charx + 5, chary + 5, 1, 1).data;
     if(colour[0] == winColourQ[0] && colour[1] == winColourQ[1] && colour[2] == winColourQ[2]){
-        alert("Congratulations, you have completed the maze")
+        endScreen();
         charx = wallSize;
         chary = wallSize;
     }
@@ -322,12 +322,14 @@ function generate_maze(){
 }
 populate_grid();
 generate_maze();
+var torchStrengthDisplay = document.getElementById('torchStrength');
+torchStrengthDisplay.innerHTML = torchStrength;
 
 // update function
 function update() {
     //check for win
     win_check();
-
+    
     // draw background      
     /*for(let inc = 0;inc<allCells.length;inc++){
         context.fillStyle = floorColour;
