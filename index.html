@@ -7,28 +7,36 @@
         <script src="ruari.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">	
         <style> 
-            * {
-                box-sizing: border-box;
-            }
-            
-            /*body, html {
+            body, html {
                 height: 100%;
                 width: 100%;
                 margin: 0;
                 padding: 0;
                 background-color: rgb(96, 85, 141);
-                
-            } */
-            body {
-                background-color: rgb(96, 85, 141);
             }
-
-            #wrapper {
-                width: 90%;
-                background-color: rgb(96, 85, 141);
-                margin: auto;
-                overflow: auto;
+            p {
+                color: lightgray;
+                margin: 7px;
+                font-size: 15px;
             }
+            b {
+                color: #303030;
+                background-color: lightgray;
+                padding-right: 3px;
+                padding-left: 3px;
+            }
+            input {
+                color: #303030;
+                background-image: radial-gradient(100% 100% at 100% 0, lightgray 0, lightgray 100%);
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+            #board{
+                position:absolute;
+                left:50%;
+                top:60%;
+                transform:translate(-50%, -50%);                
+            } 
 
             .showMe {
                 display:initial;
@@ -37,7 +45,7 @@
             .hideMe {
                 display:none;
             }
-            
+
             #startScreen {
                 text-align: center;
                 font-family: monospace;
@@ -115,21 +123,6 @@
                 padding: 20px;
                 margin: 20px;
             }
-
-            #startButton{
-                padding: 5px;
-                font-size: 250%;
-                font-weight: bold;
-                background-color: #FFFEBD;
-                color: rgb(83, 83, 83);
-                border: 4px #930C10 solid;
-                border-radius: 15px;
-                cursor: pointer;
-            }
-            #startButton:hover {
-                background-color: rgb(255, 187, 187);
-            }
-
             #gameScreen {
                 text-align: center;
                 font-family: monospace;
@@ -150,53 +143,134 @@
                 padding: 10px;
             }
 
-                   
+            #startButton{
+                padding: 5px;
+                font-size: 250%;
+                font-weight: bold;
+                background-color: #FFFEBD;
+                color: rgb(83, 83, 83);
+                border: 4px #930C10 solid;
+                border-radius: 15px;
+                cursor: pointer;
+            }
+            #startButton:hover {
+                background-color: rgb(255, 187, 187);
+            }
+            
+            #buttons{
+                background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
+                box-shadow: 0px 5px;
+                position:absolute;                
+                height:100px;
+                width: 210px;
+                text-align: center; 
+                top:30px;                               
+                left:50%;
+                transform:translate(-145%);
+            }
+
+            #up{
+                margin-top:7px;
+                margin-bottom:5px;
+                width:30%;
+                height:40%;
+            }
+            #down{
+                width:30%;
+                height:40%;
+            }
+            #right{
+                width:30%;
+                height:40%;
+            }
+            #left{
+                width:30%;
+                height:40%;
+            }
+
+            #storybox {
+                background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
+                box-shadow: 0px 5px;
+                position:absolute;                
+                height:100px;
+                width: 390px;
+                text-align: center; 
+                top:30px;                               
+                left:50%;
+                transform:translate(-22%);
+                text-align: left;
+            }
+
+            .storybox-bottom {
+                position: relative;
+                height: 28px;
+            }
+
+            .storybox-bottom img {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+            }
         </style>
     </head>
     <body>
-        <div id="wrapper">
-            <div id="startScreen" class="showMe">
-                <div id="title">
-                    Oubliette
-                </div>
-                <div id="characterSelect">
-                    <label for="characterName"><u>Character Name</u></label><br>
-                    <input type="text" name="characterName" id="characterName">
-                    <br><br>
-                            
-                    <u>Gender</u><br>
-                    <div class="radio">
-                        <input type="radio" name="gender" id="male" value="Male">
-                        <label for="male">Male</label>
-                        
-                        <input type="radio" name="gender" id="female" value="Female">
-                        <label for="female">Female</label>
-                        <br><br>
-                    </div>
-                    
-
-                    <label for="difficulty"><u>Maze Difficulty</u></label><br>
-                    <select name="difficulty" id="difficulty">
-                        <option value="Easy">Easy</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Hard">Hard</option>
-                    </select>
-                    <br><br>
-                </div>
-                <div id="button">
-                    <button id="startButton" onclick="startButton();">Start Game</button>
-                </div>
+        <div id="startScreen" class="showMe">
+            <div id="title">
+                Oubliette
             </div>
-            <div id="gameScreen" class="hideMe">
-                <div id="timer">
-                    Time Left: <span id="minutes"></span>:<span id="seconds"></span>
+            <div id="characterSelect">
+                <label for="characterName"><u>Character Name</u></label><br>
+                <input type="text" name="characterName" id="characterName">
+                <br><br>
+                        
+                <u>Gender</u><br>
+                <div class="radio">
+                    <input type="radio" name="gender" id="male" value="Male">
+                    <label for="male">Male</label>
+                    
+                    <input type="radio" name="gender" id="female" value="Female">
+                    <label for="female">Female</label>
+                    <br><br>
                 </div>
-                <br>       
-                <div id="board">
-                    <canvas id="gameCanvas" width="610" height="610"></canvas>
-                    <script src = "main.js"></script>
-                </div>
+                
+
+                <label for="difficulty"><u>Maze Difficulty</u></label><br>
+                <select name="difficulty" id="difficulty">
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                </select>
+                <br><br>
+            </div>
+            <div id="button">
+                <button id="startButton" onclick="startButton()">Start Game</button>
             </div>
         </div>
+        <div id="gameScreen" class="hideMe">
+            <div id="timer">
+                Time Left: <span id="minutes">00</span>:<span id="seconds">00</span>
+            </div>
+            <br>  
+        <div id = "storybox">
+            <p>The story text would go <b>here</b> maybe. Although this isn't a lot of space so maybe we should put it on the side? Anyway I like <b>this method</b> of making text bold</p>
+            <div class="storybox-bottom">
+                <img style="float: left; padding: 2px 0px 0px 7px;" src="images/primitive-torch.png" alt="Image of a torch" height="25px">
+                <p style="float: left; font-size: 21px; padding-left: 29px;">x4</p>
+            </div>
+        </div>  
+    </br>   
+    
+        <div id="board">
+            <canvas id="gameCanvas" width="610" height="610"></canvas>
+            <script src = "main.js"></script>
+        </div>
+        <div id = "buttons">
+            <input onclick="buttonUp()" type="button" value="up" id="up"/></br>
+            <input onclick="buttonLeft()" type="button" value="left" id="left"/>
+            <input onclick="buttonDown()" type="button" value="down" id="down"/>
+            <input onclick="buttonRight()" type="button" value="right" id="right"/> 
+            </div> 
+    </div>    
+             
     </body>
 </html>

@@ -18,11 +18,12 @@ function pad(num, size) {
 }
 
 function startTimer() {
+    console.log("time");
     duration = 300;
     var minutes = Math.floor(duration / 60);
     var seconds = duration % 60;
     minutes = pad(minutes, 2);
-    seconds = pad(seconds, 2);
+    seconds = pad(seconds, 2);    
     document.getElementById('minutes').innerHTML = minutes;
     document.getElementById('seconds').innerHTML = seconds;
     myTimer = setInterval('countdown()', 1000);
@@ -65,17 +66,16 @@ function startButton() {
     document.getElementById('gameScreen').className = "showMe"
 
     characterName = document.getElementById('characterName').value;
-    document.getElementById('charName').innerHTML = characterName;
 
     gender = document.getElementsByName('gender');
-    for(var i=0; i<gender.length; i++) {
+    /*for(var i=0; i<gender.length; i++) {
         if(gender[i].checked) {
-            document.getElementById('charGender').innerHTML = gender[i].value;
+           
         }
-    }
+    }*/
 
     challenge = document.getElementById('difficulty').value;
-    document.getElementById('mazeDiff').innerHTML = challenge;
+  
 
     startTimer();
 
