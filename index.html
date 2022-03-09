@@ -46,6 +46,16 @@
                 <option value="Hard">Hard</option>
             </select>
             <br><br>
+
+            <!-- Set BackGround Colour -->
+            <label for="bgColour"><u>Background Colour</u></label><br>
+            <select name="background" id="bgColour" onchange="changeBg();">
+                <option value="rgb(96, 85, 141)">normal</option>
+                <option value="black">dark</option>
+            </select>
+
+
+            <br><br>
         </div>
         <div id="button">
             <button id="startButton" onclick="startButton()">Start Game</button>
