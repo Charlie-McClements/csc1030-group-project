@@ -2,43 +2,57 @@ var completed = false;
 var running;
 var option = 0;
 var story;
+var pass = false;
+var pass1 = false;
 
 function challenge1(){
+    var board = document.getElementById("challengeBoard");
+    story = document.getElementById("storyText")
     if(completed === true){ //if the challenge is over and you want to go back to the main screen
         clearInterval(running);
         var cBoard = document.getElementById('challengeBoard');
-        story = document.getElementById("storyText")
+        
         story.innerHTML = "BACK TO NORMAL TEXT";
         cBoard.remove();
         resetButtons();        
     }
     else{
-        if (option == 1){   
-            story = document.getElementById("storyText")
-            story.innerHTML = "Option 1 was chosen";
+        if(pass == true && pass1 == true){
+            board.style.backgroundImage = "url(images/button_challenge_cleared_dark.png)";
+            story.innerHTML = "Well done! That's done the trick!"            
+            setTimeout(() => {completed = true;}, 3000);            
+        }
+        else if (option == 1 && pass != true){   
+            story.innerHTML = "I'm sure it did something...";            
+            pass = true;
         }
         else if(option == 2){
-            story = document.getElementById("storyText")
-            story.innerHTML = "option 2 was chosen";
+            story.innerHTML = "Well now that's unfortunate";
+            board.style.backgroundImage = "url(images/button_challenge_failed_dark.png)";
+            charx = wallSize;
+            chary = wallSize;
+            setTimeout(() => {completed = true;}, 3000);  
         }
-        else if(option == 3){
-            story = document.getElementById("storyText")
-            story.innerHTML = "option 3 was chosen";
+        else if(option == 3 && pass1 != true){
+            story.innerHTML = "I'm sure it did something...";
+            pass1 = true;
         }
 
         else if(option == 4){
-            story = document.getElementById("storyText")
-            story.innerHTML = "option 4 was chosen";
+            
         }
     }
 }
 
 function startChallenge1(){
+    option = 0;
+    pass = false;
+    pass1 = false;
     completed = false;
     var screen = document.createElement('div');       
     screen.style.width = '610px';
     screen.style.height = '614px';
-    screen.style.backgroundColor = "blue";
+    screen.style.backgroundImage = "url(images/button_challenge_dark.png)";
     screen.id = 'challengeBoard';   
     document.body.appendChild(screen);
     var button1 = document.getElementById("up");
@@ -49,16 +63,16 @@ function startChallenge1(){
     button2.onclick = button2Event;
     button3.onclick = button3Event;
     button4.onclick = button4Event;
-    button1.value="OPTION TEXT 1";
+    button1.value="Left Button";
     button1.style.fontSize = "10px";
-    button2.value="OPTION TEXT 2";
+    button2.value="Middle Button";
     button2.style.fontSize = "10px";
-    button3.value="OPTION TEXT 3";
+    button3.value="Right Button";
     button3.style.fontSize = "10px";
-    button4.value="OPTION TEXT 4";
+    button4.value="";
     button4.style.fontSize = "10px";
     story = document.getElementById("storyText")
-    story.innerHTML = "YOUR CHALLENGE TEXT GOES HERE";
+    story.innerHTML = "If I'm not mistaken, pressing two of those buttons will open the gate. Unfortunately one will also send you down the trapdoor....";
     //var board = document.getElementById('gameScreen');
     //board.className = "hideMe";
     running = setInterval(challenge1, 1000/FPS);
