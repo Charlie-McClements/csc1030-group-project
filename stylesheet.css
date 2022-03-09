@@ -175,6 +175,7 @@ select:focus {
     transform:translate(-50%, -50%);                 */
 }
 
+
 #buttons{
     background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
     box-shadow: 0px 5px;                

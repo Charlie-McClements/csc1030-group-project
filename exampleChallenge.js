@@ -11,14 +11,15 @@ function challenge1(){
     if(completed === true){ //if the challenge is over and you want to go back to the main screen
         clearInterval(running);
         var cBoard = document.getElementById('challengeBoard');
-        
+        var mazeCanvas = document.getElementById("gameCanvas");
+        mazeCanvas.className = "showMe";
         story.innerHTML = "BACK TO NORMAL TEXT";
         cBoard.remove();
         resetButtons();        
     }
     else{
         if(pass == true && pass1 == true){
-            board.style.backgroundImage = "url(images/button_challenge_cleared_dark.png)";
+            board.style.backgroundImage = "url(images/button_challenge_cleared.png)";
             story.innerHTML = "Well done! That's done the trick!"            
             setTimeout(() => {completed = true;}, 3000);            
         }
@@ -28,7 +29,7 @@ function challenge1(){
         }
         else if(option == 2){
             story.innerHTML = "Well now that's unfortunate";
-            board.style.backgroundImage = "url(images/button_challenge_failed_dark.png)";
+            board.style.backgroundImage = "url(images/button_challenge_failed.png)";
             charx = wallSize;
             chary = wallSize;
             setTimeout(() => {completed = true;}, 3000);  
@@ -50,11 +51,15 @@ function startChallenge1(){
     pass1 = false;
     completed = false;
     var screen = document.createElement('div');       
-    screen.style.width = '610px';
-    screen.style.height = '614px';
-    screen.style.backgroundImage = "url(images/button_challenge_dark.png)";
+    screen.style.maxWidth = '610px';
+    screen.style.height = '610px';
+    screen.style.margin = "auto";
+    screen.style.backgroundImage = "url(images/button_challenge.png)";
     screen.id = 'challengeBoard';   
-    document.body.appendChild(screen);
+    var mazeCanvas = document.getElementById("gameCanvas");
+    mazeCanvas.className = "hideMe";
+    var boardDiv = document.getElementById("board");
+    boardDiv.appendChild(screen);
     var button1 = document.getElementById("up");
     var button2 = document.getElementById("left");
     var button3 = document.getElementById("down");
@@ -93,11 +98,6 @@ function resetButtons(){
     button3.value="Down";
     button4.value="Right";
 }
-
-function removeChallenge(){
-    completed = true;
-}
-
 
 function button1Event(){
     option = 1;
