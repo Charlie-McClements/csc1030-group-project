@@ -20,8 +20,8 @@ function pad(num, size) {
 function startTimer() {
     console.log("time");
     duration = 300;
-    var minutes = Math.floor(duration / 60);
-    var seconds = duration % 60;
+    minutes = Math.floor(duration / 60);
+    seconds = duration % 60;
     minutes = pad(minutes, 2);
     seconds = pad(seconds, 2);    
     document.getElementById('minutes').innerHTML = minutes;
