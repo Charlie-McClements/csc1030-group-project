@@ -4,6 +4,9 @@ var option = 0;
 var story;
 var pass = false;
 var pass1 = false;
+var challengeStarted = false;
+var returnx = 0;
+var returny = 0;
 
 function challenge1(){
     var board = document.getElementById("challengeBoard");
@@ -15,7 +18,10 @@ function challenge1(){
         mazeCanvas.className = "showMe";
         story.innerHTML = "BACK TO NORMAL TEXT";
         cBoard.remove();
-        resetButtons();        
+        resetButtons();
+        challengeStarted = false;
+        charx = returnx;
+        chary = returny;        
     }
     else{
         if(pass == true && pass1 == true){
@@ -46,6 +52,9 @@ function challenge1(){
 }
 
 function startChallenge1(){
+    challengeStarted = true;
+    returnx = charx;
+    returny = chary;
     option = 0;
     pass = false;
     pass1 = false;

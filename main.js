@@ -79,8 +79,9 @@ function move(direction){
             checky = chary + charSize;
             var canvas = gameCanvas.getContext('2d');
             var colour = canvas.getImageData(checkx, checky, 1, 1).data;
-            if(colour[0] == floorColourQ[0],colour[1] == floorColourQ[1],colour[2] == floorColourQ[2]){
+            if(colour[0] == floorColourQ[0] && colour[1] == floorColourQ[1] && colour[2] == floorColourQ[2]){
                 chary += square;
+                lastMove = 'up';
             }
             break;
         case "up":
@@ -90,6 +91,7 @@ function move(direction){
             var colour = canvas.getImageData(checkx, checky, 1, 1).data;
             if(colour[0] == floorColourQ[0] && colour[1] == floorColourQ[1] && colour[2] == floorColourQ[2]){
                 chary -= square;
+                lastMove = 'down';
             }
             break;
         case "right":
@@ -99,7 +101,8 @@ function move(direction){
             var colour = canvas.getImageData(checkx, checky, 1, 1).data;
             if(colour[0] == floorColourQ[0] && colour[1] == floorColourQ[1] && colour[2] == floorColourQ[2]){
                 charx += square;
-            }
+                lastMove = 'left';
+            }            
             break;
         case "left":
             checkx = charx - 1;
@@ -108,6 +111,7 @@ function move(direction){
             var colour = canvas.getImageData(checkx, checky, 1, 1).data;
             if(colour[0] == floorColourQ[0] && colour[1] == floorColourQ[1] && colour[2] == floorColourQ[2]){
                 charx -= square;
+                lastMove = 'right';
             }
             break;
     }
@@ -294,26 +298,18 @@ function generate_maze(){
                 var down = [currentCell[0], currentCell[1] + square];    
                 if(right[0] < boardSize && in_array(visited,right) == false){
                     currentIndex = findIndex(currentCell);
-                    console.log(currentIndex);
-                    console.log(currentCell);
                     break;         
                 }
                 if(left[0] >= wallSize && in_array(visited,left) == false){
                     currentIndex = findIndex(currentCell);
-                    console.log(currentIndex);
-                    console.log(currentCell);
                     break;
                 }
                 if(up[1] >= wallSize && in_array(visited,up) == false){
                     currentIndex = findIndex(currentCell);
-                    console.log(currentIndex);
-                    console.log(currentCell);
                     break;
                 }
                 if(down[1] < boardSize && in_array(visited, down) == false){
                     currentIndex = findIndex(currentCell);
-                    console.log(currentIndex);
-                    console.log(currentCell);
                     break;
                 }   
             } 
@@ -326,16 +322,21 @@ var torchStrengthDisplay = document.getElementById('torchStrength');
 torchStrengthDisplay.innerHTML = torchStrength;
 
 // update function
-function update() {
+function update(move) {
     //check for win
-    win_check();
-
-    
+    win_check();        
     // draw background      
     /*for(let inc = 0;inc<allCells.length;inc++){
         context.fillStyle = floorColour;
         context.fillRect(allCells[inc][0], allCells[inc][1], charSize, charSize);
     }*/
+    if(move == 'challenge'){    //this is just here temporarily to be able to test functionality will be replaced by the actual function to spawn challenges
+        if(getRndInteger(100) > 90){
+            if(challengeStarted == false){
+                startChallenge1();
+            }            
+        }
+    }
     context.fillStyle = floorColour;
     context.fillRect(0,0,boardSize,boardSize);
     draw_grid();
