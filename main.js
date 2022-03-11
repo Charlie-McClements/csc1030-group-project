@@ -145,7 +145,8 @@ window.addEventListener("keydown", function (event) {   //handles keyboard input
     event.preventDefault();
   }, true);
 
-function win_check(){
+function win_check(move){
+    if(move == 'challenge')return;  //guard clause to prevent player accidentally winning whilst they are playing a challenge 
     var canvas = gameCanvas.getContext('2d');
     var colour = canvas.getImageData(charx + 5, chary + 5, 1, 1).data;
     if(colour[0] == winColourQ[0] && colour[1] == winColourQ[1] && colour[2] == winColourQ[2]){
@@ -324,7 +325,7 @@ torchStrengthDisplay.innerHTML = torchStrength;
 // update function
 function update(move) {
     //check for win
-    win_check();        
+    win_check(move);        
     // draw background      
     /*for(let inc = 0;inc<allCells.length;inc++){
         context.fillStyle = floorColour;
