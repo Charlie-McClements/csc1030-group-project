@@ -331,12 +331,8 @@ function update(move) {
         context.fillStyle = floorColour;
         context.fillRect(allCells[inc][0], allCells[inc][1], charSize, charSize);
     }*/
-    if(move == 'challenge'){    //this is just here temporarily to be able to test functionality will be replaced by the actual function to spawn challenges
-        if(getRndInteger(100) > 90){
-            if(challengeStarted == false){
-                startChallenge1();
-            }            
-        }
+    if(move == 'challenge'){
+        randomChallenge();
     }
     context.fillStyle = floorColour;
     context.fillRect(0,0,boardSize,boardSize);
@@ -353,7 +349,5 @@ function update(move) {
     context.arc(charx + charSize / 2, chary + charSize / 2, torchStrength, 0, 2 * Math.PI);
     context.rect(boardSize, 0, -boardSize, boardSize);
     context.fill();
-
-    
-    
+   
 }
