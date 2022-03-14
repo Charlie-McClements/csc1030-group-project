@@ -8,7 +8,7 @@ context = canvas.getContext("2d");
 const FPS = 60;
 var charx, chary;     //position of the top left of the squares
 var canvas, context;
-var difficulty = 5;
+var difficulty = 4;
 var torchStrength = 200;
 var wallSize = 1 * difficulty;
 var charSize = 10 * difficulty;    //size of square in pixels
