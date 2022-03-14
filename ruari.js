@@ -48,7 +48,7 @@ function countdown() {
     }
 }
 
-function dialogueButton() {
+/*function dialogueButton() {
     if (dialogue < 8) {
         document.getElementById('dialogue' + dialogue).className = "hideMe";
         dialogue++;
@@ -59,10 +59,15 @@ function dialogueButton() {
         // dialogue++;
         // document.getElementById('dialogue'+dialogue).className = "hideMe";
     }
-}
+}*/
 
 function startButton() {
     document.getElementById('startScreen').className = "hideMe"
+    document.getElementById('avatarDetails').className = "showMe"
+} 
+
+function begin() {
+    document.getElementById('avatarDetails').className = "hideMe"
     document.getElementById('gameScreen').className = "showMe"
 
     characterName = document.getElementById('characterName').value;
@@ -79,4 +84,4 @@ function startButton() {
 
     startTimer();
 
-}            
+}              

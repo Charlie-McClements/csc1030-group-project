@@ -18,11 +18,28 @@
     <!-- Start Screen -->
 
     <div id="startScreen" class="showMe">
+        <video autoplay muted loop id="myVideo">
+            <source src="video\Lighted Candle_Trim.mp4" type="video/mp4">
+        </video>
         <div id="title">
             Oubliette
         </div>
-        <div id="characterSelect">
+        <div id="button">
+            <button id="startButton" onclick="startButton()">Start Game</button>
+            <br><br>
+            <button id="customizeButton" onclick="customizeButton()">Customisation</button>
+            <br><br>
+            <button id="accessibilityButton" onclick="accessibilityButton()">Accessibility Features</button>
+        </div>
+    </div>
 
+    <!-- Declare Avatar Details Screen -->
+
+    <div id="avatarDetails" class="hideMe">
+        <div id="avatarTitle">
+            Avatar Details
+        </div>
+        <div id="characterSelect">
             <!-- Choose Name -->
             <label for="characterName"><u>Character Name</u></label><br>
             <input type="text" name="characterName" id="characterName">
@@ -51,15 +68,15 @@
             <!-- Set BackGround Colour -->
             <label for="bgColour"><u>Background Colour</u></label><br>
             <select name="background" id="bgColour" onchange="changeBg();">
-                <option value="rgb(96, 85, 141)">Normal</option>
-                <option value="black">Dark</option>
+                <option value="black">Normal</option>
+                <option value="rgb(96, 85, 141)">Original</option>
             </select>
-
-
             <br><br>
         </div>
-        <div id="button">
-            <button id="startButton" onclick="startButton()">Start Game</button>
+
+        <div id="avatarButton">
+            <button id="begin" onclick="begin()">Start</button>
+            <br><br>
         </div>
     </div>
 
@@ -104,11 +121,11 @@
     <!-- End Screen -->
 
     <div id="endScreen" class="hideMe">
-        <div id="title">
+        <div id="avatarTitle">
             GAME OVER
         </div>
         <div id="characterSelect">
-            
+
             <div id="timer">
                 Time Left: <span id="minutes">00</span>:<span id="seconds">00</span>
             </div>
@@ -117,10 +134,7 @@
         </div>
     </div>
 
-</body>
-
-
-<input onclick="startChallenge1()" type="button" value="challenge1" id="temp" />
+    <input onclick="startChallenge1()" type="button" value="challenge1" id="temp">
 </body>
 
 </html>
