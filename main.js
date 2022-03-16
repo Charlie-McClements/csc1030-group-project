@@ -16,6 +16,7 @@ var square = wallSize + charSize;   //size of each grid square on the board
 var boardSize = Math.floor(canvas.width / (square)) * square; //number of pixels wide
 canvas.width = boardSize + wallSize;
 canvas.height = boardSize + wallSize;
+var lives = 3;
 var Cells = (boardSize / square);   //number of squares wide
 var maze = [];  //array containing every square with two values per square, indicating if the right and down walls are present or not
 var allCells = [] 
@@ -321,8 +322,27 @@ function generate_maze(){
 }
 populate_grid();
 generate_maze();
-var torchStrengthDisplay = document.getElementById('torchStrength');
-torchStrengthDisplay.innerHTML = torchStrength;
+
+function update_ui(){
+    var torchStrengthDisplay = document.getElementById('torchStrength');
+    torchStrengthDisplay.innerHTML = torchStrength;
+    var live = document.getElementById('live');
+    var live1 = document.getElementById('live1');
+    var live2 = document.getElementById('live2');
+    live.style.backgroundImage = 'url(images/emptyHeart.png)'
+    live1.style.backgroundImage = 'url(images/emptyHeart.png)'
+    live2.style.backgroundImage = 'url(images/emptyHeart.png)'
+    if(lives > 0){
+        live.style.backgroundImage = 'url(images/heart.png)'
+    }
+    if(lives > 1){
+        live1.style.backgroundImage = 'url(images/heart.png)'
+    }
+    if(lives > 2){
+        live2.style.backgroundImage = 'url(images/heart.png)'
+    }
+}
+
 
 // update function
 function update(move) {
@@ -352,6 +372,7 @@ function update(move) {
     var lightSize = boardSize + wallSize;
     context.rect(lightSize, 0, -lightSize, lightSize);
     context.fill();
-    //draw_boundaries();
+    //update ui
+    update_ui();
    
 }

@@ -7,6 +7,7 @@ var pass1 = false;
 var challengeStarted = false;
 var returnx = 0;
 var returny = 0;
+var first = true;
 
 function challenge1(){
     var board = document.getElementById("challengeBoard");
@@ -36,9 +37,15 @@ function challenge1(){
         else if(option == 2){
             story.innerHTML = "Well now that's unfortunate";
             board.style.backgroundImage = "url(images/button_challenge_failed.png)";
-            charx = wallSize;
-            chary = wallSize;
+            returnx = wallSize;
+            returny = wallSize;            
             setTimeout(() => {completed = true;}, 3000);  
+            if(first == true){  //need this clause as this if statement is triggered more than once before the timeout finishes
+                first = false;
+                lives -= 1;
+
+            }
+            
         }
         else if(option == 3 && pass1 != true){
             story.innerHTML = "I'm sure it did something...";
@@ -53,6 +60,7 @@ function challenge1(){
 
 function startChallenge1(){
     challengeStarted = true;
+    first = true;
     returnx = charx;
     returny = chary;
     option = 0;
