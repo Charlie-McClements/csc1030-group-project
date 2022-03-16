@@ -14,6 +14,8 @@ var wallSize = 1 * difficulty;
 var charSize = 10 * difficulty;    //size of square in pixels
 var square = wallSize + charSize;   //size of each grid square on the board
 var boardSize = Math.floor(canvas.width / (square)) * square; //number of pixels wide
+canvas.width = boardSize + wallSize;
+canvas.height = boardSize + wallSize;
 var Cells = (boardSize / square);   //number of squares wide
 var maze = [];  //array containing every square with two values per square, indicating if the right and down walls are present or not
 var allCells = [] 
@@ -29,8 +31,8 @@ var allCells = []
 //colours
 var wallColour = 'rgba(128,128,128, 255)';
 var wallColourQ = [128, 128, 128, 255];
-var floorColour = 'rgba(0,0,0, 255)';
-var floorColourQ = [0, 0, 0, 255];
+var floorColour = 'rgba(18,5,23, 255)';
+var floorColourQ = [18, 5, 23, 255];
 var winColour = 'rgba(0,256,0, 256)';
 var winColourQ = [0,255,0, 255];
 var charColour = 'rgb(255,128,0)';
@@ -347,7 +349,9 @@ function update(move) {
     context.fillStyle = 'rgba(20,20,20,1)';
     context.beginPath();
     context.arc(charx + charSize / 2, chary + charSize / 2, torchStrength, 0, 2 * Math.PI);
-    context.rect(boardSize, 0, -boardSize, boardSize);
+    var lightSize = boardSize + wallSize;
+    context.rect(lightSize, 0, -lightSize, lightSize);
     context.fill();
+    //draw_boundaries();
    
 }
