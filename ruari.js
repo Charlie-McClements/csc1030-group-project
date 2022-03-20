@@ -44,7 +44,7 @@ function countdown() {
         document.getElementById('seconds').innerHTML = seconds;
     } else {
         stopTimer();
-        // alert("Game Over");
+        endScreen();
     }
 }
 
