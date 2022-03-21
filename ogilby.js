@@ -1,10 +1,11 @@
 function randomChallenge() {
-    if(getRndInteger(100) > 1) { // Guarantees challenge on every movement right now to see randomness
+    if(getRndInteger(100) > 70) { // Guarantees challenge on every movement right now to see randomness
         if(challengeStarted == false) {
-        // When you add a new challenge, add it also to the below array (only seen in console)
-        var challenges = ["trapdoor", "water", "other puzzle", "thing"];
-        var r = Math.floor(Math.random() * challenges.length);
-        console.log("starting puzzle", r, challenges[r]);
+
+        // Change below var when adding a new challenge
+        var numOfChallenges = 4;
+        var r = getRndInteger(numOfChallenges);
+        console.log("starting puzzle number", r);
 
         switch (r) {
         case 0:
