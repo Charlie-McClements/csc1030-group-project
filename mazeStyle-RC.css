@@ -5,6 +5,36 @@ body.success {
     /* background-color: #b7f0b7; */
     transition: 0.2s ease;
 }
+
+/* Maze Visualiser Styling */
+#pressurepVisualiser img {
+    display: block;
+    max-width: 610px;
+    height: 610px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#pressurepVisualiser button {
+    padding: 10px;
+    margin: 10px;
+    font-size: 250%;
+    font-weight: bold;
+    background-color: #FFFEBD;
+    color: rgb(83, 83, 83);
+    border: 4px #930C10 solid;
+    border-radius: 15px;
+    text-align: center; 
+    position: relative;                             
+    left:50%;
+    transform:translate(-50%, 10%);
+    cursor: pointer;
+}
+#pressurepVisualiser button:hover {
+    background-color: rgb(255, 187, 187);
+}
+
+/* Maze Styling */
 .game-container {
     margin: 0px auto;
 }
@@ -91,7 +121,7 @@ div.layer div {
     background-color: lightgrey;
 }
 .default .wall {
-    background-color: skyblue;
+    background-color: lightgrey;
 }
 /* player and goal slightly smaller than tiles */
 .player, 

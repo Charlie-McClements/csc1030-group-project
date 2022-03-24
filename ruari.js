@@ -19,7 +19,7 @@ function pad(num, size) {
 
 function startTimer() {
     console.log("time");
-    duration = 2;
+    duration = 300;
     minutes = Math.floor(duration / 60);
     seconds = duration % 60;
     minutes = pad(minutes, 2);
