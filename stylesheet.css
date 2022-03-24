@@ -135,6 +135,10 @@ b {
     margin: auto;
 }
 
+#GameOverText {
+    font-size: 100%;
+}
+
 #characterSelect {
     border: 5px solid #930C10;
     background-color: #FFFEBD;
@@ -282,6 +286,13 @@ select:focus {
     top:30px;                               
     left:50%;
     transform:translate(-145%); */
+}
+
+.lifeHeart{
+    width:40px; 
+    height:40px; 
+    display: inline-flex;
+    margin:5px;
 }
 
 #up, #down, #right, #left{
