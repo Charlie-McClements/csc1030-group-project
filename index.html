@@ -9,8 +9,10 @@
     <script src="exampleChallenge.js"></script>
     <script src="james.js"></script>
     <script src="ogilby.js"></script>
+    <script src="pressurePlateChal.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="mazeStyle-RC.css" />
 </head>
 
 <body>
@@ -107,6 +109,31 @@
             <script src="main.js"></script>
         </div>
 
+        <!-- Pressure Plate Challenge - hidden until challenge activated -->
+        <div id="game-container-1" class="game-container" style="display: none;">
+            <div id="map-and-controls">
+                <!-- game map -->
+                <div id="game-map-1" class="game-map">
+
+                    <div id="tiles" class="layer"></div>
+                    <div id="sprites" class="layer"></div>
+
+                    <div id="success-msg">Goal Reached</div>
+                </div>
+                <!-- end game map -->
+            </div>
+            <!-- game controls -->
+            <div id="controls">
+                <button id="upMaze"></button>
+                <div id="horiz">
+                    <button id="leftMaze"></button>
+                    <button id="downMaze"></button>
+                    <button id="rightMaze"></button>
+                </div>
+            </div>
+            <script src="mazeScript-RC.js"></script>
+        </div>
+
         <!-- Buttons -->
         <div id="buttons">
             <input onclick="buttonUp()" type="button" value="up" id="up" /></br>
@@ -135,6 +162,7 @@
     </div>
 
     <input onclick="startChallenge1()" type="button" value="challenge1" id="temp">
+    <input onclick="startPressurePChal()" type="button" value="pressurePlateChal" id="temp">
 </body>
 
 </html>
