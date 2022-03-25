@@ -135,7 +135,7 @@
                 </div>
                 <!-- end game map -->
             </div>
-            
+
             <!-- game controls -->
             <div id="controls">
                 <button id="upMaze"></button>
@@ -168,18 +168,29 @@
         </div>
         <div id="characterSelect">
 
-            <div id="timer">
-                Time Left: <span id="minutesLeft">00</span>:<span id="secondsLeft">00</span>
-            </div>
             <div>
-                DISTNACE TRAVELLED:<span id="distanceTravelledStat"></span>
-            </div>
-            <div>
-                Lives:<span id="livesLeftStat1" class="lifeHeart"></span><span id="livesLeftStat2"
+                <span id="livesLeftStat1" class="lifeHeart"></span><span id="livesLeftStat2"
                     class="lifeHeart"></span><span id="livesLeftStat3" class="lifeHeart"></span>
-            </div>
+            </div><br>
 
-            <br><br>
+            <!-- End game stats -->
+            <table id="statCard">
+                <tbody>
+                    <th colspan="2">Stats</th>
+                    <!-- Time -->
+                    <tr>
+                        <td> Time Left </td>
+                        <td>  <span id="minutesLeft">00</span>:<span id="secondsLeft">00</span> </td>
+                    </tr>
+                    <!-- Distance -->
+                    <tr>
+                        <td> Distance Moved </td>
+                        <td>  <span id="distanceTravelledStat"></span> </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
         </div>
     </div>
 

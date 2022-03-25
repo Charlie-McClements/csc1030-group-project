@@ -19,7 +19,7 @@ function pad(num, size) {
 
 function startTimer() {
     console.log("time");
-    duration = 300;
+    duration = 0;
     minutes = Math.floor(duration / 60);
     seconds = duration % 60;
     minutes = pad(minutes, 2);
@@ -43,8 +43,8 @@ function countdown() {
         document.getElementById('minutes').innerHTML = minutes;
         document.getElementById('seconds').innerHTML = seconds;
     } else {
-        stopTimer();
         endScreen('Out of time!');
+        stopTimer();
     }
 }
 

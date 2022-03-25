@@ -288,6 +288,36 @@ select:focus {
     transform:translate(-145%); */
 }
 
+#statCard {
+    border: 2px solid #930C10;
+    border-radius: 10px;
+    background-color: rgba(204, 204, 204, 0.541);
+    width: 50%;
+    margin: 10px auto;
+}
+
+#statCard th {
+    text-align: center;
+}
+
+#statCard td {
+    text-align: left;
+    font-size: 90%;
+}
+
+
+#statCard tr:nth-child(even) {
+    background: rgba(204, 204, 204, 0.541)
+}
+#statCard tr:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.541)
+}
+
+
+#statCard tr:hover{
+    background-color: #fa00001f;
+}
+
 .lifeHeart{
     width:40px; 
     height:40px; 
