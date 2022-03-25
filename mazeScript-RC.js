@@ -204,15 +204,21 @@ Game.prototype.moveDown = function() {
 
 Game.prototype.updateVert = function() {
     this.player.el.style.top = this.player.y * this.tileDim + 'px';
+    var story = document.getElementById("storyText")
+    story.innerHTML = "This pressure plate seems safe";
 }
 
 Game.prototype.updateHoriz = function(sprite) {
     this.player.el.style.left = this.player.x * this.tileDim + 'px';
+    var story = document.getElementById("storyText")
+    story.innerHTML = "This pressure plate seems safe";
 }
 
 Game.prototype.updateToStart = function() {
     this.player.el.style.top = this.player.y * this.tileDim + 'px';
     this.player.el.style.left = this.player.x * this.tileDim + 'px';
+    var story = document.getElementById("storyText")
+    story.innerHTML = "The pressure plate is a trapdoor, the floor disappears beneath your feet and suddenly your dropped back at the start. Some pressure plates must be dummies";
 }
 
 Game.prototype.checkGoal = function() {
@@ -220,9 +226,7 @@ Game.prototype.checkGoal = function() {
 
     if(this.player.y == this.goal.y && this.player.x == this.goal.x) {
         body.className = 'success';
-        console.log(challengeProgress);
         challengeProgress = true;
-        console.log(challengeProgress);
         
     } else {
         body.className = '';
