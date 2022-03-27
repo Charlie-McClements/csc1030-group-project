@@ -158,7 +158,7 @@ function win_check(move) {
     var canvas = gameCanvas.getContext('2d');
     var colour = canvas.getImageData(charx + 5, chary + 5, 1, 1).data;
     if (colour[0] == winColourQ[0] && colour[1] == winColourQ[1] && colour[2] == winColourQ[2]) {
-        endScreen('You won!', distanceMoved);
+        endScreen('You won!');
         charx = wallSize;
         chary = wallSize;
     }

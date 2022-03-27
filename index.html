@@ -93,8 +93,13 @@
 
         <!-- Story Box -->
         <div id="storybox">
+
+            <!-- Text -->
             <p id="storyText">The story text would go <b>here</b> maybe. Although this isn't a lot of space so maybe we
                 should put it on the side? Anyway I like <b>this method</b> of making text bold</p>
+
+
+            <!-- Torch and hearts-->
             <div class="storybox-bottom" style="top: 15px">
                 <img style="float:left; width:40px; height:40px;" src="images/torch.png" alt="Image of a torch">
                 <p style="float: left; font-size: 21px; padding-left: 29px;" id="torchStrength"></p>
@@ -134,6 +139,7 @@
                 </div>
                 <!-- end game map -->
             </div>
+
             <!-- game controls -->
             <div id="controls">
                 <button id="upMaze"></button>
@@ -166,18 +172,29 @@
         </div>
         <div id="characterSelect">
 
-            <div id="timer">
-                Time Left: <span id="minutesLeft">00</span>:<span id="secondsLeft">00</span>
-            </div>
             <div>
-                DISTNACE TRAVELLED:<span id="distanceTravelledStat"></span>
-            </div>
-            <div>
-                Lives:<span id="livesLeftStat1" class="lifeHeart"></span><span id="livesLeftStat2"
+                <span id="livesLeftStat1" class="lifeHeart"></span><span id="livesLeftStat2"
                     class="lifeHeart"></span><span id="livesLeftStat3" class="lifeHeart"></span>
-            </div>
+            </div><br>
 
-            <br><br>
+            <!-- End game stats -->
+            <table id="statCard">
+                <tbody>
+                    <th colspan="2">Stats</th>
+                    <!-- Time -->
+                    <tr>
+                        <td> Time Left </td>
+                        <td>  <span id="minutesLeft">00</span>:<span id="secondsLeft">00</span> </td>
+                    </tr>
+                    <!-- Distance -->
+                    <tr>
+                        <td> Distance Moved </td>
+                        <td>  <span id="distanceTravelledStat"></span> </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
         </div>
     </div>
 

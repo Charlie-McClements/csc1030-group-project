@@ -5,13 +5,18 @@
 // make a challenge,
 // end screen fixer upper
 
-function endScreen(message, distance) {
+function endScreen(message) {
+    
+
+    document.getElementById('GameOverText').innerHTML = message;
 
     // minutes and seconds left 
+    var minutes = document.getElementById('minutes').innerHTML;
+    var seconds = document.getElementById('seconds').innerHTML;
     var minutesLeft = document.getElementById('minutesLeft');
     var secondsLeft = document.getElementById('secondsLeft');
-    document.getElementById('minutes').innerHTML = minutes;
-    document.getElementById('seconds').innerHTML = seconds;
+    minutesLeft.innerHTML = minutes;
+    secondsLeft.innerHTML = seconds;
 
     console.log(minutes, seconds);
 
@@ -20,9 +25,6 @@ function endScreen(message, distance) {
     document.getElementById('distanceTravelledStat').innerHTML = distance;
 
     // lives left
-    var livesLeft = lives;
-    console.log(livesLeft);
-    
     var liveLeft1 = document.getElementById('livesLeftStat1');
     var liveLeft2 = document.getElementById('livesLeftStat2');
     var liveLeft3 = document.getElementById('livesLeftStat3');
