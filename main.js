@@ -8,7 +8,7 @@ context = canvas.getContext("2d");
 const FPS = 60;
 var charx, chary;     //position of the top left of the squares
 var canvas, context;
-var difficulty = 5;
+
 var torchStrength = 150;
 var wallSize = 1 * difficulty;
 var charSize = 10 * difficulty;    //size of square in pixels
@@ -39,7 +39,7 @@ var winColour = 'rgba(0,256,0, 256)';
 var winColourQ = [0, 255, 0, 255];
 var charColour = 'rgb(255,128,0)';
 
-var mainLoop = setInterval(update, 1000 / FPS);
+
 
 // character starting position
 charx = wallSize;

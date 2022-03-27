@@ -8,6 +8,7 @@ var challengeStarted = false;
 var returnx = 0;
 var returny = 0;
 var first = true;
+var currentTorch;
 
 function challenge1(){
     var board = document.getElementById("challengeBoard");
@@ -22,7 +23,9 @@ function challenge1(){
         resetButtons();
         challengeStarted = false;
         charx = returnx;
-        chary = returny;        
+        chary = returny;  
+        torchStrength = currentTorch;    
+        torchStrength += 20;  
     }
     else{
         if(pass == true && pass1 == true){
@@ -60,6 +63,7 @@ function challenge1(){
 
 function startChallenge1(){
     challengeStarted = true;
+    currentTorch = torchStrength;
     first = true;
     returnx = charx;
     returny = chary;
