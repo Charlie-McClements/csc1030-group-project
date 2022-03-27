@@ -79,7 +79,6 @@ function begin() {
     }*/
 
     challenge = document.getElementById('difficulty').value;
-    console.log(challenge);
     if(challenge == 'Easy'){
         difficulty = 5;
     } else if (challenge == 'Medium') {
@@ -87,8 +86,8 @@ function begin() {
     } else if(challenge == 'Hard') {
         difficulty = 3;
     }
-    console.log(difficulty);
-  
+    populate_grid();
+    generate_maze();
 
     startTimer();
 
