@@ -26,16 +26,21 @@ function challenge1(){
     }
     else{
         if(pass == true && pass1 == true){
+
             board.style.backgroundImage = "url(images/button_challenge_cleared.png)";
-            story.innerHTML = "Well done! That's done the trick!"            
-            setTimeout(() => {completed = true;}, 3000);            
+            story.innerHTML = "Pass"            
+            setTimeout(() => {completed = true;}, 3000);  
+
         }
         else if (option == 1 && pass != true){   
-            story.innerHTML = "I'm sure it did something...";            
+
+            story.innerHTML = "Option"+option+ "clicked";
             pass = true;
+
         }
         else if(option == 2){
-            story.innerHTML = "Well now that's unfortunate";
+            story.innerHTML = "Option"+option+ "clicked";
+            
             board.style.backgroundImage = "url(images/button_challenge_failed.png)";
             returnx = wallSize;
             returny = wallSize;            
@@ -48,11 +53,13 @@ function challenge1(){
             
         }
         else if(option == 3 && pass1 != true){
-            story.innerHTML = "I'm sure it did something...";
+            story.innerHTML = "Option"+option+ "clicked";
             pass1 = true;
         }
 
         else if(option == 4){
+            story.innerHTML = "Option"+option+ "clicked";
+
             
         }
     }
