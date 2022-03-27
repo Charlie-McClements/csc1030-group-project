@@ -39,8 +39,7 @@ var winColour = 'rgba(0,256,0, 256)';
 var winColourQ = [0, 255, 0, 255];
 var charColour = 'rgb(255,128,0)';
 
-// set up interval (game loop)
-setInterval(update, 1000 / FPS);
+var mainLoop = setInterval(update, 1000 / FPS);
 
 // character starting position
 charx = wallSize;
@@ -325,8 +324,7 @@ function generate_maze() {
         }
     }
 }
-populate_grid();
-generate_maze();
+
 
 function update_ui() {
     var torchStrengthDisplay = document.getElementById('torchStrength');

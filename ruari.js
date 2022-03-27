@@ -79,17 +79,18 @@ function begin() {
     }*/
 
     challenge = document.getElementById('difficulty').value;
-    console.log(challenge);
     if(challenge == 'Easy'){
-        difficulty = 5;
+        difficulty = 10;
     } else if (challenge == 'Medium') {
-        difficulty = 4;
+        difficulty = 5;
     } else if(challenge == 'Hard') {
-        difficulty = 3;
+        difficulty = 2;
     }
-    console.log(difficulty);
-  
-
+    // set up interval (game loop)
+    setInterval(update, 1000 / FPS);
+    populate_grid();
+    generate_maze();
+    
     startTimer();
 
 }              
