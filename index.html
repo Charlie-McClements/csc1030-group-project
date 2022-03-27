@@ -3,6 +3,8 @@
 
 <head>
     <title>Group project</title>
+
+    <!-- Scripts -->
     <script src="jquery-3.6.0.min.js"></script>
     <script src="buttons.js"></script>
     <script src="ruari.js"></script>
@@ -10,6 +12,10 @@
     <script src="james.js"></script>
     <script src="ogilby.js"></script>
     <script src="pressurePlateChal.js"></script>
+    <script src="spiderEncounter-james.js"></script>
+
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="stylesheet.css" />
     <link rel="stylesheet" type="text/css" href="mazeStyle-RC.css" />
@@ -121,11 +127,15 @@
         <!-- Pressure Plate Challenge - hidden until challenge activated -->
         <div id="pressurepVisualiser" class="hideMe">
             <img src="images\plates_challenge.png" alt="Plates Challenge" />
-            <button id="showGameDisplay" onclick="enterChallenge()">Enter Pressure Plate Puzzle</button><br>
+            <div id="pressurePButtons">
+                <button id="showGameDisplay" onclick="enterChallenge()">Enter Pressure Plate Puzzle</button>
+                <button id="skipPressurePChal" onclick="skipPlateChallenge()">Skip</button><br>
+            </div>
+            
         </div>
         <div id="game-container-1" class="game-container" style="display: none;">
             <div id="map-and-controls">
-                <!-- game map -->
+                <!-- Pressure Plate game map -->
                 <div id="game-map-1" class="game-map">
 
                     <div id="tiles" class="layer"></div>
@@ -136,7 +146,7 @@
                 <!-- end game map -->
             </div>
 
-            <!-- game controls -->
+            <!-- Pressure Plate Game Controls -->
             <div id="controls">
                 <button id="upMaze"></button>
                 <div id="horiz">
@@ -196,6 +206,8 @@
 
     <input onclick="startChallenge1()" type="button" value="challenge1" id="temp">
     <input onclick="startPressurePChal()" type="button" value="pressurePlateChal" id="temp">
+    <input onclick="spiderChallenge()" type="button" value="spiderChallenge" id="temp">
+
 </body>
 
 </html>
