@@ -15,7 +15,7 @@ body.success {
     margin-right: auto;
 }
 
-#pressurepVisualiser button {
+#pressurePButtons button {
     padding: 10px;
     margin: 10px;
     font-size: 250%;
@@ -26,11 +26,9 @@ body.success {
     border-radius: 15px;
     text-align: center; 
     position: relative;                             
-    left:50%;
-    transform:translate(-50%, 10%);
     cursor: pointer;
 }
-#pressurepVisualiser button:hover {
+#pressurePButtons button:hover {
     background-color: rgb(255, 187, 187);
 }
 

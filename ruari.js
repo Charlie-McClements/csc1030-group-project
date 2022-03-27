@@ -18,7 +18,6 @@ function pad(num, size) {
 }
 
 function startTimer() {
-    console.log("time");
     duration = 300;
     minutes = Math.floor(duration / 60);
     seconds = duration % 60;
@@ -80,6 +79,15 @@ function begin() {
     }*/
 
     challenge = document.getElementById('difficulty').value;
+    console.log(challenge);
+    if(challenge == 'Easy'){
+        difficulty = 5;
+    } else if (challenge == 'Medium') {
+        difficulty = 4;
+    } else if(challenge == 'Hard') {
+        difficulty = 3;
+    }
+    console.log(difficulty);
   
 
     startTimer();

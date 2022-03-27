@@ -100,31 +100,31 @@ Game.prototype.placeSprite = function(type) {
     return sprite;
 }
 
-Game.prototype.movePlayer = function(event) {
-    event.preventDefault();
-    if(event.keyCode < 37 || event.keyCode > 40) {
-        return;
-    } 
+// Game.prototype.movePlayer = function(event) {
+//     event.preventDefault();
+//     if(event.keyCode < 37 || event.keyCode > 40) {
+//         return;
+//     } 
 
-    switch (event.keyCode) {
-        case 37: 
-        this.moveLeft();
-        break;
+//     switch (event.keyCode) {
+//         case 37: 
+//         this.moveLeft();
+//         break;
 
-        case 38: 
-        this.moveUp();
-        break;
+//         case 38: 
+//         this.moveUp();
+//         break;
 
-        case 39: 
-        this.moveRight();
-        break;
+//         case 39: 
+//         this.moveRight();
+//         break;
 
-        case 40: 
-        this.moveDown();
-        break;
+//         case 40: 
+//         this.moveDown();
+//         break;
 
-    }
-}
+//     }
+// }
 
 Game.prototype.moveLeft = function(sprite) {
     //boundary detection
@@ -233,13 +233,13 @@ Game.prototype.checkGoal = function() {
     }
 }
 
-Game.prototype.keyboardListener = function() {
-    document.addEventListener('keydown', event => {
-        this.movePlayer(event);
+// Game.prototype.keyboardListener = function() {
+//     document.addEventListener('keydown', event => {
+//         this.movePlayer(event);
 
-        this.checkGoal();
-    });
-}
+//         this.checkGoal();
+//     });
+// }
 
 Game.prototype.buttonListeners = function() {
     let up = document.getElementById('upMaze');
@@ -282,7 +282,7 @@ function init() {
     let playerSprite = myGame.placeSprite('player');
     myGame.player.el = playerSprite;
 
-    myGame.keyboardListener();
+    //myGame.keyboardListener();
 
     myGame.buttonListeners();
 
