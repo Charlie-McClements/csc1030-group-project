@@ -19,7 +19,8 @@ var lives = 3;
 var Cells;   //number of squares wide
 var maze = [];  //array containing every square with two values per square, indicating if the right and down walls are present or not
 var allCells = [];
-
+var winOptions = [];
+var winSquare = 1;
 var distanceMoved = 0;
 
 //colours
@@ -87,6 +88,7 @@ function setDifficulty(number){
             allCells.push(coord);
         }
     }
+    winOptions = [[boardSize - charSize, boardSize - charSize], [wallSize, boardSize - charSize], [boardSize - charSize, wallSize]]
 }
 
 function move(direction) {
@@ -247,7 +249,8 @@ function generate_maze() {
     var currentCell = [wallSize, wallSize]   //start in the top right    
     var totalCells = Cells * Cells;
     var forceQuit = false;
-    var visited = [currentCell];    //array containing the coordinates of all the squares that have been visited    
+    var visited = [currentCell];    //array containing the coordinates of all the squares that have been visited   
+    winSquare = getRndInteger(3);
     while (visited.length < totalCells && forceQuit == false) {
         var choices = [];
         var right = [currentCell[0] + square, currentCell[1]];
@@ -382,7 +385,7 @@ function update(move) {
     context.fillRect(charx, chary, charSize, charSize);
     //draw finish
     context.fillStyle = winColour;
-    context.fillRect(boardSize - charSize, boardSize - charSize, charSize, charSize);
+    context.fillRect(winOptions[winSquare][0], winOptions[winSquare][1], charSize, charSize);
     //draw the light source
     context.fillStyle = 'rgba(20,20,20,1)';
     context.beginPath();
