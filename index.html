@@ -19,6 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="stylesheet.css" />
     <link rel="stylesheet" type="text/css" href="mazeStyle-RC.css" />
+    <link rel="stylesheet" type="text/css" href="tooltips.css" />
 </head>
 
 <body>
@@ -67,7 +68,12 @@
             <!-- Set Difficulty -->
             <label for="difficulty"><u>Maze Difficulty</u></label><br>
             <select name="difficulty" id="difficulty">
-                <option value="Easy">Easy</option>
+                <option value="Easy">Easy
+                    <span class="tooltiptext">
+                        A writen paper that looks into the theory behind
+                        creating an accurate model of a farm in detail.
+                      </span>
+                </option>
                 <option value="Medium">Medium</option>
                 <option value="Hard">Hard</option>
             </select>
