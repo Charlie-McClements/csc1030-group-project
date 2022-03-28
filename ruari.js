@@ -6,7 +6,6 @@ var dialogue = 1;
 var characterName;
 var gender;
 var challenge;
-var difficulty;
 
 function pad(num, size) {
     num = num.toString();
@@ -81,17 +80,17 @@ function begin() {
 
     challenge = document.getElementById('difficulty').value;
     if(challenge == 'Easy'){
-        difficulty = 20;
+        setDifficulty(10);
     } else if (challenge == 'Medium') {
-        difficulty = 5;
+        setDifficulty(5);
     } else if(challenge == 'Hard') {
-        difficulty = 2;
+        setDifficulty(3);
     }
     console.log(difficulty);
     // set up interval (game loop)
     setInterval(update, 1000 / FPS);
     populate_grid();
-    generate_maze();    
+    generate_maze(); 
     startTimer();
 
 }              
