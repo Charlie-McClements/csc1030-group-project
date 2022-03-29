@@ -77,7 +77,7 @@ function visionCountdown() {
             torchStrength = 150;
         }
     } else {
-        torchStrength = 350;
+        torchStrength = 150;
         visionStopTimer();
     }
 }
