@@ -8,26 +8,19 @@ context = canvas.getContext("2d");
 const FPS = 60;
 var charx, chary;     //position of the top left of the squares
 var canvas, context;
-var difficulty = 5;
+
 var torchStrength = 150;
-var wallSize = 1 * difficulty;
-var charSize = 10 * difficulty;    //size of square in pixels
-var square = wallSize + charSize;   //size of each grid square on the board
-var boardSize = Math.floor(canvas.width / (square)) * square; //number of pixels wide
-canvas.width = boardSize + wallSize;
-canvas.height = boardSize + wallSize;
+var difficulty;
+var wallSize;
+var charSize;  //size of square in pixels
+var square;  //size of each grid square on the board
+var boardSize; //number of pixels wide
 var lives = 3;
-var Cells = (boardSize / square);   //number of squares wide
+var Cells;   //number of squares wide
 var maze = [];  //array containing every square with two values per square, indicating if the right and down walls are present or not
-var allCells = []
-for (let incx = 0; incx < Cells; incx++) {
-    for (let incy = 0; incy < Cells; incy++) {
-        x = wallSize + (square * incx)
-        y = wallSize + (square * incy)
-        coord = [x, y]
-        allCells.push(coord);
-    }
-}
+var allCells = [];
+var winOptions = [];
+var winSquare = 1;
 var distanceMoved = 0;
 
 //colours
@@ -39,7 +32,7 @@ var winColour = 'rgba(0,256,0, 256)';
 var winColourQ = [0, 255, 0, 255];
 var charColour = 'rgb(255,128,0)';
 
-var mainLoop = setInterval(update, 1000 / FPS);
+
 
 // character starting position
 charx = wallSize;
@@ -73,6 +66,29 @@ let rand = mulberry32(seedFunction());
 
 function getRndInteger(max) {
     return Math.floor(Math.random() * max);
+}
+
+function setDifficulty(number){
+    difficulty = number;
+    wallSize = 1 * difficulty;
+    charx = wallSize;
+    chary = wallSize;
+    charSize = 10 * difficulty;    //size of square in pixels
+    square = wallSize + charSize;   //size of each grid square on the board
+    boardSize = Math.floor(canvas.width / (square)) * square; //number of pixels wide
+    canvas.width = boardSize + wallSize;
+    canvas.height = boardSize + wallSize;
+    Cells = (boardSize / square);
+    allCells = [];
+    for (let incx = 0; incx < Cells; incx++) {
+        for (let incy = 0; incy < Cells; incy++) {
+            x = wallSize + (square * incx)
+            y = wallSize + (square * incy)
+            coord = [x, y]
+            allCells.push(coord);
+        }
+    }
+    winOptions = [[boardSize - charSize, boardSize - charSize], [wallSize, boardSize - charSize], [boardSize - charSize, wallSize]]
 }
 
 function move(direction) {
@@ -233,7 +249,8 @@ function generate_maze() {
     var currentCell = [wallSize, wallSize]   //start in the top right    
     var totalCells = Cells * Cells;
     var forceQuit = false;
-    var visited = [currentCell];    //array containing the coordinates of all the squares that have been visited    
+    var visited = [currentCell];    //array containing the coordinates of all the squares that have been visited   
+    winSquare = getRndInteger(3);
     while (visited.length < totalCells && forceQuit == false) {
         var choices = [];
         var right = [currentCell[0] + square, currentCell[1]];
@@ -346,6 +363,7 @@ function update_ui() {
     }
 }
 
+   
 
 // update function
 function update(move) {
@@ -367,7 +385,7 @@ function update(move) {
     context.fillRect(charx, chary, charSize, charSize);
     //draw finish
     context.fillStyle = winColour;
-    context.fillRect(boardSize - charSize, boardSize - charSize, charSize, charSize);
+    context.fillRect(winOptions[winSquare][0], winOptions[winSquare][1], charSize, charSize);
     //draw the light source
     context.fillStyle = 'rgba(20,20,20,1)';
     context.beginPath();

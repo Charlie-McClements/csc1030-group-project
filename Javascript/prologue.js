@@ -8,48 +8,44 @@ var challengeStarted = false;
 var returnx = 0;
 var returny = 0;
 var first = true;
+var currentTorch;
+var step = 0;
+var dialogue = ["Welcome to the Oubliette! There is a trapdoor in the corner of the maze somewhere, you have 5 minutes to find it and climb out to escape.",
+                "But beware! You will face obstacles and challenges along the way which may set you back.",
+                "You have five minutes before the trapdoor gets locked and you'll be trapped here forever! Good Luck!"]
 
-function challenge1(){
+function prologue(){
     var board = document.getElementById("challengeBoard");
+    story.innerHTML = dialogue[step];
     story = document.getElementById("storyText")
     if(completed === true){ //if the challenge is over and you want to go back to the main screen
         clearInterval(running);
         var cBoard = document.getElementById('challengeBoard');
         var mazeCanvas = document.getElementById("gameCanvas");
         mazeCanvas.className = "showMe";
-        story.innerHTML = "BACK TO NORMAL TEXT";
+        story.innerHTML = "Find the trapdoor!";
         cBoard.remove();
         resetButtons();
         challengeStarted = false;
         charx = returnx;
-        chary = returny;        
+        chary = returny;  
+        torchStrength = currentTorch;    
+        torchStrength += 20;  
     }
     else{
-        if(pass == true && pass1 == true){
-            board.style.backgroundImage = "url(images/button_challenge_cleared.png)";
-            story.innerHTML = "Well done! That's done the trick!"            
-            setTimeout(() => {completed = true;}, 3000);            
-        }
-        else if (option == 1 && pass != true){   
-            story.innerHTML = "I'm sure it did something...";            
-            pass = true;
+        if (option == 1){   
+            step -= 1;
         }
         else if(option == 2){
-            story.innerHTML = "Well now that's unfortunate";
-            board.style.backgroundImage = "url(images/button_challenge_failed.png)";
-            returnx = wallSize;
-            returny = wallSize;            
-            setTimeout(() => {completed = true;}, 3000);  
-            if(first == true){  //need this clause as this if statement is triggered more than once before the timeout finishes
-                first = false;
-                lives -= 1;
-
+            step += 1;
+            if (step > 2){
+                completed = true;
+                step = 2;
             }
             
         }
-        else if(option == 3 && pass1 != true){
-            story.innerHTML = "I'm sure it did something...";
-            pass1 = true;
+        else if(option == 3 && pass1 != true){            
+            completed = true;
         }
 
         else if(option == 4){
@@ -58,24 +54,19 @@ function challenge1(){
     }
 }
 
-function spiderChallenge(){
-
-    story.innerHTML = "You have encountered a large spider! You must defeat it to pass!";
-
-
+function startChallenge1(){
     challengeStarted = true;
+    currentTorch = torchStrength;
     first = true;
     returnx = charx;
     returny = chary;
     option = 0;
-    pass = false;
-    pass1 = false;
     completed = false;
     var screen = document.createElement('div');       
     screen.style.maxWidth = '610px';
     screen.style.height = '610px';
     screen.style.margin = "auto";
-    screen.style.backgroundImage = "url(images/button_challenge.png)";
+    screen.style.backgroundImage = "url(images/prologue.png)";
     screen.id = 'challengeBoard';   
     var mazeCanvas = document.getElementById("gameCanvas");
     mazeCanvas.className = "hideMe";
@@ -89,15 +80,15 @@ function spiderChallenge(){
     button2.onclick = button2Event;
     button3.onclick = button3Event;
     button4.onclick = button4Event;
-    button1.value="Left Button";
+    button1.value="Previous";
     button1.style.fontSize = "10px";
-    button2.value="Middle Button";
+    button2.value="Continue";
     button2.style.fontSize = "10px";
-    button3.value="Right Button";
+    button3.value="Skip Prologue";
     button3.style.fontSize = "10px";
     button4.value="";
     button4.style.fontSize = "10px";
-    story = document.getElementById("storyText")
+    story = document.getElementById("storyText")    
     //var board = document.getElementById('gameScreen');
     //board.className = "hideMe";
     running = setInterval(challenge1, 1000/FPS);
