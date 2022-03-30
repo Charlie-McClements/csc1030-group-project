@@ -13,11 +13,13 @@ var step = 0;
 var dialogue = ["Welcome to the Oubliette! There is a trapdoor in the corner of the maze somewhere, you have 5 minutes to find it and climb out to escape.",
                 "But beware! You will face obstacles and challenges along the way which may set you back.",
                 "You have five minutes before the trapdoor gets locked and you'll be trapped here forever! Good Luck!"]
+var prologueImages = ["url(images/prologue_1.png)", "url(images/button_challenge.png)", "url(images/empty_room.png)"]
 
 function prologue(){
-    var board = document.getElementById("challengeBoard");
+    var board = document.getElementById("challengeBoard");    
+    story = document.getElementById("storyText");
     story.innerHTML = dialogue[step];
-    story = document.getElementById("storyText")
+    board.style.backgroundImage = prologueImages[step];
     if(completed === true){ //if the challenge is over and you want to go back to the main screen
         clearInterval(running);
         var cBoard = document.getElementById('challengeBoard');
@@ -30,21 +32,24 @@ function prologue(){
         charx = returnx;
         chary = returny;  
         torchStrength = currentTorch;    
-        torchStrength += 20;  
     }
     else{
         if (option == 1){   
+            option = 0;
             step -= 1;
+            if(step<0)step=0;
         }
         else if(option == 2){
             step += 1;
+            option = 0;
             if (step > 2){
                 completed = true;
                 step = 2;
             }
             
         }
-        else if(option == 3 && pass1 != true){            
+        else if(option == 3){   
+            option = 0;         
             completed = true;
         }
 
@@ -54,7 +59,7 @@ function prologue(){
     }
 }
 
-function startChallenge1(){
+function startPrologue(){
     challengeStarted = true;
     currentTorch = torchStrength;
     first = true;
@@ -66,7 +71,7 @@ function startChallenge1(){
     screen.style.maxWidth = '610px';
     screen.style.height = '610px';
     screen.style.margin = "auto";
-    screen.style.backgroundImage = "url(images/prologue.png)";
+    screen.style.backgroundImage = "url(images/prologue_1.png)";
     screen.id = 'challengeBoard';   
     var mazeCanvas = document.getElementById("gameCanvas");
     mazeCanvas.className = "hideMe";
@@ -91,7 +96,7 @@ function startChallenge1(){
     story = document.getElementById("storyText")    
     //var board = document.getElementById('gameScreen');
     //board.className = "hideMe";
-    running = setInterval(challenge1, 1000/FPS);
+    running = setInterval(prologue, 1000/FPS);
     
 }
 
