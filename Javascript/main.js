@@ -367,6 +367,7 @@ function update_ui() {
 
 // update function
 function update(move) {
+    if(torchStrength < charSize *2)torchStrength = charSize*2;
     //check for win
     win_check(move);
     // draw background      

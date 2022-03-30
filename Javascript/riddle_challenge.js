@@ -10,12 +10,14 @@ var returny = 0;
 var first = true;
 var currentTorch;
 
-function challenge1(){
+function riddleChallenge(){
     var board = document.getElementById("challengeBoard");
     story = document.getElementById("storyText")
     if(completed === true){ //if the challenge is over and you want to go back to the main screen
         clearInterval(running);
         var cBoard = document.getElementById('challengeBoard');
+        var aBox = document.getElementById('riddleAnswer');
+        aBox.remove();
         var mazeCanvas = document.getElementById("gameCanvas");
         mazeCanvas.className = "showMe";
         story.innerHTML = "Find the trapdoor!";
@@ -25,32 +27,26 @@ function challenge1(){
         charx = returnx;
         chary = returny;  
         torchStrength = currentTorch;    
-        torchStrength += 20;  
+        torchStrength += 30;  
     }
     else{
-        if(pass == true && pass1 == true){
-            board.style.backgroundImage = "url(images/button_challenge_cleared.png)";
-            story.innerHTML = "Well done! That's done the trick!"            
-            setTimeout(() => {completed = true;}, 3000);            
-        }
-        else if (option == 1 && pass != true){   
-            story.innerHTML = "I'm sure it did something...";            
+        if (option == 1){   
+            var ansBox = document.getElementById("riddleAnswer");
+            var answer = ansBox.value;
+            if(answer == "candle" || answer == "Candle"){
+                board.style.backgroundImage = "url(images/riddle_challenge_open.png)";
+                story.innerHTML = "Well aren't you clever... Enjoy the extra flicker in your flame!";  
+                setTimeout(() => {completed = true;}, 3000);              
+            }         
             pass = true;
         }
         else if(option == 2){
-            story.innerHTML = "Well now that's unfortunate";
-            board.style.backgroundImage = "url(images/button_challenge_failed.png)";
-            returnx = wallSize;
-            returny = wallSize;            
-            setTimeout(() => {completed = true;}, 3000);  
-            if(first == true){  //need this clause as this if statement is triggered more than once before the timeout finishes
-                first = false;
-                lives -= 1;
-
-            }
-            
+            story.innerHTML = "Carry on, try not to loose your way!";
+            board.style.backgroundImage = "url(images/riddle_challenge_open.png)";
+            currentTorch -= 50;         
+            setTimeout(() => {completed = true;}, 3000);        
         }
-        else if(option == 3 && pass1 != true){
+        else if(option == 3){
             story.innerHTML = "I'm sure it did something...";
             pass1 = true;
         }
@@ -61,7 +57,7 @@ function challenge1(){
     }
 }
 
-function startChallenge1(){
+function startRiddleChallenge(){
     challengeStarted = true;
     currentTorch = torchStrength;
     first = true;
@@ -75,12 +71,19 @@ function startChallenge1(){
     screen.style.maxWidth = '610px';
     screen.style.height = '610px';
     screen.style.margin = "auto";
-    screen.style.backgroundImage = "url(images/button_challenge.png)";
-    screen.id = 'challengeBoard';   
+    screen.style.backgroundImage = "url(images/riddle_challenge.png)";
+    screen.id = 'challengeBoard';  
+    var riddleAnswer = document.createElement('input');
+    riddleAnswer.type = "text";
+    riddleAnswer.id = "riddleAnswer";
+    riddleAnswer.style.margin = "auto";
+    riddleAnswer.style.width = "300px"; 
+    riddleAnswer.style.height = "50px";
     var mazeCanvas = document.getElementById("gameCanvas");
     mazeCanvas.className = "hideMe";
     var boardDiv = document.getElementById("board");
     boardDiv.appendChild(screen);
+    boardDiv.appendChild(riddleAnswer);
     var button1 = document.getElementById("up");
     var button2 = document.getElementById("left");
     var button3 = document.getElementById("down");
@@ -89,19 +92,19 @@ function startChallenge1(){
     button2.onclick = button2Event;
     button3.onclick = button3Event;
     button4.onclick = button4Event;
-    button1.value="Left Button";
+    button1.value="Submit Answer";
     button1.style.fontSize = "10px";
-    button2.value="Middle Button";
+    button2.value="Carry On";
     button2.style.fontSize = "10px";
-    button3.value="Right Button";
+    button3.value="";
     button3.style.fontSize = "10px";
     button4.value="";
     button4.style.fontSize = "10px";
     story = document.getElementById("storyText")
-    story.innerHTML = "If I'm not mistaken, pressing two of those buttons will open the gate. Unfortunately one will also send you down the trapdoor....";
+    story.innerHTML = "Solve the riddle to add flame to your torch. Carry on and you could turn wrong!";
     //var board = document.getElementById('gameScreen');
     //board.className = "hideMe";
-    running = setInterval(challenge1, 1000/FPS);
+    running = setInterval(riddleChallenge, 1000/FPS);
     
 }
 

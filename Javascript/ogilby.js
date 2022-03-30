@@ -1,24 +1,42 @@
+var challenges = ["buttons", "maze", "spider", "jugs", "riddle"];
+
 function randomChallenge() {
-    if(getRndInteger(100) > 70) { // Guarantees challenge on every movement right now to see randomness
-        if(challengeStarted == false) {
-
-        // Change below var when adding a new challenge
-        var numOfChallenges = 4;
-        var r = getRndInteger(numOfChallenges);
-        console.log("starting puzzle number", r);
-
+    if(challengeStarted == true)return; //prevents multiple challenges spawning at once
+    if(getRndInteger(100) > 70) { // 30% chance of encountering a challenge
+        if(challengeStarted == false) {       
+        var r = challenges[getRndInteger(challenges.length)];
+        var index;
         switch (r) {
-        case 0:
+        case "buttons":
+            index = challenges.indexOf("buttons"); //these two lines prevents the same challenge appearing twice
+            challenges.splice(index,1)
+            console.log(challenges);
             startChallenge1();
+
             break;
-        case 1:
+        case "maze":
+            index = challenges.indexOf("maze");
+            challenges.splice(index,1);
+            console.log(challenges);
             startPressurePChal();
             break;
-        case 2:
+        case "spider":
+            index = challenges.indexOf("spider");
+            challenges.splice(index,1);
+            console.log(challenges);
             //startChallenge3();
             break;
-        case 3:
+        case "jugs":
+            index = challenges.indexOf("jugs");
+            challenges.splice(index,1);
+            console.log(challenges);
             //startChallenge4();
+            break;
+        case "riddle":
+            index = challenges.indexOf("riddle");
+            challenges.splice(index,1);
+            console.log(challenges);
+            startRiddleChallenge();
             break;
         default:
             return;

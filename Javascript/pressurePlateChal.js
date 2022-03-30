@@ -3,6 +3,9 @@ var running;
 
 
 function startPressurePChal() {
+    challengeStarted = true;
+    returnx = charx;
+    returny = chary;    
     var visualAidScreen = document.getElementById('pressurepVisualiser')
     visualAidScreen.className = 'showMe';
     var boardDisplay = document.getElementById('board');
@@ -41,10 +44,12 @@ function endPressurePChal() {
     var pressurepGame = document.getElementById('game-container-1');
     var boardDisplay = document.getElementById('board');
     var buttonDisplay = document.getElementById('buttons');
-    var story = document.getElementById("storyText")
+    var story = document.getElementById("storyText")    
     if(challengeProgress == true) {
         clearInterval(running);
-        
+        challengeStarted == false;
+        charx = returnx;
+        chary = returny;
         pressurepGame.style.display = "none";
         boardDisplay.style.display = "revert";
         buttonDisplay.style.display = "revert";
@@ -68,6 +73,9 @@ function skipPlateChallenge() {
     pressurepGame.style.display = "none";
     boardDisplay.style.display = "revert";
     buttonDisplay.style.display = "revert";
+    challengeStarted == false;
+    charx = returnx;
+    chary = returny;
     torchStrength = 50;
     if(currentLanguage == 'English') {
         var story = document.getElementById("storyText")
