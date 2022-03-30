@@ -204,21 +204,36 @@ Game.prototype.moveDown = function() {
 
 Game.prototype.updateVert = function() {
     this.player.el.style.top = this.player.y * this.tileDim + 'px';
-    var story = document.getElementById("storyText")
-    story.innerHTML = "This pressure plate seems safe";
+    if(currentLanguage == 'English') {
+        var story = document.getElementById("storyText")
+        story.innerHTML = "This pressure plate seems safe";
+    } else if(currentLanguage == 'Spanish') {
+        var story = document.getElementById("storyText")
+        story.innerHTML = "Esta placa de presión parece segura";
+    }
 }
 
 Game.prototype.updateHoriz = function(sprite) {
     this.player.el.style.left = this.player.x * this.tileDim + 'px';
-    var story = document.getElementById("storyText")
-    story.innerHTML = "This pressure plate seems safe";
+    if(currentLanguage == 'English') {
+        var story = document.getElementById("storyText")
+        story.innerHTML = "This pressure plate seems safe";
+    } else if(currentLanguage == 'Spanish') {
+        var story = document.getElementById("storyText")
+        story.innerHTML = "Esta placa de presión parece segura";
+    }
 }
 
 Game.prototype.updateToStart = function() {
     this.player.el.style.top = this.player.y * this.tileDim + 'px';
     this.player.el.style.left = this.player.x * this.tileDim + 'px';
-    var story = document.getElementById("storyText")
-    story.innerHTML = "The pressure plate is a trapdoor, the floor disappears beneath your feet and suddenly your dropped back at the start. Some pressure plates must be dummies";
+    if(currentLanguage == 'English') {
+        var story = document.getElementById("storyText")
+        story.innerHTML = "The pressure plate is a trapdoor, the floor disappears beneath your feet and suddenly your dropped back at the start. Some pressure plates must be dummies";
+    } else if(currentLanguage == 'Spanish') {
+        var story = document.getElementById("storyText")
+        story.innerHTML = "La placa de presión es una trampilla, el suelo desaparece bajo tus pies y de repente te vuelves a caer al principio. Algunas placas de presión deben ser ficticias";
+    }
 }
 
 Game.prototype.checkGoal = function() {

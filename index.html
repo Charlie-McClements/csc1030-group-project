@@ -17,7 +17,7 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="CSS/stylesheet.css" />
+    <link id="pagestyle" rel="stylesheet" type="text/css" href="CSS/stylesheet.css" />
     <link rel="stylesheet" type="text/css" href="CSS/mazeStyle-RC.css" />
     <link rel="stylesheet" type="text/css" href="CSS/tooltips.css" />
 </head>
@@ -42,6 +42,38 @@
         </div>
     </div>
 
+    <!-- Accessibility Screen -->
+
+    <div id="accessibilityScreen" class="hideMe">
+        <div class="row">
+            <div class="col1" id="accessibilityChoice">
+                <div class="radio" id="sizeChoice" onmouseover="sizeInfo()" onmouseout="clearInfo()">
+                    <input type="radio" name="size" id="normalSize" value="normal" onchange="swapStyleSheet('CSS/stylesheet.css')" checked="checked">
+                    <label id="normalSized" for="normalSize">Normal</label>
+    
+                    <input type="radio" name="size" id="largeSize" value="large" onchange="swapStyleSheet('CSS/stylesheetLarge.css')">
+                    <label id="largeSized" for="largeSize">Large</label>
+
+                    <input type="radio" name="size" id="hugeSize" value="huge" onchange="swapStyleSheet('CSS/stylesheetHuge.css')">
+                    <label id="hugeSized" for="hugeSize">Huge</label>
+                    <br><br>
+                </div>
+                <div id="languageChoice" onmouseover="languageInfo()" onmouseout="clearInfo()">
+                    <select name="language" id="language" onchange="changeLanguage()">
+                        <option id="englishText" value="English" selected>English</option>
+                        <option id="spanishText" value="Spanish">Spanish</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col2" id="accessibilityDescription">
+                hello hello
+            </div>
+        </div>
+        <div id="returnStartScreen">
+            <button id="backButton" onclick="accessBackButton()">Back</button>
+        </div>
+    </div>
+
     <!-- Declare Avatar Details Screen -->
 
     <div id="avatarDetails" class="hideMe">
@@ -50,40 +82,36 @@
         </div>
         <div id="characterSelect">
             <!-- Choose Name -->
-            <label for="characterName"><u>Character Name</u></label><br>
+            <label id="characterNamed" for="characterName"><u>Character Name</u></label><br>
             <input type="text" name="characterName" id="characterName">
             <br><br>
 
             <!-- Choose Gender -->
-            <u>Gender</u><br>
+            <label id="genderText"><u>Gender</u></label>
+            <br>
             <div class="radio">
                 <input type="radio" name="gender" id="male" value="Male">
-                <label for="male">Male</label>
+                <label id="maleG" for="male">Male</label>
 
                 <input type="radio" name="gender" id="female" value="Female">
-                <label for="female">Female</label>
+                <label id="femaleG" for="female">Female</label>
                 <br><br>
             </div>
 
             <!-- Set Difficulty -->
-            <label for="difficulty"><u>Maze Difficulty</u></label><br>
+            <label id="mDifficulty" for="difficulty"><u>Maze Difficulty</u></label><br>
             <select name="difficulty" id="difficulty">
-                <option value="Easy">Easy
-                    <span class="tooltiptext">
-                        A writen paper that looks into the theory behind
-                        creating an accurate model of a farm in detail.
-                      </span>
-                </option>
-                <option value="Medium">Medium</option>
-                <option value="Hard">Hard</option>
+                <option id="easyDiff" value="Easy" selected>Easy</option>
+                <option id="mediumDiff" value="Medium">Medium</option>
+                <option id="hardDiff" value="Hard">Hard</option>
             </select>
             <br><br>
 
             <!-- Set BackGround Colour -->
-            <label for="bgColour"><u>Background Colour</u></label><br>
+            <label id="bgColourText" for="bgColour"><u>Background Colour</u></label><br>
             <select name="background" id="bgColour" onchange="changeBg();">
-                <option value="black">Normal</option>
-                <option value="rgb(96, 85, 141)">Original</option>
+                <option id="normalCol" value="black" selected>Normal</option>
+                <option id="orginalCol" value="rgb(96, 85, 141)">Original</option>
             </select>
             <br><br>
         </div>

@@ -10,8 +10,14 @@ function startPressurePChal() {
     var buttonDisplay = document.getElementById('buttons');
     buttonDisplay.style.display = "none";
 
-    var story = document.getElementById("storyText")
-    story.innerHTML = "There appears to be a grid of Pressure Plates blocking the path in the corridor. There appears to be a trapdoor on the right saying: 'Skip but there will be consequences!'. Do you dare take on the challenge or risk the consequences?";
+    if(currentLanguage == 'English') {
+        var story = document.getElementById("storyText")
+        story.innerHTML = "There appears to be a grid of Pressure Plates blocking the path in the corridor. There appears to be a trapdoor on the right saying: 'Skip but there will be consequences!'. Do you dare take on the challenge or risk the consequences?";
+    } else if(currentLanguage == 'Spanish') {
+        var story = document.getElementById("storyText")
+        story.innerHTML = "Parece que hay una cuadrícula de placas de presión bloqueando el camino en el corredor. Parece haber una trampilla a la derecha que dice: '¡Sáltate pero habrá consecuencias!'. ¿Te atreves a asumir el reto o te arriesgas a las consecuencias?";
+    }
+    
 }
 
 function enterChallenge() {
@@ -20,8 +26,13 @@ function enterChallenge() {
     var pressurepGame = document.getElementById('game-container-1');
     pressurepGame.style.display = "initial";
 
-    var story = document.getElementById("storyText")
-    story.innerHTML = "This pressure plate seems solid";
+    if(currentLanguage == 'English') {
+        var story = document.getElementById("storyText")
+        story.innerHTML = "This pressure plate seems solid";
+    } else if(currentLanguage == 'Spanish') {
+        var story = document.getElementById("storyText")
+        story.innerHTML = "Esta placa de presión parece sólida";
+    }
 
     running = setInterval(endPressurePChal, 1000);
 }
@@ -37,7 +48,11 @@ function endPressurePChal() {
         pressurepGame.style.display = "none";
         boardDisplay.style.display = "revert";
         buttonDisplay.style.display = "revert";
-        story.innerHTML = "Phew, you made it";
+        if(currentLanguage == 'English') {
+            story.innerHTML = "Phew, you made it";
+        } else if(currentLanguage == 'Spanish') {
+            story.innerHTML = "Uf, lo lograste";
+        }
         visionTimer();
 
         
@@ -54,8 +69,13 @@ function skipPlateChallenge() {
     boardDisplay.style.display = "revert";
     buttonDisplay.style.display = "revert";
     torchStrength = 50;
-    var story = document.getElementById("storyText")
-    story.innerHTML = "You skipped and your torch was weakened squeezing in the trapdoor, now enjoy a lack of visibility";
+    if(currentLanguage == 'English') {
+        var story = document.getElementById("storyText")
+        story.innerHTML = "You skipped and your torch was weakened squeezing in the trapdoor, now enjoy a lack of visibility";
+    } else if(currentLanguage == 'Spanish') {
+        var story = document.getElementById("storyText")
+        story.innerHTML = "Te saltaste y tu antorcha se debilitó apretando la trampilla, ahora disfruta de la falta de visibilidad";
+    }
 }
 
 var visionTimerInterval;

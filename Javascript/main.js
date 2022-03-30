@@ -345,7 +345,7 @@ function generate_maze() {
 
 function update_ui() {
     var torchStrengthDisplay = document.getElementById('torchStrength');
-    torchStrengthDisplay.innerHTML = torchStrength;
+    torchStrengthDisplay.innerHTML = torchStrength.toFixed(0);
     var live = document.getElementById('live');
     var live1 = document.getElementById('live1');
     var live2 = document.getElementById('live2');
