@@ -12,7 +12,7 @@ function randomChallenge() {
             startChallenge1();
             break;
         case 1:
-            //startChallenge2();
+            startPressurePChal();
             break;
         case 2:
             //startChallenge3();
