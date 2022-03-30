@@ -91,6 +91,7 @@ function begin() {
     setInterval(update, 1000 / FPS);
     populate_grid();
     generate_maze(); 
+    startPrologue();
     startTimer();
 
 }              
