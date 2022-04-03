@@ -324,7 +324,7 @@ select:focus {
     /* position:absolute;
     left:50%;
     top:60%;
-    transform:translate(-50%, -50%);                 */
+    transform:translate(-50%, -50%);*/
 }
 
 
@@ -432,3 +432,5 @@ select:focus {
 #endScreen {
     text-align: center;
 }
+
+
