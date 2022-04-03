@@ -30,8 +30,9 @@ function challenge1(){
     else{
         if(pass == true && pass1 == true){
             board.style.backgroundImage = "url(images/button_challenge_cleared.png)";
-            story.innerHTML = "Well done! That's done the trick!"            
-            setTimeout(() => {completed = true;}, 3000);            
+            story.innerHTML = "Well done! That's done the trick!" 
+            setTimeout(() => {completed = true;}, 3000);       
+                 
         }
         else if (option == 1 && pass != true){   
             story.innerHTML = "I'm sure it did something...";            

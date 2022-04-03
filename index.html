@@ -46,6 +46,39 @@
         </div>
     </div>
 
+    <!-- Customise Screen -->
+    <div id="customise" class="hideMe">
+        <div id="customiseCharacterTitle">
+            Character Selector
+        </div>
+        <div id="characterSelect">
+
+            <!-- Set Character Colour -->
+            <label for="spriteColour"><u>            Character Colour            </u></label><br>
+            <select name="sprite" id="spriteColour" onchange="changeSprite();">
+                <option value="white">White</option>
+                <option value="lightcoral">Light coral</option>
+                <option value="yellow">Yellow</option>
+                <option value="orange">Orange</option>
+
+            </select>
+            <br><br>
+
+            <!-- Set BackGround Colour -->
+            <label for="bgColour"><u>Background Colour</u></label><br>
+            <select name="background" id="bgColour" onchange="changeBg();">
+                <option value="black">Normal</option>
+                <option value="rgb(96, 85, 141)">Original</option>
+            </select>
+            <br><br>
+
+        </div>
+
+        <button id="return" onclick="returnToMenu()">Return</button>
+        <br><br>
+
+    </div>
+
     <!-- Declare Avatar Details Screen -->
 
     <div id="avatarDetails" class="hideMe">
@@ -78,13 +111,6 @@
             </select>
             <br><br>
 
-            <!-- Set BackGround Colour -->
-            <label for="bgColour"><u>Background Colour</u></label><br>
-            <select name="background" id="bgColour" onchange="changeBg();">
-                <option value="black">Normal</option>
-                <option value="rgb(96, 85, 141)">Original</option>
-            </select>
-            <br><br>
         </div>
 
         <div id="avatarButton">
@@ -189,6 +215,18 @@
             <input onclick="buttonRight()" type="button" value="right" id="right" />
         </div>
 
+        <!-- Spider Challenge  -->
+        <div id="spiderChallengeDiv" class="hideMe"></div>
+
+        <!-- Spider Challenge Controls-->
+        <div style="width: 610px; margin:10px auto;">
+            <button id="Spider1" class="hideMe">Button1</button>
+            <button id="Spider2" class="hideMe">Button2</button>
+            <button id="Spider3" class="hideMe">Button3</button>
+            <button id="Spider4" class="hideMe">Button4</button>
+
+        </div>
+
         <button id="roomblehbleh" onclick="startRoomChal()">Enter Room Puzzle</button>
     </div>
 
@@ -220,6 +258,11 @@
                     <tr>
                         <td> Distance Moved </td>
                         <td> <span id="distanceTravelledStat"></span> </td>
+                    </tr>
+                    <!-- Challenges -->
+                    <tr>
+                        <td> Challenges Encountered</td>
+                        <td> <span id="challengesComp"></span> </td>
                     </tr>
                 </tbody>
             </table>

@@ -22,6 +22,7 @@ var allCells = [];
 var winOptions = [];
 var winSquare = 1;
 var distanceMoved = 0;
+var challengesEncountered = 0;
 
 //colours
 var wallColour = 'rgba(128,128,128, 255)';

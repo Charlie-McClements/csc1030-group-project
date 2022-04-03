@@ -2,70 +2,102 @@ var completed = false;
 var running;
 var option = 0;
 var story;
-var pass = false;
-var pass1 = false;
 var challengeStarted = false;
 var returnx = 0;
 var returny = 0;
 var first = true;
+var currentTorch;
 
-function challenge1(){
-    var board = document.getElementById("challengeBoard");
+
+function spiderChallenge() {
+    var boardDisplay = document.getElementById('board');
+    boardDisplay.style.display = "none";
+    var buttonDisplay = document.getElementById('buttons');
+    buttonDisplay.style.display = "none";
+
     story = document.getElementById("storyText")
-    if(completed === true){ //if the challenge is over and you want to go back to the main screen
+    if (completed === true) { //if the challenge is over and you want to go back to the main screen
         clearInterval(running);
-        var cBoard = document.getElementById('challengeBoard');
-        var mazeCanvas = document.getElementById("gameCanvas");
-        mazeCanvas.className = "showMe";
-        story.innerHTML = "BACK TO NORMAL TEXT";
-        cBoard.remove();
+        endChallenge();
+        story.innerHTML = "You continue on your adventure";
         resetButtons();
         challengeStarted = false;
         charx = returnx;
-        chary = returny;        
+        chary = returny;
     }
-    else{
-        if(pass == true && pass1 == true){
-
-            board.style.backgroundImage = "url(images/button_challenge_cleared.png)";
-            story.innerHTML = "Pass"            
-            setTimeout(() => {completed = true;}, 3000);  
-
+    else {
+        
+        if (option == 1) {
+            // spider on fire image
+            story.innerHTML = "You hit it with fire! You can pass!";
+            torchStrength -= 20;
+            setTimeout(() => { completed = true; }, 3000);
         }
-        else if (option == 1 && pass != true){   
-
-            story.innerHTML = "Option"+option+ "clicked";
-            pass = true;
-
-        }
-        else if(option == 2){
-            story.innerHTML = "Option"+option+ "clicked";
-            
+        else if (option == 2) {
+            story.innerHTML = "Unlucky! The spider has eaten you.";
             board.style.backgroundImage = "url(images/button_challenge_failed.png)";
             returnx = wallSize;
-            returny = wallSize;            
-            setTimeout(() => {completed = true;}, 3000);  
-            if(first == true){  //need this clause as this if statement is triggered more than once before the timeout finishes
+            returny = wallSize;
+            setTimeout(() => { completed = true; }, 3000);
+            if (first == true) {  //need this clause as this if statement is triggered more than once before the timeout finishes
                 first = false;
                 lives -= 1;
-
             }
-            
+
         }
-        else if(option == 3 && pass1 != true){
-            story.innerHTML = "Option"+option+ "clicked";
-            pass1 = true;
+        else if (option == 3) {
+            story.innerHTML = "Unlucky! You werent strong enough";
+            board.style.backgroundImage = "url(images/button_challenge_failed.png)";
+            setTimeout(() => { completed = true; }, 3000);
+            if (first == true) { //need this clause as this if statement is triggered more than once before the timeout finishes
+                first = false;
+                lives -= 1;
+            }
+           
         }
 
-        else if(option == 4){
-            story.innerHTML = "Option"+option+ "clicked";
-
-            
+        else if (option == 4) {
+            story.innerHTML = "Challenge skipped!";
+            board.style.backgroundImage = "url(images/button_challenge_failed.png)";
+            setTimeout(() => { completed = true; }, 3000);
+            if (first == true) { //need this clause as this if statement is triggered more than once before the timeout finishes
+                first = false;
+                lives -= 1;
+                torchStrength -= 50;
+            }
         }
     }
 }
 
-function spiderChallenge(){
+function endChallenge() {
+    var button1 = document.getElementById("Spider1");
+    var button2 = document.getElementById("Spider2");
+    var button3 = document.getElementById("Spider3");
+    var button4 = document.getElementById("Spider4");
+    var bg = document.getElementById('spiderChallengeDiv');
+    var boardDisplay = document.getElementById('board');
+    var buttonDisplay = document.getElementById('buttons');
+
+    clearInterval(running);
+    challengeStarted == false;
+    charx = returnx;
+    chary = returny;
+    boardDisplay.style.display = "revert";
+    boardDisplay.style.backgroundImage = "";
+    buttonDisplay.style.display = "revert";
+    bg.style.display = "none";
+    button1.className = "hideMe";
+    button2.className = "hideMe";
+    button3.className = "hideMe";
+    button4.className = "hideMe";
+}
+
+function startSpiderChallenge() {
+
+    var boardDisplay = document.getElementById('board');
+    boardDisplay.style.display = "none";
+    var buttonDisplay = document.getElementById('buttons');
+    buttonDisplay.style.display = "none";
 
     story.innerHTML = "You have encountered a large spider! You must defeat it to pass!";
 
@@ -75,69 +107,57 @@ function spiderChallenge(){
     returnx = charx;
     returny = chary;
     option = 0;
-    pass = false;
-    pass1 = false;
     completed = false;
-    var screen = document.createElement('div');       
-    screen.style.maxWidth = '610px';
-    screen.style.height = '610px';
-    screen.style.margin = "auto";
-    screen.style.backgroundImage = "url(images/button_challenge.png)";
-    screen.id = 'challengeBoard';   
-    var mazeCanvas = document.getElementById("gameCanvas");
-    mazeCanvas.className = "hideMe";
-    var boardDiv = document.getElementById("board");
-    boardDiv.appendChild(screen);
-    var button1 = document.getElementById("up");
-    var button2 = document.getElementById("left");
-    var button3 = document.getElementById("down");
-    var button4 = document.getElementById("right");
+
+    var bg = document.getElementById('spiderChallengeDiv');
+    bg.style.display = "flex";
+    bg.style.backgroundImage = "url(images/button_challenge.png)";
+
+
+
+    // Setup buttons
+    var button1 = document.getElementById("Spider1");
+    var button2 = document.getElementById("Spider2");
+    var button3 = document.getElementById("Spider3");
+    var button4 = document.getElementById("Spider4");
+    button1.className = "showMe";
+    button2.className = "showMe";
+    button3.className = "showMe";
+    button4.className = "showMe";
     button1.onclick = button1Event;
     button2.onclick = button2Event;
     button3.onclick = button3Event;
     button4.onclick = button4Event;
-    button1.value="Left Button";
-    button1.style.fontSize = "10px";
-    button2.value="Middle Button";
-    button2.style.fontSize = "10px";
-    button3.value="Right Button";
-    button3.style.fontSize = "10px";
-    button4.value="";
-    button4.style.fontSize = "10px";
+    button1.innerHTML = "Attack with your torch! However, torch strength will decrease!";
+    button2.innerHTML = "Try run past, you might be quick enough.";
+    button4.innerHTML = "Attack with your fists";
+    button3.innerHTML = "Skip this challenge (Lose a life and torch strength!)";
+
     story = document.getElementById("storyText")
     //var board = document.getElementById('gameScreen');
     //board.className = "hideMe";
-    running = setInterval(challenge1, 1000/FPS);
-    
+    running = setInterval(spiderChallenge, 1000 / FPS);
+
 }
 
-function resetButtons(){
-    var button1 = document.getElementById("up");
-    var button2 = document.getElementById("left");
-    var button3 = document.getElementById("down");
-    var button4 = document.getElementById("right");
-    button1.onclick = buttonUp;
-    button2.onclick = buttonLeft;
-    button3.onclick = buttonDown;
-    button4.onclick = buttonRight;
-    button1.value="Up";
-    button2.value="Left";
-    button3.value="Down";
-    button4.value="Right";
+function resetButtons() {
+    var gameButtons = document.getElementById('gameButtons');
+    gameButtons.style.display = "revert";
 }
 
-function button1Event(){
+function button1Event() {
     option = 1;
 }
 
-function button2Event(){;
+function button2Event() {
+    ;
     option = 2;
 }
 
-function button3Event(){
+function button3Event() {
     option = 3;
 }
 
-function button4Event(){
+function button4Event() {
     option = 4;
 }
