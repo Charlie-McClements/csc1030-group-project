@@ -79,7 +79,7 @@ function endChallenge() {
     var buttonDisplay = document.getElementById('buttons');
 
     clearInterval(running);
-    challengeStarted == false;
+    challengeStarted = false;
     charx = returnx;
     chary = returny;
     boardDisplay.style.display = "revert";

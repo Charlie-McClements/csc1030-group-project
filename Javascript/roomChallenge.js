@@ -298,7 +298,7 @@ function endRoomChallenge() {
     var boardDisplay = document.getElementById('board');
     var buttonDisplay = document.getElementById('buttons');
     var roomChoices = document.getElementById('roomTextChoice')
-    
+    challengeStarted = false;
     boardDisplay.style.display = "revert";
     buttonDisplay.style.display = "revert";
     roomChoices.style.display = "none";

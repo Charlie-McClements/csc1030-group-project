@@ -296,11 +296,12 @@ select:focus {
 #storybox {
     background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
     box-shadow: 0px 5px;
-    height: 125px;
+    min-height: 125px;
     width: 610px;
     font-size: 20px;
     padding: 10px;
     margin: auto;
+    overflow:visible;
     /* position:absolute;
     top:30px;                               
     left:50%;
@@ -311,6 +312,7 @@ select:focus {
 .storybox-bottom {
     position: relative;
     height: 28px;
+    margin-bottom:10px;
 }
 
 .storybox-bottom img {

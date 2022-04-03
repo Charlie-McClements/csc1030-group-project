@@ -44,7 +44,6 @@ var sfxHover = new Audio('sfx/sfxHover.wav'); //unused, add with onmouseover
 var sfxDamage = new Audio('sfx/sfxDamage.wav'); // unused, for losing hearts
 var sfxVictory = new Audio('sfx/sfxVictory.wav');
 var sfxMusic = new Audio('sfx/sfxBGM.mp3');
-document.getElementById('music').autoplay = true;
 
 function xmur3(str) {
     for (var i = 0, h = 1779033703 ^ str.length; i < str.length; i++)
@@ -112,6 +111,8 @@ function move(direction) {
                 distanceMoved = distanceMoved + 1;
                 if(challengeStarted == false) { sfxMove.play(); }
             }
+            //check for win
+            win_check();
             break;
         case "up":
             checkx = charx;
@@ -124,6 +125,8 @@ function move(direction) {
                 distanceMoved = distanceMoved + 1;
                 if(challengeStarted == false) { sfxMove.play(); }
             }
+            //check for win
+            win_check();
             break;
         case "right":
             checkx = charx + charSize;
@@ -136,6 +139,8 @@ function move(direction) {
                 distanceMoved = distanceMoved + 1;
                 if(challengeStarted == false) { sfxMove.play(); }
             }
+            //check for win
+            win_check();
             break;
         case "left":
             checkx = charx - 1;
@@ -148,6 +153,8 @@ function move(direction) {
                 distanceMoved = distanceMoved + 1;
                 if(challengeStarted == false) { sfxMove.play(); }
             }
+            //check for win
+            win_check();
             break;
     }
 }
@@ -180,8 +187,8 @@ window.addEventListener("keydown", function (event) {   //handles keyboard input
     event.preventDefault();
 }, true);
 
-function win_check(move) {
-    if (move == 'challenge') return;  //guard clause to prevent player accidentally winning whilst they are playing a challenge 
+function win_check() {
+    if (challengeStarted) return;  //guard clause to prevent player accidentally winning whilst they are playing a challenge 
     var canvas = gameCanvas.getContext('2d');
     var colour = canvas.getImageData(charx + 5, chary + 5, 1, 1).data;
     if (colour[0] == winColourQ[0] && colour[1] == winColourQ[1] && colour[2] == winColourQ[2]) {
@@ -381,14 +388,13 @@ function update_ui() {
     }
 }
 
-const img = new Image();        
-img.src = 'images/char.png';
 
 // update function
 function update(move) {
-    if(torchStrength < charSize *2)torchStrength = charSize*2;
-    //check for win
-    win_check(move);
+    if(challengeStarted){
+        console.log("challenge started");
+    };
+    if(torchStrength < charSize *2)torchStrength = charSize*2;    
     // draw background      
     /*for(let inc = 0;inc<allCells.length;inc++){
         context.fillStyle = floorColour;
