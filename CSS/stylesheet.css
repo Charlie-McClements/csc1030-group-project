@@ -327,22 +327,6 @@ select:focus {
     transform:translate(-50%, -50%);*/
 }
 
-
-#buttons {
-    background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
-    box-shadow: 0px 5px;
-    height: 100px;
-    width: 210px;
-    text-align: center;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, 10%);
-    /* position:absolute;
-    top:30px;                               
-    left:50%;
-    transform:translate(-145%); */
-}
-
 #statCard {
     border: 2px solid #930C10;
     border-radius: 10px;
@@ -385,14 +369,14 @@ select:focus {
 #down,
 #right,
 #left {
-    margin-top: 7px;
-    margin-bottom: 5px;
-    width: 30%;
-    height: 40%;
-    color: #303030;
-    background-image: radial-gradient(100% 100% at 100% 0, lightgray 0, lightgray 100%);
-    text-transform: uppercase;
-    font-weight: bold;
+    width: 50%;
+    height: 50px;
+    background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
+    color: white;
+    font-size: 80%;
+    padding: 10px;
+    margin: 0 auto;
+    float: left;
 }
 
 #Spider1,

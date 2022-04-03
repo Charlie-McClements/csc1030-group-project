@@ -38,11 +38,12 @@ charx = wallSize;
 chary = wallSize;
 
 // sound
-var sfxMove = new Audio('sfx/sfxMove.wav'); // bug: sound never plays after skipping pressure plate challenge
+var sfxMove = new Audio('sfx/sfxMove.wav'); // bug: sound never plays after skipping pressure plate challenge fixed
 var sfxClick = new Audio('sfx/sfxClick.wav');
 var sfxHover = new Audio('sfx/sfxHover.wav'); //unused, add with onmouseover
 var sfxDamage = new Audio('sfx/sfxDamage.wav'); // unused, for losing hearts
 var sfxVictory = new Audio('sfx/sfxVictory.wav');
+var sfxMusic = new Audio('sfx/sfxBGM.mp3');
 document.getElementById('music').autoplay = true;
 
 function xmur3(str) {
@@ -120,7 +121,6 @@ function move(direction) {
             if (colour[0] == floorColourQ[0] && colour[1] == floorColourQ[1] && colour[2] == floorColourQ[2]) {
                 chary -= square;
                 lastMove = 'down';
-                startSpiderChallenge()
                 distanceMoved = distanceMoved + 1;
                 if(challengeStarted == false) { sfxMove.play(); }
             }
@@ -186,6 +186,7 @@ function win_check(move) {
     var colour = canvas.getImageData(charx + 5, chary + 5, 1, 1).data;
     if (colour[0] == winColourQ[0] && colour[1] == winColourQ[1] && colour[2] == winColourQ[2]) {
         endScreen('You won!');
+        sfxMusic.pause();
         charx = wallSize;
         chary = wallSize;
         sfxVictory.play();
@@ -380,7 +381,8 @@ function update_ui() {
     }
 }
 
-   
+const img = new Image();        
+img.src = 'images/char.png';
 
 // update function
 function update(move) {

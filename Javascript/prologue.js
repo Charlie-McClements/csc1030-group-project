@@ -60,6 +60,7 @@ function prologue(){
 }
 
 function startPrologue(){
+    sfxMusic.play();
     challengeStarted = true;
     currentTorch = torchStrength;
     first = true;

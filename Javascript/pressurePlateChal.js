@@ -47,7 +47,7 @@ function endPressurePChal() {
     var story = document.getElementById("storyText")    
     if(challengeProgress == true) {
         clearInterval(running);
-        challengeStarted == false;
+        challengeStarted = false;
         charx = returnx;
         chary = returny;
         pressurepGame.style.display = "none";
@@ -73,7 +73,7 @@ function skipPlateChallenge() {
     pressurepGame.style.display = "none";
     boardDisplay.style.display = "revert";
     buttonDisplay.style.display = "revert";
-    challengeStarted == false;
+    challengeStarted = false;
     charx = returnx;
     chary = returny;
     torchStrength = 50;

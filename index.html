@@ -3,8 +3,6 @@
 
 <head>
     <title>Group project</title>
-    <audio id="music"src="sfx/sfxBGM.mp3" autoplay loop controls></audio> <!-- dont know how to hide it and autoplay -->
-
     <!-- Scripts -->
     <script src="Javascript/jquery-3.6.0.min.js"></script>
     <script src="Javascript/buttons.js"></script>
@@ -191,7 +189,7 @@
 
         <!-- Random room challenge -->
         <div id="startRoomVisualiser" style="display: none;">
-            <img src="images\plates_challenge.png" alt="Plates Challenge" />
+            <img src="images\pit.png" alt="Plates Challenge" />
         </div>
         <div id="roomTextChoice" style="display: none;">
             <div id="roomTextStyle">
@@ -208,8 +206,8 @@
 
 
         <!-- Buttons -->
-        <div id="buttons">
-            <input onclick="buttonUp()" type="button" value="up" id="up" /></br>
+        <div id = 'buttons' style="width: 610px; margin:10px auto 200px;">
+            <input onclick="buttonUp()" type="button" value="up" id="up" />
             <input onclick="buttonLeft()" type="button" value="left" id="left" />
             <input onclick="buttonDown()" type="button" value="down" id="down" />
             <input onclick="buttonRight()" type="button" value="right" id="right" />
