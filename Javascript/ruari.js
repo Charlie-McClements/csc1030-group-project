@@ -91,6 +91,7 @@ function accessBackButton() {
 function begin() {
     document.getElementById('avatarDetails').className = "hideMe"
     document.getElementById('gameScreen').className = "showMe"
+
     sfxClick.play();
 
     characterName = document.getElementById('characterName').value;

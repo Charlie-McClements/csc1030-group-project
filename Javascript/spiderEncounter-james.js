@@ -35,7 +35,7 @@ function spiderChallenge() {
         }
         else if (option == 2) {
             story.innerHTML = "Unlucky! The spider has eaten you.";
-            board.style.backgroundImage = "url(images/button_challenge_failed.png)";
+            board.style.backgroundImage = "url(images/spider_lose.png)";
             returnx = wallSize;
             returny = wallSize;
             setTimeout(() => { completed = true; }, 3000);
@@ -47,7 +47,7 @@ function spiderChallenge() {
         }
         else if (option == 3) {
             story.innerHTML = "Unlucky! You werent strong enough";
-            board.style.backgroundImage = "url(images/button_challenge_failed.png)";
+            board.style.backgroundImage = "url(images/spider_lose.png)";
             setTimeout(() => { completed = true; }, 3000);
             if (first == true) { //need this clause as this if statement is triggered more than once before the timeout finishes
                 first = false;
@@ -58,7 +58,7 @@ function spiderChallenge() {
 
         else if (option == 4) {
             story.innerHTML = "Challenge skipped!";
-            board.style.backgroundImage = "url(images/button_challenge_failed.png)";
+            board.style.backgroundImage = "url(images/spider_skip.png)";
             setTimeout(() => { completed = true; }, 3000);
             if (first == true) { //need this clause as this if statement is triggered more than once before the timeout finishes
                 first = false;
@@ -111,7 +111,7 @@ function startSpiderChallenge() {
 
     var bg = document.getElementById('spiderChallengeDiv');
     bg.style.display = "flex";
-    bg.style.backgroundImage = "url(images/button_challenge.png)";
+    bg.style.backgroundImage = "url(images/spider_start.png)";
 
 
 
@@ -130,8 +130,8 @@ function startSpiderChallenge() {
     button4.onclick = button4Event;
     button1.innerHTML = "Attack with your torch! However, torch strength will decrease!";
     button2.innerHTML = "Try run past, you might be quick enough.";
-    button4.innerHTML = "Attack with your fists";
-    button3.innerHTML = "Skip this challenge (Lose a life and torch strength!)";
+    button3.innerHTML = "Attack with your fists";
+    button4.innerHTML = "Skip this challenge (Lose a life and torch strength!)";
 
     story = document.getElementById("storyText")
     //var board = document.getElementById('gameScreen');

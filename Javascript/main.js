@@ -43,6 +43,7 @@ var sfxClick = new Audio('sfx/sfxClick.wav');
 var sfxHover = new Audio('sfx/sfxHover.wav'); //unused, add with onmouseover
 var sfxDamage = new Audio('sfx/sfxDamage.wav'); // unused, for losing hearts
 var sfxVictory = new Audio('sfx/sfxVictory.wav');
+document.getElementById('music').autoplay = true;
 
 function xmur3(str) {
     for (var i = 0, h = 1779033703 ^ str.length; i < str.length; i++)
@@ -119,6 +120,7 @@ function move(direction) {
             if (colour[0] == floorColourQ[0] && colour[1] == floorColourQ[1] && colour[2] == floorColourQ[2]) {
                 chary -= square;
                 lastMove = 'down';
+                startSpiderChallenge()
                 distanceMoved = distanceMoved + 1;
                 if(challengeStarted == false) { sfxMove.play(); }
             }
