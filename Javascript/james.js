@@ -1,7 +1,6 @@
 
 // things to do
 
-// number of moves made by character
 // make a challenge,
 // end screen fixer upper
 
