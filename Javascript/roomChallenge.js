@@ -4,6 +4,7 @@ var wrongPotion = 3;
 
 function startRoomChal() {
     console.log("poop")
+    challengeStarted = true;
     var chalStartVisuals = document.getElementById('startRoomVisualiser')
     chalStartVisuals.style.display = "initial";
     var boardDisplay = document.getElementById('board');

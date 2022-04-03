@@ -192,6 +192,10 @@ function win_check(move) {
     }
 }
 
+function resetGame(){
+    window.location.reload();
+}
+
 function populate_grid() {
     wallNumber = (canvas.width + wallSize) / difficulty;
     wallSpace = charSize + wallSize;
