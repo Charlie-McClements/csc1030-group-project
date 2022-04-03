@@ -16,6 +16,7 @@
     <script src="Javascript/spiderEncounter-james.js"></script>
     <script src="Javascript/prologue.js"></script>
     <script src="Javascript/riddle_challenge.js"></script>
+    <script src="Javascript/roomChallenge.js"></script>
 
 
 
@@ -135,7 +136,7 @@
                 <button id="showGameDisplay" onclick="enterChallenge()">Enter Pressure Plate Puzzle</button>
                 <button id="skipPressurePChal" onclick="skipPlateChallenge()">Skip</button><br>
             </div>
-            
+
         </div>
         <div id="game-container-1" class="game-container" style="display: none;">
             <div id="map-and-controls">
@@ -162,6 +163,23 @@
             <script src="Javascript/mazeScript-RC.js"></script>
         </div>
 
+        <!-- Random room challenge -->
+        <div id="startRoomVisualiser" style="display: none;">
+            <img src="images\plates_challenge.png" alt="Plates Challenge" />
+        </div>
+        <div id="roomTextChoice" style="display: none;">
+            <div id="roomTextStyle">
+                <input type="text" name="decision" id="decision">
+                <button id="submitChoice" onclick="submitChoice()">Enter</button><br>
+                <button class="choice" id="choice1" onclick="choice1()">Search</button>
+                <button class="choice" id="choice2" onclick="choice2()">Investigate</button>
+                <br>
+                <button class="choice" id="choice3" onclick="choice3()">N/A</button>
+                <button class="choice" id="choice4" onclick="choice4()">N/A</button>
+            </div>
+
+        </div>
+
 
         <!-- Buttons -->
         <div id="buttons">
@@ -170,6 +188,8 @@
             <input onclick="buttonDown()" type="button" value="down" id="down" />
             <input onclick="buttonRight()" type="button" value="right" id="right" />
         </div>
+
+        <button id="roomblehbleh" onclick="startRoomChal()">Enter Room Puzzle</button>
     </div>
 
     </div>
@@ -194,20 +214,23 @@
                     <!-- Time -->
                     <tr>
                         <td> Time Left </td>
-                        <td>  <span id="minutesLeft">00</span>:<span id="secondsLeft">00</span> </td>
+                        <td> <span id="minutesLeft">00</span>:<span id="secondsLeft">00</span> </td>
                     </tr>
                     <!-- Distance -->
                     <tr>
                         <td> Distance Moved </td>
-                        <td>  <span id="distanceTravelledStat"></span> </td>
+                        <td> <span id="distanceTravelledStat"></span> </td>
                     </tr>
                 </tbody>
             </table>
-             <!-- Credits -->
-            <h6>Created by Ruari Craig, Charlie McClements, Charlie Ogilby, James McAlea<br>Music by Kevin MacLeod, incompetech.com; sound effects created with sfxr.me<br><br>Thanks for playing!</h6>
+            <!-- Credits -->
+            <h6>Created by Ruari Craig, Charlie McClements, Charlie Ogilby, James McAlea<br>Music by Kevin MacLeod,
+                incompetech.com; sound effects created with sfxr.me<br><br>Thanks for playing!</h6>
             <input onclick="resetGame()" type="button" value="Continue" id="reset" />
         </div>
     </div>
+
+
 </body>
 
 </html>

@@ -6,6 +6,52 @@ body.success {
     transition: 0.2s ease;
 }
 
+
+/* Room Challenge */
+#startRoomVisualiser img {
+    display: block;
+    max-width: 610px;
+    height: 610px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#roomTextStyle {
+    padding: 20px;
+    text-align: center;
+    border: 2px #930C10 solid;
+    width: 60%;
+    margin: auto;
+}
+
+#roomTextChoice input[type=text] {
+    border: 2px solid #930C10;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 30px, 10px, 80px;
+    width: 50%;
+    font-size: 300%;
+    font-family: monospace;
+    background-color: #90ee90;
+}
+#roomTextChoice input[type=text]:focus {
+    border: 4px solid #930C10;
+    background-color: lightblue;
+}
+
+.choice{
+    padding: 10px;
+    margin: 10px;
+    font-size: 300%;
+    font-weight: bold;
+    background-color: #FFFEBD;
+    color: rgb(83, 83, 83);
+    border: 4px #930C10 solid;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
 /* Maze Visualiser Styling */
 #pressurepVisualiser img {
     display: block;

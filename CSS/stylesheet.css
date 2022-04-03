@@ -277,9 +277,8 @@ select:focus {
     /* position:absolute;
     left:50%;
     top:60%;
-    transform:translate(-50%, -50%);                 */
+    transform:translate(-50%, -50%);*/
 }
-
 
 #buttons{
     background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
@@ -359,3 +358,5 @@ select:focus {
 #endScreen {
     text-align: center;
 }
+
+

@@ -58,8 +58,8 @@ function endPressurePChal() {
         } else if(currentLanguage == 'Spanish') {
             story.innerHTML = "Uf, lo lograste";
         }
-        visionTimer();
-
+        //visionTimer();
+        torchStrength += 30;
         
     }
 }
@@ -86,7 +86,7 @@ function skipPlateChallenge() {
     }
 }
 
-var visionTimerInterval;
+/*var visionTimerInterval;
 var visionDuration;
 
 function visionTimer() {
@@ -108,4 +108,4 @@ function visionCountdown() {
         torchStrength = 150;
         visionStopTimer();
     }
-}
+}*/
