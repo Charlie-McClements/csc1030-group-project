@@ -23,6 +23,10 @@ function endScreen(message) {
     var distance = distanceMoved;
     document.getElementById('distanceTravelledStat').innerHTML = distance;
 
+    // challenges completed
+    var challengesStat = challengesEncountered;
+    document.getElementById('challengesComp').innerHTML = challengesStat;
+
     // lives left
     var liveLeft1 = document.getElementById('livesLeftStat1');
     var liveLeft2 = document.getElementById('livesLeftStat2');
