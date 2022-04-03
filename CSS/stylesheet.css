@@ -343,6 +343,24 @@ select:focus {
     text-transform: uppercase;
     font-weight: bold;
 }
+
+#Spider1, #Spider2, #Spider3, #Spider4 {
+    width: 50%;
+    height: 50px;
+    background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
+    color: white;
+    font-size: 80%;
+    padding: 10px;
+    margin:0 auto;
+    float:left;
+}
+
+#spiderChallengeDiv {
+    width: 610px;
+    height: 610px;
+    margin: auto;
+    
+}
 /* #down{
     width:30%;
     height:40%;

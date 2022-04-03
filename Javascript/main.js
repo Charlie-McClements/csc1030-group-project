@@ -32,11 +32,16 @@ var winColour = 'rgba(0,256,0, 256)';
 var winColourQ = [0, 255, 0, 255];
 var charColour = 'rgb(255,128,0)';
 
-
-
 // character starting position
 charx = wallSize;
 chary = wallSize;
+
+// sound
+var sfxMove = new Audio('sfx/sfxMove.wav'); // bug: sound never plays after skipping pressure plate challenge
+var sfxClick = new Audio('sfx/sfxClick.wav');
+var sfxHover = new Audio('sfx/sfxHover.wav'); //unused, add with onmouseover
+var sfxDamage = new Audio('sfx/sfxDamage.wav'); // unused, for losing hearts
+var sfxVictory = new Audio('sfx/sfxVictory.wav');
 
 function xmur3(str) {
     for (var i = 0, h = 1779033703 ^ str.length; i < str.length; i++)
@@ -102,6 +107,7 @@ function move(direction) {
                 chary += square;
                 lastMove = 'up';
                 distanceMoved = distanceMoved + 1;
+                if(challengeStarted == false) { sfxMove.play(); }
             }
             break;
         case "up":
@@ -113,6 +119,7 @@ function move(direction) {
                 chary -= square;
                 lastMove = 'down';
                 distanceMoved = distanceMoved + 1;
+                if(challengeStarted == false) { sfxMove.play(); }
             }
             break;
         case "right":
@@ -124,6 +131,7 @@ function move(direction) {
                 charx += square;
                 lastMove = 'left';
                 distanceMoved = distanceMoved + 1;
+                if(challengeStarted == false) { sfxMove.play(); }
             }
             break;
         case "left":
@@ -135,6 +143,7 @@ function move(direction) {
                 charx -= square;
                 lastMove = 'right';
                 distanceMoved = distanceMoved + 1;
+                if(challengeStarted == false) { sfxMove.play(); }
             }
             break;
     }
@@ -176,6 +185,7 @@ function win_check(move) {
         endScreen('You won!');
         charx = wallSize;
         chary = wallSize;
+        sfxVictory.play();
     }
 }
 

@@ -24,7 +24,7 @@ function randomChallenge() {
             index = challenges.indexOf("spider");
             challenges.splice(index,1);
             console.log(challenges);
-            //startChallenge3();
+            startSpiderChallenge();
             break;
         case "jugs":
             index = challenges.indexOf("jugs");

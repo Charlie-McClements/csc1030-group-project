@@ -73,21 +73,25 @@ function decreaseTorch() {
 function startButton() {
     document.getElementById('startScreen').className = "hideMe"
     document.getElementById('avatarDetails').className = "showMe"
+    sfxClick.play();
 }
 
 function accessibilityButton() {
     document.getElementById('startScreen').className = "hideMe"
     document.getElementById('accessibilityScreen').className = "showMe"
+    sfxClick.play();
 }
 
 function accessBackButton() {
     document.getElementById('startScreen').className = "showMe"
     document.getElementById('accessibilityScreen').className = "hideMe"
+    sfxClick.play();
 }
 
 function begin() {
     document.getElementById('avatarDetails').className = "hideMe"
     document.getElementById('gameScreen').className = "showMe"
+    sfxClick.play();
 
     characterName = document.getElementById('characterName').value;
 

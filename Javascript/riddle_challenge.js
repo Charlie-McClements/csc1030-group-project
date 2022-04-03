@@ -41,7 +41,7 @@ function riddleChallenge(){
             pass = true;
         }
         else if(option == 2){
-            story.innerHTML = "Carry on, try not to loose your way!";
+            story.innerHTML = "Carry on, try not to lose your way!";
             board.style.backgroundImage = "url(images/riddle_challenge_open.png)";
             currentTorch -= 50;         
             setTimeout(() => {completed = true;}, 3000);        
