@@ -45,6 +45,39 @@
         </div>
     </div>
 
+    <!-- Customise Screen -->
+    <div id="customise" class="hideMe">
+        <div id="customiseCharacterTitle">
+            Character Selector
+        </div>
+        <div id="characterSelect">
+
+            <!-- Set Character Colour -->
+            <label for="spriteColour"><u>            Character Colour            </u></label><br>
+            <select name="sprite" id="spriteColour" onchange="changeSprite();">
+                <option value="white">White</option>
+                <option value="lightcoral">Light coral</option>
+                <option value="yellow">Yellow</option>
+                <option value="orange">Orange</option>
+
+            </select>
+            <br><br>
+
+            <!-- Set BackGround Colour -->
+            <label for="bgColour"><u>Background Colour</u></label><br>
+            <select name="background" id="bgColour" onchange="changeBg();">
+                <option value="black">Normal</option>
+                <option value="rgb(96, 85, 141)">Original</option>
+            </select>
+            <br><br>
+
+        </div>
+
+        <button id="return" onclick="returnToMenu()">Return</button>
+        <br><br>
+
+    </div>
+
     <!-- Declare Avatar Details Screen -->
 
     <div id="avatarDetails" class="hideMe">
@@ -77,13 +110,6 @@
             </select>
             <br><br>
 
-            <!-- Set BackGround Colour -->
-            <label for="bgColour"><u>Background Colour</u></label><br>
-            <select name="background" id="bgColour" onchange="changeBg();">
-                <option value="black">Normal</option>
-                <option value="rgb(96, 85, 141)">Original</option>
-            </select>
-            <br><br>
         </div>
 
         <div id="avatarButton">
@@ -135,7 +161,7 @@
                 <button id="showGameDisplay" onclick="enterChallenge()">Enter Pressure Plate Puzzle</button>
                 <button id="skipPressurePChal" onclick="skipPlateChallenge()">Skip</button><br>
             </div>
-            
+
         </div>
         <div id="game-container-1" class="game-container" style="display: none;">
             <div id="map-and-controls">
@@ -206,22 +232,23 @@
                     <!-- Time -->
                     <tr>
                         <td> Time Left </td>
-                        <td>  <span id="minutesLeft">00</span>:<span id="secondsLeft">00</span> </td>
+                        <td> <span id="minutesLeft">00</span>:<span id="secondsLeft">00</span> </td>
                     </tr>
                     <!-- Distance -->
                     <tr>
                         <td> Distance Moved </td>
-                        <td>  <span id="distanceTravelledStat"></span> </td>
+                        <td> <span id="distanceTravelledStat"></span> </td>
                     </tr>
                     <!-- Challenges -->
                     <tr>
                         <td> Challenges Encountered</td>
-                        <td>  <span id="challengesComp"></span> </td>
+                        <td> <span id="challengesComp"></span> </td>
                     </tr>
                 </tbody>
             </table>
-             <!-- Credits -->
-            <h6>Created by Ruari Craig, Charlie McClements, Charlie Ogilby, James McAlea<br>Music by Kevin MacLeod, incompetech.com; sound effects created with sfxr.me<br><br>Thanks for playing!</h6>
+            <!-- Credits -->
+            <h6>Created by Ruari Craig, Charlie McClements, Charlie Ogilby, James McAlea<br>Music by Kevin MacLeod,
+                incompetech.com; sound effects created with sfxr.me<br><br>Thanks for playing!</h6>
             <input onclick="resetGame()" type="button" value="Continue" id="reset" />
         </div>
     </div>

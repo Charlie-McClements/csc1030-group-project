@@ -56,3 +56,29 @@ function changeBg() {
     var bg = document.getElementById('bgColour').value;
     document.body.style.backgroundColor = bg;
 }
+
+function changeSprite(){
+    var colour = document.getElementById('spriteColour').value;
+    charColour = colour;
+}
+
+function customizeButton() {
+    document.getElementById('startScreen').className = "hideMe"
+    document.getElementById('customise').className = "showMe"
+    sfxClick.play();
+}
+
+function returnToMenu(){
+    document.getElementById('startScreen').className = "showMe"
+    document.getElementById('customise').className = "hideMe"
+}
+
+function drawSprite(charx, chary, charSize){
+    sprite = document.createElement('div');
+    sprite.style.backgroundImage = 'url(images/heart.png)';
+    sprite.style.width = charSize+'px';
+    sprite.style.height = charSize+'px';
+    var boardDiv = document.getElementById("board");
+    boardDiv.appendChild(sprite);
+    console.log('complete');
+}
