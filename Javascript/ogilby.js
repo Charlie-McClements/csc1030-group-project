@@ -30,6 +30,7 @@ function randomChallenge() {
                     index = challenges.indexOf("jugs");
                     challenges.splice(index, 1);
                     console.log(challenges);
+                    startWaterChallenge();
                     break;
                 case "riddle":
                     index = challenges.indexOf("riddle");

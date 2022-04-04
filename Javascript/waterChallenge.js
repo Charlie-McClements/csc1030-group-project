@@ -7,14 +7,20 @@ var returnx = 0;
 var returny = 0;
 var first = true;
 var currentTorch;
+var bigJ=  0;
+var smallJ = 0;
 
 function waterChallenge(){
     var board = document.getElementById("challengeBoard");
     story = document.getElementById("storyText")
+    //place code for disoplayijg iimages here
+
+    //if big j has 4parts then completed = true
     if(completed === true){ //if the challenge is over and you want to go back to the main screen
         clearInterval(running);
         var cBoard = document.getElementById('challengeBoard');
         var mazeCanvas = document.getElementById("gameCanvas");
+        story.innerHTML = "Find the trapdoor!";
         mazeCanvas.className = "showMe";
         cBoard.remove();
         resetButtons();
@@ -22,21 +28,34 @@ function waterChallenge(){
         charx = returnx;
         chary = returny;  
         torchStrength = currentTorch;    
-        torchStrength += 20;  
+        torchStrength += 60;  
     }
     else{
         if(option == 1){
-            story.innerHTML = "Well done! That's done the trick!"
-            screen.style.backgroundImage = "url(images/water/water_challenge0-0.png)";
+            story.innerHTML = "Fill Up Big Jug"
+            bigJ = 5;
+            board.style.backgroundImage = "url(images/water/water_challenge0-0.png)";
         }
         else if (option == 2){   
-            story.innerHTML = "I'm sure it did something...";            
-            completed == true;
+            story.innerHTML = "Pour Big Jug Into Small Jug";
+            var spaceInSmallJug = 3 - smallJ;
+            if(bigJ > spaceInSmallJug){
+                smallJ = 3
+                bigJ -= spaceInSmallJug;
+            }
+            else{
+                smallJ += bigJ;
+                bigJ = 0;
+            }
         }
         else if(option == 3){
+            story.innerHTML = "Empty Small Jug";
+            smallJ = 0; 
         }
 
         else if(option == 4){
+            story.innerHTML = "Empty Big Jug";
+            bigJ = 0;
         }
     }
 }
@@ -81,8 +100,47 @@ function startWaterChallenge(){
     story.innerHTML = " Before you stands a raised slab holding two empty vases; your adventurer's intuition tells you that one vase can hold THREE LITRES, and the other can hold FIVE LITRES. Glyphs promise a great reward to anyone wise enough to pour out exactly four gallons of water. However, it warns of a swift death befalling anyone who would try and fail.";
     //var board = document.getElementById('gameScreen');
     //board.className = "hideMe";
-    running = setInterval(challenge1, 1000/FPS);
+    running = setInterval(waterStartScreen, 1000/FPS);
     
+}
+
+function waterStartScreen(){
+    if(option == 1){
+        clearInterval(running);
+        var button1 = document.getElementById("up");
+        var button2 = document.getElementById("left");
+        var button3 = document.getElementById("down");
+        var button4 = document.getElementById("right");
+        button1.value="Option 1";
+        button1.style.fontSize = "10px";
+        button2.value="Option 2";
+        button2.style.fontSize = "10px";
+        button3.value="Option 3";
+        button3.style.fontSize = "10px";
+        button4.value="Option 4";
+        button4.style.fontSize = "10px";
+        running = setInterval(waterChallenge, 1000/FPS);
+    }
+    else if (option == 2){   
+        story = document.getElementById("storyText")
+        clearInterval(running);
+        var cBoard = document.getElementById('challengeBoard');
+        var mazeCanvas = document.getElementById("gameCanvas");
+        story.innerHTML = "Find the trapdoor!";
+        mazeCanvas.className = "showMe";
+        cBoard.remove();
+        resetButtons();
+        challengeStarted = false;
+        charx = returnx;
+        chary = returny;  
+        torchStrength = currentTorch;    
+        torchStrength -= 20;  
+    }
+    else if(option == 3){
+    }
+
+    else if(option == 4){
+    }
 }
 
 function resetButtons(){
