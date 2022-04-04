@@ -6,7 +6,7 @@ function randomChallenge() {
         if (challengeStarted == false) {
             var r = challenges[getRndInteger(challenges.length)];
             var index;
-            challengesEncountered += 1;
+            
             switch (r) {
                 case "buttons":
                     index = challenges.indexOf("buttons"); //these two lines prevents the same challenge appearing twice
@@ -45,7 +45,9 @@ function randomChallenge() {
                     break;
                 default:
                     return;
+                
             }
+            console.log(challengesEncountered);
         }
     }
 }

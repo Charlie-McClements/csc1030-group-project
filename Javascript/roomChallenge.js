@@ -302,4 +302,5 @@ function endRoomChallenge() {
     boardDisplay.style.display = "revert";
     buttonDisplay.style.display = "revert";
     roomChoices.style.display = "none";
+    challengesEncountered ++;
 }

@@ -25,6 +25,7 @@ function endScreen(message) {
 
     // challenges completed
     var challengesStat = challengesEncountered;
+    if(challengesStat>6)challengesStat=6;
     document.getElementById('challengesComp').innerHTML = challengesStat;
 
     // lives left

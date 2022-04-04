@@ -24,6 +24,7 @@ function spiderChallenge() {
         challengeStarted = false;
         charx = returnx;
         chary = returny;
+        challengesEncountered ++;
     }
     else {
         
