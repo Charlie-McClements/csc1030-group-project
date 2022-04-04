@@ -13,7 +13,6 @@ function randomChallenge() {
                     challenges.splice(index, 1)
                     console.log(challenges);
                     startChallenge1();
-
                     break;
                 case "maze":
                     index = challenges.indexOf("maze");
@@ -31,7 +30,6 @@ function randomChallenge() {
                     index = challenges.indexOf("jugs");
                     challenges.splice(index, 1);
                     console.log(challenges);
-                    //startChallenge4();
                     break;
                 case "riddle":
                     index = challenges.indexOf("riddle");
