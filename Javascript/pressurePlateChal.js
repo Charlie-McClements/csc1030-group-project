@@ -60,7 +60,6 @@ function endPressurePChal() {
         }
         //visionTimer();
         torchStrength += 30;
-        challengesEncountered ++;
     }
 }
 
@@ -84,7 +83,6 @@ function skipPlateChallenge() {
         var story = document.getElementById("storyText")
         story.innerHTML = "Te saltaste y tu antorcha se debilitó apretando la trampilla, ahora disfruta de la falta de visibilidad";
     }
-    challengesEncountered ++;
 }
 
 /*var visionTimerInterval;

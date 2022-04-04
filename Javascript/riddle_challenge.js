@@ -28,7 +28,6 @@ function riddleChallenge(){
         chary = returny;  
         torchStrength = currentTorch;    
         torchStrength += 30;  
-        challengesEncountered ++;
     }
     else{
         if (option == 1){   
