@@ -96,13 +96,6 @@ function begin() {
 
     characterName = document.getElementById('characterName').value;
 
-    gender = document.getElementsByName('gender');
-    /*for(var i=0; i<gender.length; i++) {
-        if(gender[i].checked) {
-           
-        }
-    }*/
-
     challenge = document.getElementById('difficulty').value;
     if(challenge == 'Easy'){
         setDifficulty(10);
