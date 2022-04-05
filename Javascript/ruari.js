@@ -44,7 +44,7 @@ function countdown() {
         document.getElementById('minutes').innerHTML = minutes;
         document.getElementById('seconds').innerHTML = seconds;
     } else {
-        endScreen('Out of time!');
+        endScreen('Unlucky, '+characterName+'. Out of time!');
         stopTimer();
     }
 }

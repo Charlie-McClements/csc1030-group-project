@@ -1,9 +1,3 @@
-
-// things to do
-
-// make a challenge,
-// end screen fixer upper
-
 function endScreen(message) {
     
 
@@ -16,8 +10,6 @@ function endScreen(message) {
     var secondsLeft = document.getElementById('secondsLeft');
     minutesLeft.innerHTML = minutes;
     secondsLeft.innerHTML = seconds;
-
-    console.log(minutes, seconds);
 
     // distance travelled
     var distance = distanceMoved;
