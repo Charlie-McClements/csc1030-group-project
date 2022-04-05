@@ -53,22 +53,9 @@ function decreaseTorch() {
     if (torchStrength >= 50) {
         torchStrength = torchStrength - 0.33;
     } else {
-        clearInterval(myTimer);
+        clearInterval(myTorchStrength);
     }
 }
-
-/*function dialogueButton() {
-    if (dialogue < 8) {
-        document.getElementById('dialogue' + dialogue).className = "hideMe";
-        dialogue++;
-        document.getElementById('dialogue' + dialogue).className = "showMe";
-    } else {
-        document.getElementById('dialogue' + dialogue).className = "hideMe";
-        document.getElementById('gameText').className = "hideMe";
-        // dialogue++;
-        // document.getElementById('dialogue'+dialogue).className = "hideMe";
-    }
-}*/
 
 function startButton() {
     document.getElementById('startScreen').className = "hideMe"
