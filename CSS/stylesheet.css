@@ -43,6 +43,7 @@ b {
 
 }
 
+/*Start Screen*/
 #startScreen {
     text-align: center;
     width:100%;
@@ -50,6 +51,7 @@ b {
     color: rgb(83, 83, 83);
 }
 
+/*Start Screen - Title*/
 #title {
     color: white;
     padding: 10px;
@@ -62,6 +64,7 @@ b {
     z-index: 1;
 }
 
+/*Start Screen - Buttons*/
 #button {
     padding: 20px;
     margin: 20px;
@@ -70,6 +73,7 @@ b {
     z-index: 1;
 }
 
+/*Start Button*/
 #startButton {
     padding: 5px;
     font-size: 400%;
@@ -83,6 +87,7 @@ b {
     color: blue;
 }
 
+/*Customise Button*/
 #customizeButton {
     padding: 5px;
     font-size: 400%;
@@ -98,6 +103,41 @@ b {
     color: blue;
 }
 
+/*Customise Screen CSS*/
+#customise {
+    text-align: center;
+    color: rgb(83, 83, 83);
+    clear: both;
+    overflow: auto;
+}
+
+#customiseCharacterTitle {
+    color: white;
+    padding: 10px;
+    font-size: 500%;
+    font-weight: bold;
+    margin: auto;
+    text-align: center;
+    
+}
+
+.backButton {
+    padding: 10px;
+    margin: 10px;
+    font-size: 250%;
+    font-weight: bold;
+    background-color: #FFFEBD;
+    color: rgb(83, 83, 83);
+    border: 4px #930C10 solid;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.backButton:hover {
+    background-color: rgb(255, 187, 187);
+}
+
+/*Accessibility Button*/
 #accessibilityButton {
     padding: 5px;
     font-size: 400%;
@@ -157,10 +197,6 @@ b {
     margin: auto;
 }
 
-#GameOverText {
-    font-size: 100%;
-}
-
 #characterSelect {
     border: 5px solid #930C10;
     background-color: #FFFEBD;
@@ -169,16 +205,6 @@ b {
     padding: 20px;
     /*New*/
     width: 60%;
-}
-
-#customiseCharacterTitle {
-    color: white;
-    padding: 10px;
-    font-size: 500%;
-    font-weight: bold;
-    margin: auto;
-    text-align: center;
-    
 }
 
 input[type=text] {
@@ -256,23 +282,6 @@ select:focus {
     background-color: rgb(255, 187, 187);
 }
 
-#return{
-    padding: 5px;
-    font-size: 250%;
-    font-weight: bold;
-    background-color: #FFFEBD;
-    color: rgb(83, 83, 83);
-    border: 4px #930C10 solid;
-    border-radius: 15px;
-    cursor: pointer;
-    position: relative;
-    margin: 0 auto;
-}
-
-#return:hover {
-    background-color: rgb(255, 187, 187);
-}
-
 #gameScreen {
     text-align: center;
     font-family: monospace;
@@ -327,6 +336,10 @@ select:focus {
     left:50%;
     top:60%;
     transform:translate(-50%, -50%);*/
+}
+
+#GameOverText {
+    font-size: 100%;
 }
 
 #statCard {

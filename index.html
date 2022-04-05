@@ -20,9 +20,9 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="CSS/stylesheet.css" />
+    <link id="pagestyle" rel="stylesheet" type="text/css" href="CSS/stylesheet.css" />
     <link rel="stylesheet" type="text/css" href="CSS/mazeStyle-RC.css" />
-    <link rel="stylesheet" type="text/css" href="CSS/tooltips.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="CSS/tooltips.css" /> -->
 </head>
 
 <body>
@@ -31,6 +31,7 @@
 
     <div id="startScreen" class="showMe">
         <video autoplay muted loop id="myVideo">
+            <!-- https://www.pexels.com/video/lighted-candle-855262/ -->
             <source src="video\Lighted Candle_Trim.mp4" type="video/mp4">
         </video>
         <div id="title">
@@ -53,16 +54,22 @@
         <div id="characterSelect">
 
             <!-- Set Character Colour -->
-            <label for="spriteColour"><u>            Character Colour            </u></label><br>
-            <select name="sprite" id="spriteColour" onchange="changeSprite();">
-                <option value="white">White</option>
-                <option value="lightcoral">Light coral</option>
-                <option value="yellow">Yellow</option>
-                <option value="orange">Orange</option>
+            <label><u> Character Colour </u></label><br>
+            <div class="radio">
+                <input type="radio" name="color" id="orange" value="orange" onchange="changeSprite1();" checked>
+                <label for="orange">Orange</label>
 
-            </select>
-            <br><br>
+                <input type="radio" name="color" id="white" value="white" onchange="changeSprite2();">
+                <label for="white">White</label>
 
+                <input type="radio" name="color" id="lightcoral" value="lightcoral" onchange="changeSprite3();">
+                <label for="lightcoral">Lightcoral</label>
+
+                <input type="radio" name="color" id="yellow" value="yellow" onchange="changeSprite4();">
+                <label for="yellow">Yellow</label>
+                <br><br>
+            </div>
+            
             <!-- Set BackGround Colour -->
             <label for="bgColour"><u>Background Colour</u></label><br>
             <select name="background" id="bgColour" onchange="changeBg();">
@@ -72,10 +79,44 @@
             <br><br>
 
         </div>
+        <div class="returnStartScreen">
+            <button class="backButton" onclick="returnToMenu()">Return</button>
+        </div>
+    </div>
 
-        <button id="return" onclick="returnToMenu()">Return</button>
-        <br><br>
+    <!-- Accessibility Screen -->
 
+    <div id="accessibilityScreen" class="hideMe">
+        <div class="row">
+            <div class="col1" id="accessibilityChoice">
+                <div class="radio" id="sizeChoice" onmouseover="sizeInfo()" onmouseout="clearInfo()">
+                    <input type="radio" name="size" id="normalSize" value="normal"
+                        onchange="swapStyleSheet('CSS/stylesheet.css')" checked="checked">
+                    <label id="normalSized" for="normalSize">Normal</label>
+
+                    <input type="radio" name="size" id="largeSize" value="large"
+                        onchange="swapStyleSheet('CSS/stylesheetLarge.css')">
+                    <label id="largeSized" for="largeSize">Large</label>
+
+                    <input type="radio" name="size" id="hugeSize" value="huge"
+                        onchange="swapStyleSheet('CSS/stylesheetHuge.css')">
+                    <label id="hugeSized" for="hugeSize">Huge</label>
+                    <br><br>
+                </div>
+                <div id="languageChoice" onmouseover="languageInfo()" onmouseout="clearInfo()">
+                    <select name="language" id="language" onchange="changeLanguage()">
+                        <option id="englishText" value="English" selected>English</option>
+                        <option id="spanishText" value="Spanish">Spanish</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col2" id="accessibilityDescription">
+                hello hello
+            </div>
+        </div>
+        <div class="returnStartScreen">
+            <button class="backButton" onclick="accessBackButton()">Back</button>
+        </div>
     </div>
 
     <!-- Declare Avatar Details Screen -->
@@ -86,27 +127,16 @@
         </div>
         <div id="characterSelect">
             <!-- Choose Name -->
-            <label for="characterName"><u>Character Name</u></label><br>
+            <label id="characterNamed" for="characterName"><u>Character Name</u></label><br>
             <input type="text" name="characterName" id="characterName">
             <br><br>
 
-            <!-- Choose Gender -->
-            <u>Gender</u><br>
-            <div class="radio">
-                <input type="radio" name="gender" id="male" value="Male">
-                <label for="male">Male</label>
-
-                <input type="radio" name="gender" id="female" value="Female">
-                <label for="female">Female</label>
-                <br><br>
-            </div>
-
             <!-- Set Difficulty -->
-            <label for="difficulty"><u>Maze Difficulty</u></label><br>
+            <label id="mDifficulty" for="difficulty"><u>Maze Difficulty</u></label><br>
             <select name="difficulty" id="difficulty">
-                <option value="Easy">Easy</option>
-                <option value="Medium">Medium</option>
-                <option value="Hard">Hard</option>
+                <option id="easyDiff" value="Easy">Easy</option>
+                <option id="mediumDiff" value="Medium" selected>Medium</option>
+                <option id="hardDiff" value="Hard">Hard</option>
             </select>
             <br><br>
 
@@ -144,6 +174,7 @@
                     <div id="live1" class="lifeHeart"></div>
                     <div id="live2" class="lifeHeart"></div>
                     <button onclick="startWaterChallenge()">Water</button>
+                    <button onclick="startRoomChal()">Room</button>
                 </div>
             </div>
         </div>
@@ -189,9 +220,9 @@
             <script src="Javascript/mazeScript-RC.js"></script>
         </div>
 
-        <!-- Random room challenge -->
+        <!-- Random room challenge - hidden until challenge activated -->
         <div id="startRoomVisualiser" style="display: none;">
-            <img src="images\pit.png" alt="Plates Challenge" />
+            <img src="images\pit.png" alt="Trap Door" />
         </div>
         <div id="roomTextChoice" style="display: none;">
             <div id="roomTextStyle">
@@ -208,7 +239,7 @@
 
 
         <!-- Buttons -->
-        <div id = 'buttons' style="width: 610px; margin:10px auto 200px;">
+        <div id='buttons' style="width: 610px; margin:10px auto 200px;">
             <input onclick="buttonUp()" type="button" value="up" id="up" />
             <input onclick="buttonLeft()" type="button" value="left" id="left" />
             <input onclick="buttonDown()" type="button" value="down" id="down" />
@@ -226,8 +257,6 @@
             <button id="Spider4" class="hideMe">Button4</button>
 
         </div>
-
-        <button id="roomblehbleh" onclick="startRoomChal()">Enter Room Puzzle</button>
     </div>
 
     </div>

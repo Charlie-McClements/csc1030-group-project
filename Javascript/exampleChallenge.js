@@ -18,7 +18,11 @@ function challenge1(){
         var cBoard = document.getElementById('challengeBoard');
         var mazeCanvas = document.getElementById("gameCanvas");
         mazeCanvas.className = "showMe";
-        story.innerHTML = "Find the trapdoor!";
+        if(currentLanguage == 'English') {
+            story.innerHTML = "Find the trapdoor!";
+        } else if(currentLanguage == 'Spanish') {
+            story.innerHTML = "¡Encuentra la trampilla!";
+        }
         cBoard.remove();
         resetButtons();
         challengeStarted = false;
@@ -30,16 +34,28 @@ function challenge1(){
     else{
         if(pass == true && pass1 == true){
             board.style.backgroundImage = "url(images/button_challenge_cleared.png)";
-            story.innerHTML = "Well done! That's done the trick!" 
+            if(currentLanguage == 'English') {
+                story.innerHTML = "Well done! That's done the trick!";
+            } else if(currentLanguage == 'Spanish') {
+                story.innerHTML = "¡Bien hecho! ¡Eso ha hecho el truco!";
+            }
             setTimeout(() => {completed = true;}, 3000);       
                  
         }
         else if (option == 1 && pass != true){   
-            story.innerHTML = "I'm sure it did something...";            
+            if(currentLanguage == 'English') {
+                story.innerHTML = "I'm sure it did something...";
+            } else if(currentLanguage == 'Spanish') {
+                story.innerHTML = "Estoy seguro de que hizo algo ...";
+            }          
             pass = true;
         }
         else if(option == 2){
-            story.innerHTML = "Well now that's unfortunate";
+            if(currentLanguage == 'English') {
+                story.innerHTML = "Well now that's unfortunate";
+            } else if(currentLanguage == 'Spanish') {
+                story.innerHTML = "Bueno, eso es desafortunado";
+            }
             board.style.backgroundImage = "url(images/button_challenge_failed.png)";
             returnx = wallSize;
             returny = wallSize;            
@@ -52,7 +68,11 @@ function challenge1(){
             
         }
         else if(option == 3 && pass1 != true){
-            story.innerHTML = "I'm sure it did something...";
+            if(currentLanguage == 'English') {
+                story.innerHTML = "I'm sure it did something...";
+            } else if(currentLanguage == 'Spanish') {
+                story.innerHTML = "Estoy seguro de que hizo algo ...";
+            }
             pass1 = true;
         }
 
@@ -91,15 +111,16 @@ function startChallenge1(){
     button3.onclick = button3Event;
     button4.onclick = button4Event;
     button1.value="Left Button";
-    button1.style.fontSize = "10px";
     button2.value="Middle Button";
-    button2.style.fontSize = "10px";
     button3.value="Right Button";
-    button3.style.fontSize = "10px";
     button4.value="";
-    button4.style.fontSize = "10px";
     story = document.getElementById("storyText")
-    story.innerHTML = "If I'm not mistaken, pressing two of those buttons will open the gate. Unfortunately one will also send you down the trapdoor....";
+    //story.innerHTML = "If I'm not mistaken, pressing two of those buttons will open the gate. Unfortunately one will also send you down the trapdoor....";
+    if(currentLanguage == 'English') {
+        story.innerHTML = "If I'm not mistaken, pressing two of those buttons will open the gate. Unfortunately one will also send you down the trapdoor...";
+    } else if(currentLanguage == 'Spanish') {
+        story.innerHTML = "Si no me equivoco, presionar dos de esos botones abrira la puerta. Desafortunadamente, uno tambien te enviara por la trampilla...";
+    }
     //var board = document.getElementById('gameScreen');
     //board.className = "hideMe";
     running = setInterval(challenge1, 1000/FPS);

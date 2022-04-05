@@ -13,19 +13,30 @@ var step = 0;
 var dialogue = ["Welcome to the Oubliette! There is a trapdoor in the corner of the maze somewhere, you have 5 minutes to find it and climb out to escape.",
                 "But beware! You will face obstacles and challenges along the way which may set you back.",
                 "You have five minutes before the trapdoor gets locked and you'll be trapped here forever! Good Luck!"]
+var dialogueSpanish = ["¡Bienvenidos a la Mazmorra! Hay una trampilla en la esquina del laberinto en algun lugar, tienes 5 minutos para encontrarla y salir para escapar.",
+                    "¡Pero cuidado! Te enfrentaras a obstaculos y desafios en el camino que pueden hacerte retroceder.",
+                    "¡Tienes cinco minutos antes de que se cierre la trampilla y te quedaras atrapado aqui para siempre! ¡Buena suerte!"]
 var prologueImages = ["url(images/prologue_1.png)", "url(images/button_challenge.png)", "url(images/empty_room.png)"]
 
 function prologue(){
     var board = document.getElementById("challengeBoard");    
     story = document.getElementById("storyText");
-    story.innerHTML = dialogue[step];
+    if(currentLanguage == 'English') {
+        story.innerHTML = dialogue[step];
+    } else if(currentLanguage == 'Spanish') {
+        story.innerHTML = dialogueSpanish[step];
+    }
     board.style.backgroundImage = prologueImages[step];
     if(completed === true){ //if the challenge is over and you want to go back to the main screen
         clearInterval(running);
         var cBoard = document.getElementById('challengeBoard');
         var mazeCanvas = document.getElementById("gameCanvas");
         mazeCanvas.className = "showMe";
-        story.innerHTML = "Find the trapdoor!";
+        if(currentLanguage == 'English') {
+            story.innerHTML = "Find the trapdoor!";
+        } else if(currentLanguage == 'Spanish') {
+            story.innerHTML = "¡Encuentra la trampilla!";
+        }
         cBoard.remove();
         resetButtons();
         challengeStarted = false;
@@ -87,13 +98,9 @@ function startPrologue(){
     button3.onclick = button3Event;
     button4.onclick = button4Event;
     button1.value="Previous";
-    button1.style.fontSize = "10px";
     button2.value="Continue";
-    button2.style.fontSize = "10px";
     button3.value="Skip Prologue";
-    button3.style.fontSize = "10px";
     button4.value="";
-    button4.style.fontSize = "10px";
     story = document.getElementById("storyText")    
     //var board = document.getElementById('gameScreen');
     //board.className = "hideMe";

@@ -89,13 +89,9 @@ function startWaterChallenge(){
     button3.onclick = button3Event;
     button4.onclick = button4Event;
     button1.value="Attempt challenge";
-    button1.style.fontSize = "10px";
     button2.value="Skip challenge";
-    button2.style.fontSize = "10px";
     button3.value="";
-    button3.style.fontSize = "10px";
     button4.value="";
-    button4.style.fontSize = "10px";
     story = document.getElementById("storyText")
     story.innerHTML = " Before you stands a raised slab holding two empty vases; your adventurer's intuition tells you that one vase can hold THREE LITRES, and the other can hold FIVE LITRES. Glyphs promise a great reward to anyone wise enough to pour out exactly four gallons of water. However, it warns of a swift death befalling anyone who would try and fail.";
     //var board = document.getElementById('gameScreen');
@@ -112,13 +108,9 @@ function waterStartScreen(){
         var button3 = document.getElementById("down");
         var button4 = document.getElementById("right");
         button1.value="Option 1";
-        button1.style.fontSize = "10px";
         button2.value="Option 2";
-        button2.style.fontSize = "10px";
         button3.value="Option 3";
-        button3.style.fontSize = "10px";
         button4.value="Option 4";
-        button4.style.fontSize = "10px";
         running = setInterval(waterChallenge, 1000/FPS);
     }
     else if (option == 2){   

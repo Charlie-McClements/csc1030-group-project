@@ -58,8 +58,20 @@ function changeBg() {
     document.body.style.backgroundColor = bg;
 }
 
-function changeSprite(){
-    var colour = document.getElementById('spriteColour').value;
+function changeSprite1(){
+    var colour = document.getElementById('orange').value;
+    charColour = colour;
+}
+function changeSprite2(){
+    var colour = document.getElementById('white').value;
+    charColour = colour;
+}
+function changeSprite3(){
+    var colour = document.getElementById('lightcoral').value;
+    charColour = colour;
+}
+function changeSprite4(){
+    var colour = document.getElementById('yellow').value;
     charColour = colour;
 }
 

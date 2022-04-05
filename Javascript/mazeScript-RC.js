@@ -1,3 +1,5 @@
+//Maze tutorial helped with design: https://medium.com/codex/build-a-maze-game-with-vanilla-javascript-part-1-of-2-ddfd35e84e93
+
 let levels = []; //will have 3 properties: map, player coords, goal coords
 
 levels[0] = {
@@ -209,7 +211,7 @@ Game.prototype.updateVert = function() {
         story.innerHTML = "This pressure plate seems safe";
     } else if(currentLanguage == 'Spanish') {
         var story = document.getElementById("storyText")
-        story.innerHTML = "Esta placa de presión parece segura";
+        story.innerHTML = "Esta placa de presion parece segura";
     }
 }
 
@@ -220,7 +222,7 @@ Game.prototype.updateHoriz = function(sprite) {
         story.innerHTML = "This pressure plate seems safe";
     } else if(currentLanguage == 'Spanish') {
         var story = document.getElementById("storyText")
-        story.innerHTML = "Esta placa de presión parece segura";
+        story.innerHTML = "Esta placa de presion parece segura";
     }
 }
 
@@ -232,7 +234,7 @@ Game.prototype.updateToStart = function() {
         story.innerHTML = "The pressure plate is a trapdoor, the floor disappears beneath your feet and suddenly your dropped back at the start. Some pressure plates must be dummies";
     } else if(currentLanguage == 'Spanish') {
         var story = document.getElementById("storyText")
-        story.innerHTML = "La placa de presión es una trampilla, el suelo desaparece bajo tus pies y de repente te vuelves a caer al principio. Algunas placas de presión deben ser ficticias";
+        story.innerHTML = "La placa de presión es una trampilla, el suelo desaparece bajo tus pies y de repente te vuelves a caer al principio. Algunas placas de presion deben ser ficticias";
     }
 }
 

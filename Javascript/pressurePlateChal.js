@@ -18,7 +18,7 @@ function startPressurePChal() {
         story.innerHTML = "There appears to be a grid of Pressure Plates blocking the path in the corridor. There appears to be a trapdoor on the right saying: 'Skip but there will be consequences!'. Do you dare take on the challenge or risk the consequences?";
     } else if(currentLanguage == 'Spanish') {
         var story = document.getElementById("storyText")
-        story.innerHTML = "Parece que hay una cuadrícula de placas de presión bloqueando el camino en el corredor. Parece haber una trampilla a la derecha que dice: '¡Sáltate pero habrá consecuencias!'. ¿Te atreves a asumir el reto o te arriesgas a las consecuencias?";
+        story.innerHTML = "Parece que hay una cuadricula de placas de presion bloqueando el camino en el corredor. Parece haber una trampilla a la derecha que dice: '¡Saltate pero habra consecuencias!'. ¿Te atreves a asumir el reto o te arriesgas a las consecuencias?";
     }
     
 }
@@ -34,7 +34,7 @@ function enterChallenge() {
         story.innerHTML = "This pressure plate seems solid";
     } else if(currentLanguage == 'Spanish') {
         var story = document.getElementById("storyText")
-        story.innerHTML = "Esta placa de presión parece sólida";
+        story.innerHTML = "Esta placa de presion parece solida";
     }
 
     running = setInterval(endPressurePChal, 1000);
@@ -81,7 +81,7 @@ function skipPlateChallenge() {
         story.innerHTML = "You skipped and your torch was weakened squeezing in the trapdoor, now enjoy a lack of visibility";
     } else if(currentLanguage == 'Spanish') {
         var story = document.getElementById("storyText")
-        story.innerHTML = "Te saltaste y tu antorcha se debilitó apretando la trampilla, ahora disfruta de la falta de visibilidad";
+        story.innerHTML = "Te saltaste y tu antorcha se debilito apretando la trampilla, ahora disfruta de la falta de visibilidad";
     }
 }
 

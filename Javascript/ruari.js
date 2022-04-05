@@ -124,10 +124,18 @@ function begin() {
 }
 
 function sizeInfo() {
-    document.getElementById('accessibilityDescription').innerHTML = 'Select game text size if you have troubled vision. <br>Normal = 1x text size<br>Large = 1.5x text size<br>Huge = 2x text size'
+    if(currentLanguage == 'English') {
+        document.getElementById('accessibilityDescription').innerHTML = 'Select game text size if you have troubled vision. <br>Normal = 1x text size<br>Large = 1.5x text size<br>Huge = 2x text size';
+    } else if(currentLanguage == 'Spanish') {
+        document.getElementById('accessibilityDescription').innerHTML = 'Seleccione el tamano del texto del juego si tiene problemas de vision. <br>Normal = 1x tamano de texto<br>Grande = 1.5x tamano de texto<br>Enorme = 2x tamano de texto';
+    }
 }
 function languageInfo() {
-    document.getElementById('accessibilityDescription').innerHTML = 'Select language to play the game in. <br>Current options: English, Spanish'
+    if(currentLanguage == 'English') {
+        document.getElementById('accessibilityDescription').innerHTML = 'Select language to play the game in. <br>Current options: English, Spanish'
+    } else if(currentLanguage == 'Spanish') {
+        document.getElementById('accessibilityDescription').innerHTML = 'Seleccione el idioma para jugar. <br>Opciones actuales: ingles, espanol';
+    }
 }
 function clearInfo() {
     document.getElementById('accessibilityDescription').innerHTML = '';
@@ -157,36 +165,25 @@ function changeToSpanish() {
     document.getElementById('normalSized').innerHTML = 'Normal';
     document.getElementById('largeSized').innerHTML = 'Grande';
     document.getElementById('hugeSized').innerHTML = 'Enorme';
-    document.getElementById('englishText').innerHTML = 'Inglés';
-    document.getElementById('spanishText').innerHTML = 'Español';
-    document.getElementById('backButton').innerHTML = 'Atrás';
+    document.getElementById('englishText').innerHTML = 'Ingles';
+    document.getElementById('spanishText').innerHTML = 'Espanol';
+    document.getElementById('backButton').innerHTML = 'Atras';
     //Start Screen
     document.getElementById('startButton').innerHTML = 'Empezar juego';
-    document.getElementById('customizeButton').innerHTML = 'Personalización';
+    document.getElementById('customizeButton').innerHTML = 'Personalizacion';
     document.getElementById('accessibilityButton').innerHTML = 'Funciones de accesibilidad';
     //Avatar Details Screen
     document.getElementById('avatarTitle').innerHTML = 'Detalles del avatar';
     document.getElementById('characterNamed').innerHTML = '<u>Nombre del personaje</u>';
-    document.getElementById('genderText').innerHTML = '<u>Género</u>';
-    document.getElementById('maleG').innerHTML = 'Masculino';
-    document.getElementById('femaleG').innerHTML = 'Mujer';
     document.getElementById('mDifficulty').innerHTML = '<u>Dificultad del laberinto</u>';
-    document.getElementById('easyDiff').innerHTML = 'Fácil';
+    document.getElementById('easyDiff').innerHTML = 'Facil';
     document.getElementById('mediumDiff').innerHTML = 'Medio';
     document.getElementById('hardDiff').innerHTML = 'Duro';
-    document.getElementById('bgColourText').innerHTML = '<u>Color de fondo</u>';
-    document.getElementById('normalCol').innerHTML = 'Normal';
-    document.getElementById('orginalCol').innerHTML = 'Original';
     document.getElementById('begin').innerHTML = 'Comienzo';
     //Game Screen
     document.getElementById('timer').innerHTML = 'Tiempo restante: <span id="minutes">00</span>:<span id="seconds">00</span>';
-    // document.getElementById('storyText').innerHTML = 'Start';
-    document.getElementById('up').value = 'arriba'
-    document.getElementById('left').value = 'izquierdo'
-    document.getElementById('down').value = 'abajo'
-    document.getElementById('right').value = 'derecho'
     //Pressure Plate Challenge
-    document.getElementById('showGameDisplay').innerHTML = 'Introduzca el rompecabezas de la placa de presión';
+    document.getElementById('showGameDisplay').innerHTML = 'Introduzca el rompecabezas de la placa de presion';
     document.getElementById('skipPressurePChal').innerHTML = 'Saltar';
     document.getElementById('success-msg').innerHTML = 'Meta alcanzada';
 }
@@ -206,24 +203,13 @@ function changeToEnglish() {
     //Avatar Details Screen
     document.getElementById('avatarTitle').innerHTML = 'Avatar Details';
     document.getElementById('characterNamed').innerHTML = '<u>Character Name</u>';
-    document.getElementById('genderText').innerHTML = '<u>Gender</u>';
-    document.getElementById('maleG').innerHTML = 'Male';
-    document.getElementById('femaleG').innerHTML = 'Female';
     document.getElementById('mDifficulty').innerHTML = '<u>Maze Difficulty</u>';
     document.getElementById('easyDiff').innerHTML = 'Easy';
     document.getElementById('mediumDiff').innerHTML = 'Medium';
     document.getElementById('hardDiff').innerHTML = 'Hard';
-    document.getElementById('bgColourText').innerHTML = '<u>Background Colour</u>';
-    document.getElementById('normalCol').innerHTML = 'Normal';
-    document.getElementById('orginalCol').innerHTML = 'Original';
     document.getElementById('begin').innerHTML = 'Start';
     //Game Screen
     document.getElementById('timer').innerHTML = 'Time Left: <span id="minutes">00</span>:<span id="seconds">00</span>';
-    // document.getElementById('storyText').innerHTML = 'Start';
-    document.getElementById('up').value = 'up'
-    document.getElementById('left').value = 'left'
-    document.getElementById('down').value = 'down'
-    document.getElementById('right').value = 'right'
     //Pressure Plate Challenge
     document.getElementById('showGameDisplay').innerHTML = 'Enter Pressure Plate Puzzle';
     document.getElementById('skipPressurePChal').innerHTML = 'Skip';

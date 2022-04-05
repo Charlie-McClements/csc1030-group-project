@@ -1,19 +1,22 @@
-*{
+* {
     box-sizing: border-box;
     font-family: monospace;
 }
+
 body {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
-    background-color: blueviolet;
+    background-color: yellow;
 }
+
 p {
     color: lightgray;
     margin: 7px;
     font-size: 23px;
 }
+
 b {
     color: #303030;
     background-color: lightgray;
@@ -22,30 +25,37 @@ b {
 }
 
 .showMe {
-    display:initial;
+    display: initial;
 }
 
 .hideMe {
-    display:none;
+    display: none;
 }
+
 /*Start Screen CSS*/
 #myVideo {
     position: fixed;
     right: 0;
     bottom: 0;
-    width: 100%; 
+    width: 100%;
     height: 100%;
+    background-color: rgb(0,0,0);
+
 }
 
+/*Start Screen*/
 #startScreen {
     text-align: center;
-    color:rgb(83, 83, 83);
+    width:100%;
+    height: 100%;
+    color: rgb(83, 83, 83);
 }
 
+/*Start Screen - Title*/
 #title {
     color: white;
     padding: 10px;
-    font-size: 1500%;
+    font-size: 1000%;
     font-weight: bold;
     margin: auto;
     width: 40%;
@@ -54,6 +64,7 @@ b {
     z-index: 1;
 }
 
+/*Start Screen - Buttons*/
 #button {
     padding: 20px;
     margin: 20px;
@@ -62,20 +73,24 @@ b {
     z-index: 1;
 }
 
-#startButton{
+/*Start Button*/
+#startButton {
     padding: 5px;
-    font-size: 600%;
+    font-size: 400%;
     font-weight: bold;
     color: white;
     background-color: transparent;
     cursor: pointer;
 }
+
 #startButton:hover {
     color: blue;
 }
-#customizeButton{
+
+/*Customise Button*/
+#customizeButton {
     padding: 5px;
-    font-size: 600%;
+    font-size: 400%;
     font-weight: bold;
     color: white;
     cursor: pointer;
@@ -83,13 +98,49 @@ b {
     transform: translate(0%, 40%);
     background-color: transparent;
 }
+
 #customizeButton:hover {
     color: blue;
 }
 
-#accessibilityButton{
+/*Customise Screen CSS*/
+#customise {
+    text-align: center;
+    color: rgb(83, 83, 83);
+    clear: both;
+    overflow: auto;
+}
+
+#customiseCharacterTitle {
+    color: white;
+    padding: 10px;
+    font-size: 750%;
+    font-weight: bold;
+    margin: auto;
+    text-align: center;
+    
+}
+
+.backButton {
+    padding: 10px;
+    margin: 10px;
+    font-size: 375%;
+    font-weight: bold;
+    background-color: #FFFEBD;
+    color: rgb(83, 83, 83);
+    border: 4px #930C10 solid;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.backButton:hover {
+    background-color: rgb(255, 187, 187);
+}
+
+/*Accessibility Button*/
+#accessibilityButton {
     padding: 5px;
-    font-size: 600%;
+    font-size: 400%;
     font-weight: bold;
     color: white;
     cursor: pointer;
@@ -97,6 +148,7 @@ b {
     transform: translate(0%, 80%);
     background-color: transparent;
 }
+
 #accessibilityButton:hover {
     color: blue;
 }
@@ -104,14 +156,16 @@ b {
 /*Accessibility Screen CSS*/
 #accessibilityScreen {
     text-align: center;
-    color:rgb(83, 83, 83);
+    color: rgb(83, 83, 83);
     clear: both;
     overflow: auto;
 }
+
 .row {
     clear: both;
     overflow: auto;
 }
+
 .col1,
 .col2 {
     width: 48%;
@@ -129,22 +183,18 @@ b {
 #avatarDetails {
     text-align: center;
     font-family: monospace;
-    color:rgb(83, 83, 83);
+    color: rgb(83, 83, 83);
 }
 
 #avatarTitle {
     /*background-color: black;*/
     color: white;
     padding: 10px;
-    font-size: 750%;
+    font-size: 500%;
     font-weight: bold;
 
     /*New*/
     margin: auto;
-}
-
-#GameOverText {
-    font-size: 150%;
 }
 
 #characterSelect {
@@ -166,6 +216,7 @@ input[type=text] {
     font-size: 24px;
     font-family: monospace;
 }
+
 input[type=text]:focus {
     border: 4px solid #930C10;
 }
@@ -175,6 +226,7 @@ input[type=text]:focus {
     position: fixed;
     width: 0;
 }
+
 .radio label {
     display: inline-block;
     background-color: rgb(255, 255, 255);
@@ -184,12 +236,14 @@ input[type=text]:focus {
     margin: 10px;
     /*font-family: sans-serif, Arial;*/
     font-size: 24px;
-    
+
 }
+
 .radio label:hover {
     background-color: rgb(255, 221, 221);
 }
-.radio input[type="radio"]:checked + label {
+
+.radio input[type="radio"]:checked+label {
     background-color: rgb(255, 187, 187);
     border-color: rgb(204, 68, 68);
 }
@@ -203,6 +257,7 @@ select {
     font-size: 24px;
     font-family: monospace;
 }
+
 select:focus {
     border: 4px solid #930C10;
 }
@@ -222,6 +277,7 @@ select:focus {
     border-radius: 15px;
     cursor: pointer;
 }
+
 #begin:hover {
     background-color: rgb(255, 187, 187);
 }
@@ -229,12 +285,12 @@ select:focus {
 #gameScreen {
     text-align: center;
     font-family: monospace;
-    color:rgb(83, 83, 83);
+    color: rgb(83, 83, 83);
     /*background-color: rgb(96, 85, 141);*/
     height: 100%;
 }
 
-#timer{
+#timer {
     background-color: #FFFEBD;
     font-family: monospace;
     font-size: 27px;
@@ -248,12 +304,13 @@ select:focus {
 
 #storybox {
     background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
-    box-shadow: 0px 5px;                
-    height:125px;
+    box-shadow: 0px 5px;
+    min-height: 125px;
     width: 610px;
     font-size: 30px;
     padding: 10px;
     margin: auto;
+    overflow:visible;
     /* position:absolute;
     top:30px;                               
     left:50%;
@@ -264,6 +321,7 @@ select:focus {
 .storybox-bottom {
     position: relative;
     height: 28px;
+    margin-bottom:10px;
 }
 
 .storybox-bottom img {
@@ -272,28 +330,16 @@ select:focus {
     bottom: 0;
 }
 
-#board{
+#board {
     position: relative;
     /* position:absolute;
     left:50%;
     top:60%;
-    transform:translate(-50%, -50%);                 */
+    transform:translate(-50%, -50%);*/
 }
 
-
-#buttons{
-    background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
-    box-shadow: 0px 5px;                
-    height:100px;
-    width: 210px;
-    text-align: center; 
-    position: relative;                             
-    left:50%;
-    transform:translate(-50%, 10%);
-    /* position:absolute;
-    top:30px;                               
-    left:50%;
-    transform:translate(-145%); */
+#GameOverText {
+    font-size: 150%;
 }
 
 #statCard {
@@ -317,32 +363,58 @@ select:focus {
 #statCard tr:nth-child(even) {
     background: rgba(204, 204, 204, 0.541)
 }
+
 #statCard tr:nth-child(odd) {
     background: rgba(255, 255, 255, 0.541)
 }
 
 
-#statCard tr:hover{
+#statCard tr:hover {
     background-color: #fa00001f;
 }
 
-.lifeHeart{
-    width:40px; 
-    height:40px; 
+.lifeHeart {
+    width: 40px;
+    height: 40px;
     display: inline-flex;
-    margin:5px;
+    margin: 5px;
 }
 
-#up, #down, #right, #left{
-    margin-top:7px;
-    margin-bottom:5px;
-    width:30%;
-    height:40%;
-    color: #303030;
-    background-image: radial-gradient(100% 100% at 100% 0, lightgray 0, lightgray 100%);
-    text-transform: uppercase;
-    font-weight: bold;
+#up,
+#down,
+#right,
+#left {
+    width: 50%;
+    height: 50px;
+    background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
+    color: white;
+    font-size: 120%;
+    padding: 10px;
+    margin: 0 auto;
+    float: left;
 }
+
+#Spider1,
+#Spider2,
+#Spider3,
+#Spider4 {
+    width: 50%;
+    height: 50px;
+    background-image: radial-gradient(100% 100% at 100% 0, #363636 0, #262626 100%);
+    color: white;
+    font-size: 120%;
+    padding: 10px;
+    margin: 0 auto;
+    float: left;
+}
+
+#spiderChallengeDiv {
+    width: 610px;
+    height: 610px;
+    margin: auto;
+
+}
+
 /* #down{
     width:30%;
     height:40%;
@@ -359,3 +431,5 @@ select:focus {
 #endScreen {
     text-align: center;
 }
+
+

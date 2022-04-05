@@ -20,7 +20,12 @@ function riddleChallenge(){
         aBox.remove();
         var mazeCanvas = document.getElementById("gameCanvas");
         mazeCanvas.className = "showMe";
-        story.innerHTML = "Find the trapdoor!";
+        //story.innerHTML = "Find the trapdoor!";
+        if(currentLanguage == 'English') {
+            story.innerHTML = "Find the trapdoor!";
+        } else if(currentLanguage == 'Spanish') {
+            story.innerHTML = "¡Encuentra la trampilla!";
+        }
         cBoard.remove();
         resetButtons();
         challengeStarted = false;
@@ -35,19 +40,34 @@ function riddleChallenge(){
             var answer = ansBox.value;
             if(answer == "candle" || answer == "Candle"){
                 board.style.backgroundImage = "url(images/riddle_challenge_open.png)";
-                story.innerHTML = "Well aren't you clever... Enjoy the extra flicker in your flame!";  
+                //story.innerHTML = "Well aren't you clever... Enjoy the extra flicker in your flame!";  
+                if(currentLanguage == 'English') {
+                    story.innerHTML = "Well aren't you clever... Enjoy the extra flicker in your flame!";
+                } else if(currentLanguage == 'Spanish') {
+                    story.innerHTML = "Bueno, ¿no eres inteligente? ¡Disfruta del parpadeo adicional en tu llama!";
+                }
                 setTimeout(() => {completed = true;}, 3000);              
             }         
             pass = true;
         }
         else if(option == 2){
-            story.innerHTML = "Carry on, try not to lose your way!";
+            //story.innerHTML = "Carry on, try not to lose your way!";
+            if(currentLanguage == 'English') {
+                story.innerHTML = "Carry on, try not to lose your way!";
+            } else if(currentLanguage == 'Spanish') {
+                story.innerHTML = "¡Continua, trata de no perderte!";
+            }
             board.style.backgroundImage = "url(images/riddle_challenge_open.png)";
             currentTorch -= 50;         
             setTimeout(() => {completed = true;}, 3000);        
         }
         else if(option == 3){
-            story.innerHTML = "I'm sure it did something...";
+            //story.innerHTML = "I'm sure it did something...";
+            if(currentLanguage == 'English') {
+                story.innerHTML = "I'm sure it did something...";
+            } else if(currentLanguage == 'Spanish') {
+                story.innerHTML = "Estoy seguro de que hizo algo...";
+            }
             pass1 = true;
         }
 
@@ -93,15 +113,16 @@ function startRiddleChallenge(){
     button3.onclick = button3Event;
     button4.onclick = button4Event;
     button1.value="Submit Answer";
-    button1.style.fontSize = "10px";
     button2.value="Carry On";
-    button2.style.fontSize = "10px";
     button3.value="";
-    button3.style.fontSize = "10px";
     button4.value="";
-    button4.style.fontSize = "10px";
     story = document.getElementById("storyText")
-    story.innerHTML = "Solve the riddle to add flame to your torch. Carry on and you could turn wrong!";
+    //story.innerHTML = "Solve the riddle to add flame to your torch. Carry on and you could turn wrong!";
+    if(currentLanguage == 'English') {
+        story.innerHTML = "Solve the riddle to add flame to your torch. Carry on and you could turn wrong!";
+    } else if(currentLanguage == 'Spanish') {
+        story.innerHTML = "Resuelve el acertijo para agregar llama a tu antorcha. ¡Continua y podrias equivocarte!";
+    }
     //var board = document.getElementById('gameScreen');
     //board.className = "hideMe";
     running = setInterval(riddleChallenge, 1000/FPS);
