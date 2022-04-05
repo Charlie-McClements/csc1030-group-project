@@ -52,46 +52,47 @@
             Customise
         </div>
         <div id="characterSelect">
-
             <!-- Set Character Colour -->
-            <label><u> Character Colour </u></label><br>
+            <label id="charColourText"><u> Character Colour </u></label><br>
             <div class="radio">
                 <input type="radio" name="color" id="orange" value="orange" onchange="changeSprite1();" checked>
-                <label for="orange">Orange</label>
+                <label id="orangeText" for="orange">Orange</label>
 
                 <input type="radio" name="color" id="white" value="white" onchange="changeSprite2();">
-                <label for="white">White</label>
+                <label id="whiteText" for="white">White</label>
 
                 <input type="radio" name="color" id="lightcoral" value="lightcoral" onchange="changeSprite3();">
-                <label for="lightcoral">Lightcoral</label>
+                <label id="lightcoralText" for="lightcoral">Lightcoral</label>
 
                 <input type="radio" name="color" id="yellow" value="yellow" onchange="changeSprite4();">
-                <label for="yellow">Yellow</label>
+                <label id="yellowText" for="yellow">Yellow</label>
                 <br><br>
             </div>
 
             <!-- Set BackGround Colour -->
-            <label for="bgColour"><u>Background Colour</u></label><br>
+            <label id="bgColourText" for="bgColour"><u>Background Colour</u></label><br>
             <select name="background" id="bgColour" onchange="changeBg();">
-                <option value="black">Normal</option>
-                <option value="rgb(96, 85, 141)">Original</option>
+                <option id="darkText" value="black" selected>Dark</option>
+                <option id="lightText" value="white">Light</option>
+                <option id="devColText" value="rgb(96, 85, 141)">Developer Choice</option>
             </select>
             <br><br>
 
         </div>
         <div class="returnStartScreen">
-            <button class="backButton" onclick="returnToMenu()">Return</button>
+            <button class="backButton" id="backButton1" onclick="returnToMenu()">Return</button>
         </div>
     </div>
 
     <!-- Accessibility Screen -->
 
     <div id="accessibilityScreen" class="hideMe">
-        <div id="avatarTitle">
+        <div class="avatarTitle" id="accessTitle">
             Accessibility
         </div>
         <div class="row">
             <div class="col1" id="accessibilityChoice">
+                <label id="fontText"><u>Font Size</u></label>
                 <div class="radio" id="sizeChoice" onmouseover="sizeInfo()" onmouseout="clearInfo()">
                     <input type="radio" name="size" id="normalSize" value="normal"
                         onchange="swapStyleSheet('CSS/stylesheet.css')" checked="checked">
@@ -106,6 +107,7 @@
                     <label id="hugeSized" for="hugeSize">Huge</label>
                     <br><br>
                 </div>
+                <label id="languageText"><u>Language</u></label>
                 <div id="languageChoice" onmouseover="languageInfo()" onmouseout="clearInfo()">
                     <select name="language" id="language" onchange="changeLanguage()">
                         <option id="englishText" value="English" selected>English</option>
@@ -118,14 +120,14 @@
             </div>
         </div>
         <div class="returnStartScreen">
-            <button class="backButton" onclick="accessBackButton()">Return</button>
+            <button class="backButton" id="backButton2" onclick="accessBackButton()">Return</button>
         </div>
     </div>
 
     <!-- Declare Avatar Details Screen -->
 
     <div id="avatarDetails" class="hideMe">
-        <div id="avatarTitle">
+        <div class="avatarTitle" id="avatarTitle">
             Avatar Details
         </div>
         <div id="characterSelect">

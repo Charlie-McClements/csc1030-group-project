@@ -142,16 +142,31 @@ function changeLanguage() {
 
 function changeToSpanish() {
     //Accessibility Screen
+    document.getElementById('accessTitle').innerHTML = 'Accesibilidad';
+    document.getElementById('fontText').innerHTML = '<u>Tamano de fuente</u>';
     document.getElementById('normalSized').innerHTML = 'Normal';
     document.getElementById('largeSized').innerHTML = 'Grande';
     document.getElementById('hugeSized').innerHTML = 'Enorme';
+    document.getElementById('languageText').innerHTML = '<u>Idioma</u>';
     document.getElementById('englishText').innerHTML = 'Ingles';
     document.getElementById('spanishText').innerHTML = 'Espanol';
-    document.getElementById('backButton').innerHTML = 'Atras';
+    document.getElementById('backButton2').innerHTML = 'Regreso';
     //Start Screen
     document.getElementById('startButton').innerHTML = 'Empezar juego';
     document.getElementById('customizeButton').innerHTML = 'Personalizacion';
     document.getElementById('accessibilityButton').innerHTML = 'Funciones de accesibilidad';
+    //Customise Screen
+    document.getElementById('customiseCharacterTitle').innerHTML = 'Personalizar';
+    document.getElementById('charColourText').innerHTML = '<u> Color del caracter </u>';
+    document.getElementById('orangeText').innerHTML = 'Naranja';
+    document.getElementById('whiteText').innerHTML = 'Blanco';
+    document.getElementById('lightcoralText').innerHTML = 'Coral claro';
+    document.getElementById('yellowText').innerHTML = 'Amarillo';
+    document.getElementById('bgColourText').innerHTML = '<u>Color de fondo</u>';
+    document.getElementById('darkText').innerHTML = 'Oscuro';
+    document.getElementById('lightText').innerHTML = 'Ligero';
+    document.getElementById('devColText').innerHTML = 'Eleccion del desarrollador';
+    document.getElementById('backButton1').innerHTML = 'Regreso';
     //Avatar Details Screen
     document.getElementById('avatarTitle').innerHTML = 'Detalles del avatar';
     document.getElementById('characterNamed').innerHTML = '<u>Nombre del personaje</u>';
@@ -170,16 +185,31 @@ function changeToSpanish() {
 
 function changeToEnglish() {
     //Accessibility Screen
+    document.getElementById('accessTitle').innerHTML = 'Accessibility';
+    document.getElementById('fontText').innerHTML = '<u>Font Size</u>';
     document.getElementById('normalSized').innerHTML = 'Normal';
     document.getElementById('largeSized').innerHTML = 'Large';
     document.getElementById('hugeSized').innerHTML = 'Huge';
+    document.getElementById('languageText').innerHTML = '<u>Language</u>';
     document.getElementById('englishText').innerHTML = 'English';
     document.getElementById('spanishText').innerHTML = 'Spanish';
-    document.getElementById('backButton').innerHTML = 'Back';
+    document.getElementById('backButton2').innerHTML = 'Return';
     //Start Screen
     document.getElementById('startButton').innerHTML = 'Start Game';
     document.getElementById('customizeButton').innerHTML = 'Customisation';
     document.getElementById('accessibilityButton').innerHTML = 'Accessibility Features';
+    //Customise Screen
+    document.getElementById('customiseCharacterTitle').innerHTML = 'Customise';
+    document.getElementById('charColourText').innerHTML = '<u> Character Colour </u>';
+    document.getElementById('orangeText').innerHTML = 'Orange';
+    document.getElementById('whiteText').innerHTML = 'White';
+    document.getElementById('lightcoralText').innerHTML = 'Lightcoral';
+    document.getElementById('yellowText').innerHTML = 'Yellow';
+    document.getElementById('bgColourText').innerHTML = '<u>Background Colour</u>';
+    document.getElementById('darkText').innerHTML = 'Dark';
+    document.getElementById('lightText').innerHTML = 'Light';
+    document.getElementById('devColText').innerHTML = 'Developer Choice';
+    document.getElementById('backButton1').innerHTML = 'Return';
     //Avatar Details Screen
     document.getElementById('avatarTitle').innerHTML = 'Avatar Details';
     document.getElementById('characterNamed').innerHTML = '<u>Character Name</u>';
