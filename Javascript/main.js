@@ -49,7 +49,7 @@ var sfxWater = new Audio('sfx/sfxWater.mp3');
 var sfxMusic = new Audio('sfx/sfxBGM.mp3');
 var sfxMusicBattle = new Audio('sfx/sfxBattleBGM.mp3');
 
-function xmur3(str) {
+function xmur3(str) {   //this code was shown to me by another lecturer in order to generate random numbers based off a seed
     for (var i = 0, h = 1779033703 ^ str.length; i < str.length; i++)
         h = Math.imul(h ^ str.charCodeAt(i), 3432918353),
             h = h << 13 | h >>> 19;
@@ -74,10 +74,6 @@ var rand = mulberry32(seedFunction());
 function getRndInteger(max) {   //produces a random rumber between 0 and max based off the seed
     return Math.floor((rand() * max));
   }
-
-/*function getRndInteger(max) {
-    return Math.floor(Math.random() * max);
-}*/
 
 function setDifficulty(number){
     difficulty = number;
