@@ -159,34 +159,6 @@ function move(direction) {
     }
 }
 
-window.addEventListener("keydown", function (event) {   //handles keyboard input, for now allows you to use arrow keys to move the character
-    if (event.defaultPrevented) {
-        return; // Do nothing if the event was already processed
-    }
-    switch (event.key) {
-        case "ArrowDown":
-            // code for "down arrow" key press.
-            move("down");
-            break;
-        case "ArrowUp":
-            // code for "up arrow" key press.
-            move("up");
-            break;
-        case "ArrowLeft":
-            // code for "left arrow" key press.
-            move("left");
-            break;
-        case "ArrowRight":
-            // code for "right arrow" key press.
-            move("right");
-            break;
-        default:
-            return; // Quit when this doesn't handle the key event.
-    }
-
-    event.preventDefault();
-}, true);
-
 function win_check() {
     if (challengeStarted) return;  //guard clause to prevent player accidentally winning whilst they are playing a challenge 
     var canvas = gameCanvas.getContext('2d');
