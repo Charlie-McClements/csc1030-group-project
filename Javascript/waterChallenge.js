@@ -10,9 +10,12 @@ var first = true;
 var currentTorch;
 var bigJ=  0;
 var smallJ = 0;
+var waterRunning;
 var notPlayedWinSound = true;
 
 function waterChallenge(){
+    console.log("you are here");
+    console.log(running);
     isInWaterChal = true;
     var board = document.getElementById("challengeBoard");
     story = document.getElementById("storyText")
@@ -134,6 +137,8 @@ function startWaterChallenge(){
     option = 0;
     pass = false;
     pass1 = false;
+    bigJ = 0;
+    smallJ = 0;
     completed = false;
     var screen = document.createElement('div');       
     screen.style.maxWidth = '610px';
@@ -195,7 +200,8 @@ function waterStartScreen(){
             button3.value="Vaciar la jarra grande";
             button4.value="Vaciar la jarra pequena";
         }
-        running = setInterval(waterChallenge, 1000/FPS);
+        
+        setTimeout(() => {waterRunning = setInterval(waterChallenge, 1000/FPS);}, 1000);
     }
     else if (option == 2){   
         story = document.getElementById("storyText")
