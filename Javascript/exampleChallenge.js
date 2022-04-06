@@ -12,11 +12,11 @@ var currentTorch;
 var notPlayedWinSound = true;
 
 function challenge1(){
-    var board = document.getElementById("challengeBoard");
+    var board = document.getElementById("buttonBoard");
     story = document.getElementById("storyText")
     if(completed === true){ //if the challenge is over and you want to go back to the main screen
         clearInterval(running);
-        var cBoard = document.getElementById('challengeBoard');
+        var cBoard = document.getElementById('buttonBoard');
         var mazeCanvas = document.getElementById("gameCanvas");
         mazeCanvas.className = "showMe";
         if(currentLanguage == 'English') {
@@ -103,7 +103,7 @@ function startChallenge1(){
     screen.style.height = '610px';
     screen.style.margin = "auto";
     screen.style.backgroundImage = "url(images/button_challenge.png)";
-    screen.id = 'challengeBoard';   
+    screen.id = 'buttonBoard';   
     var mazeCanvas = document.getElementById("gameCanvas");
     mazeCanvas.className = "hideMe";
     var boardDiv = document.getElementById("board");

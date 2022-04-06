@@ -12,36 +12,36 @@ var bigJ=  0;
 var smallJ = 0;
 var waterRunning;
 var notPlayedWinSound = true;
+var waterscreen;
 
 function waterChallenge(){
     isInWaterChal = true;
     var waterBoard = document.getElementById("waterBoard");
     story = document.getElementById("storyText")
-    if(bigJ == 0 && smallJ == 0) { waterBoard.style.backgroundImage = "url(images/water/water_challenge0-0.png)"; }
-    else if(bigJ == 0 && smallJ == 1) { waterBoard.style.backgroundImage = "url(images/water/water_challenge0-1.png)"; }
-    else if(bigJ == 0 && smallJ == 2) { waterBoard.style.backgroundImage = "url(images/water/water_challenge0-2.png)"; }
-    else if(bigJ == 0 && smallJ == 3) { waterBoard.style.backgroundImage = "url(images/water/water_challenge0-3.png)"; }
-    else if(bigJ == 1 && smallJ == 0) { waterBoard.style.backgroundImage = "url(images/water/water_challenge1-0.png)"; }
-    else if(bigJ == 1 && smallJ == 1) { waterBoard.style.backgroundImage = "url(images/water/water_challenge1-1.png)"; }
-    else if(bigJ == 1 && smallJ == 2) { waterBoard.style.backgroundImage = "url(images/water/water_challenge1-2.png)"; }
-    else if(bigJ == 1 && smallJ == 3) { waterBoard.style.backgroundImage = "url(images/water/water_challenge1-3.png)"; }
-    else if(bigJ == 2 && smallJ == 0) { waterBoard.style.backgroundImage = "url(images/water/water_challenge2-0.png)"; }
-    else if(bigJ == 2 && smallJ == 1) { waterBoard.style.backgroundImage = "url(images/water/water_challenge2-1.png)"; }
-    else if(bigJ == 2 && smallJ == 2) { waterBoard.style.backgroundImage = "url(images/water/water_challenge2-2.png)"; }
-    else if(bigJ == 2 && smallJ == 3) { waterBoard.style.backgroundImage = "url(images/water/water_challenge2-3.png)"; }
-    else if(bigJ == 3 && smallJ == 0) { waterBoard.style.backgroundImage = "url(images/water/water_challenge3-0.png)"; }
-    else if(bigJ == 3 && smallJ == 1) { waterBoard.style.backgroundImage = "url(images/water/water_challenge3-1.png)"; }
-    else if(bigJ == 3 && smallJ == 2) { waterBoard.style.backgroundImage = "url(images/water/water_challenge3-2.png)"; }
-    else if(bigJ == 3 && smallJ == 3) { waterBoard.style.backgroundImage = "url(images/water/water_challenge3-3.png)"; }
-    else if(bigJ == 4 && smallJ == 0) { waterBoard.style.backgroundImage = "url(images/water/water_challenge4-0.png)"; }
-    else if(bigJ == 4 && smallJ == 1) { waterBoard.style.backgroundImage = "url(images/water/water_challenge4-1.png)"; }
-    else if(bigJ == 4 && smallJ == 2) { waterBoard.style.backgroundImage = "url(images/water/water_challenge4-2.png)"; }
-    else if(bigJ == 4 && smallJ == 3) { waterBoard.style.backgroundImage = "url(images/water/water_challenge4-3.png)"; }
-    else if(bigJ == 5 && smallJ == 0) { waterBoard.style.backgroundImage = "url(images/water/water_challenge5-0.png)"; }
-    else if(bigJ == 5 && smallJ == 1) { waterBoard.style.backgroundImage = "url(images/water/water_challenge5-1.png)"; }
-    else if(bigJ == 5 && smallJ == 2) { waterBoard.style.backgroundImage = "url(images/water/water_challenge5-2.png)"; }
-    else if(bigJ == 5 && smallJ == 3) { waterBoard.style.backgroundImage = "url(images/water/water_challenge5-3.png)"; }
-
+    if(bigJ == 0 && smallJ == 0) { waterscreen.style.backgroundImage = "url(images/water/water_challenge0-0.png)"; }
+    else if(bigJ == 0 && smallJ == 1) { waterscreen.style.backgroundImage = "url(images/water/water_challenge0-1.png)"; }
+    else if(bigJ == 0 && smallJ == 2) { waterscreen.style.backgroundImage = "url(images/water/water_challenge0-2.png)"; }
+    else if(bigJ == 0 && smallJ == 3) { waterscreen.style.backgroundImage = "url(images/water/water_challenge0-3.png)"; }
+    else if(bigJ == 1 && smallJ == 0) { waterscreen.style.backgroundImage = "url(images/water/water_challenge1-0.png)"; }
+    else if(bigJ == 1 && smallJ == 1) { waterscreen.style.backgroundImage = "url(images/water/water_challenge1-1.png)"; }
+    else if(bigJ == 1 && smallJ == 2) { waterscreen.style.backgroundImage = "url(images/water/water_challenge1-2.png)"; }
+    else if(bigJ == 1 && smallJ == 3) { waterscreen.style.backgroundImage = "url(images/water/water_challenge1-3.png)"; }
+    else if(bigJ == 2 && smallJ == 0) { waterscreen.style.backgroundImage = "url(images/water/water_challenge2-0.png)"; }
+    else if(bigJ == 2 && smallJ == 1) { waterscreen.style.backgroundImage = "url(images/water/water_challenge2-1.png)"; }
+    else if(bigJ == 2 && smallJ == 2) { waterscreen.style.backgroundImage = "url(images/water/water_challenge2-2.png)"; }
+    else if(bigJ == 2 && smallJ == 3) { waterscreen.style.backgroundImage = "url(images/water/water_challenge2-3.png)"; }
+    else if(bigJ == 3 && smallJ == 0) { waterscreen.style.backgroundImage = "url(images/water/water_challenge3-0.png)"; }
+    else if(bigJ == 3 && smallJ == 1) { waterscreen.style.backgroundImage = "url(images/water/water_challenge3-1.png)"; }
+    else if(bigJ == 3 && smallJ == 2) { waterscreen.style.backgroundImage = "url(images/water/water_challenge3-2.png)"; }
+    else if(bigJ == 3 && smallJ == 3) { waterscreen.style.backgroundImage = "url(images/water/water_challenge3-3.png)"; }
+    else if(bigJ == 4 && smallJ == 0) { waterscreen.style.backgroundImage = "url(images/water/water_challenge4-0.png)"; }
+    else if(bigJ == 4 && smallJ == 1) { waterscreen.style.backgroundImage = "url(images/water/water_challenge4-1.png)"; }
+    else if(bigJ == 4 && smallJ == 2) { waterscreen.style.backgroundImage = "url(images/water/water_challenge4-2.png)"; }
+    else if(bigJ == 4 && smallJ == 3) { waterscreen.style.backgroundImage = "url(images/water/water_challenge4-3.png)"; }
+    else if(bigJ == 5 && smallJ == 0) { waterscreen.style.backgroundImage = "url(images/water/water_challenge5-0.png)"; }
+    else if(bigJ == 5 && smallJ == 1) { waterscreen.style.backgroundImage = "url(images/water/water_challenge5-1.png)"; }
+    else if(bigJ == 5 && smallJ == 2) { waterscreen.style.backgroundImage = "url(images/water/water_challenge5-2.png)"; }
+    else if(bigJ == 5 && smallJ == 3) { waterscreen.style.backgroundImage = "url(images/water/water_challenge5-3.png)"; }
     if(bigJ == 4){
         if(currentLanguage == 'English') {
             story.innerHTML = "You have successfully ended up with four litres in the big jug! Congratulations.<br>You receive <b>+50</b> torch fuel!"
@@ -56,8 +56,9 @@ function waterChallenge(){
         setTimeout(() => { completed = true; }, 5000);
     }
 
-    if(completed === true){ //if the challenge is over and you want to go back to the main screen
-        clearInterval(running);
+    if(completed){ //if the challenge is over and you want to go back to the main screen
+        console.log("here")
+        clearInterval(waterRunning);
         var cBoard = document.getElementById('waterBoard');
         var mazeCanvas = document.getElementById("gameCanvas");
         if(currentLanguage == 'English') {
@@ -67,7 +68,7 @@ function waterChallenge(){
             story.innerHTML = "Vuelves al laberinto habiendo superado uno de sus retos.";
         }
         mazeCanvas.className = "showMe";
-        cBoard.remove();
+        waterscreen.remove();
         resetButtons();
         challengeStarted = false;
         charx = returnx;
@@ -136,16 +137,16 @@ function startWaterChallenge(){
     bigJ = 0;
     smallJ = 0;
     completed = false;
-    var screen = document.createElement('div');       
-    screen.style.maxWidth = '610px';
-    screen.style.height = '610px';
-    screen.style.margin = "auto";
-    screen.style.backgroundImage = "url(images/water/water_challenge.png)";
-    screen.id = 'waterBoard';     
+    waterscreen = document.createElement('div');       
+    waterscreen.style.maxWidth = '610px';
+    waterscreen.style.height = '610px';
+    waterscreen.style.margin = "auto";
+    waterscreen.style.backgroundImage = "url(images/water/water_challenge.png)";
+    waterscreen.id = 'waterBoard';     
     var mazeCanvas = document.getElementById("gameCanvas");
     mazeCanvas.className = "hideMe";
     var boardDiv = document.getElementById("board");
-    boardDiv.appendChild(screen);
+    boardDiv.appendChild(waterscreen);
     var button1 = document.getElementById("up");
     var button2 = document.getElementById("left");
     var button3 = document.getElementById("down");
@@ -196,13 +197,15 @@ function waterStartScreen(){
             button3.value="Vaciar la jarra grande";
             button4.value="Vaciar la jarra pequena";
         }
-        
-        setTimeout(() => {waterRunning = setInterval(waterChallenge, 1000/FPS);}, 1000);
+        option = 0;
+        completed = false;
+        bigJ = 0;
+        waterRunning = setInterval(waterChallenge, 1000/FPS);
     }
     else if (option == 2){   
         story = document.getElementById("storyText")
         clearInterval(running);
-        var cBoard = document.getElementById('challengeBoard');
+        var cBoard = document.getElementById('waterBoard');
         var mazeCanvas = document.getElementById("gameCanvas");
         if(currentLanguage == 'English') {
             story.innerHTML = "Returning to the maze, you can't help but wonder what could have been. Nonetheless, you still devote yourself to finding the exit.";

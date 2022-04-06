@@ -23,7 +23,7 @@ var winOptions = [];
 var winSquare = 1;
 var distanceMoved = 0;
 var challengesEncountered = 0;
-var seedValue = "bugs";
+var seedValue = "james' fault";
 
 //colours
 var wallColour = 'rgba(128,128,128, 255)';
