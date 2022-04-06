@@ -38,12 +38,15 @@ charx = wallSize;
 chary = wallSize;
 
 // sound
-var sfxMove = new Audio('sfx/sfxMove.wav'); // bug: sound never plays after skipping pressure plate challenge fixed
+var sfxMove = new Audio('sfx/sfxMove.wav');
 var sfxClick = new Audio('sfx/sfxClick.wav');
 var sfxHover = new Audio('sfx/sfxHover.wav'); //unused, add with onmouseover
 var sfxDamage = new Audio('sfx/sfxDamage.wav'); // unused, for losing hearts
 var sfxVictory = new Audio('sfx/sfxVictory.wav');
+var sfxChalWin = new Audio('sfx/sfxChalWin.wav');
+var sfxWater = new Audio('sfx/sfxWater.mp3');
 var sfxMusic = new Audio('sfx/sfxBGM.mp3');
+var sfxMusicBattle = new Audio('sfx/sfxBattleBGM.mp3');
 
 function xmur3(str) {
     for (var i = 0, h = 1779033703 ^ str.length; i < str.length; i++)

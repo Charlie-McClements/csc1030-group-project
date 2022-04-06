@@ -142,7 +142,7 @@ function submitChoice() {
             story.innerHTML = "At a closer glance it isn't any ordinary statue. Infact it's not a statue at all. It appears to be a frozen man. More interestingly this man is bent down holding onto a lever. That must be the lever to open the gate!";
         } else if(currentLanguage == 'Spanish') {
             var story = document.getElementById("storyText")
-            story.innerHTML = "A primera vista, no se trata de una estatua ordinaria. De hecho, no es una estatua en absoluto. Parece ser un hombre congelado. Mas interesante aun, este hombre esta inclinado sosteniendo una palanca. ¡Esa debe ser la palanca para abrir la puerta!";
+            story.innerHTML = "A primera vista, no se trata de una estatua ordinaria. De hecho, no es una estatua en absoluto. Parece ser un hombre congelado. Mas interesante aun, este hombre esta inclinado sosteniendo una palanca. &iexcl;Esa debe ser la palanca para abrir la puerta!";
         }
     
         if (choiceSelection == 1) {
@@ -163,7 +163,7 @@ function submitChoice() {
             story.innerHTML = "The books goes in detail on a curse called 'Petrification' by the greek monster Medusa, the frozen man must have been cursed! The book goes into detail as to the only way to break the curse is with the 'Restoritive Potion'";
         } else if(currentLanguage == 'Spanish') {
             var story = document.getElementById("storyText")
-            story.innerHTML = "El libro detalla una maldicion llamada 'Petrificacion' por el monstruo griego Medusa, ¡el hombre congelado debe haber sido maldecido! El libro detalla que la unica forma de romper la maldicion es con la 'Pocion Restauradora'.";
+            story.innerHTML = "El libro detalla una maldicion llamada 'Petrificacion' por el monstruo griego Medusa, &iexcl;el hombre congelado debe haber sido maldecido! El libro detalla que la unica forma de romper la maldicion es con la 'Pocion Restauradora'.";
         }
     } else if(choiceChosen.value == "Key" || choiceChosen.value == "Pick up key") {
         var text = document.getElementById('decision');
@@ -243,7 +243,7 @@ function submitChoice() {
             story.innerHTML = "The Potion worked, the stone around the man and lever started cracking! This must be the 'Restorative Potion'! Using the chizel you could easily free the stone surrounding the lever";
         } else if(currentLanguage == 'Spanish') {
             var story = document.getElementById("storyText")
-            story.innerHTML = "¡La pocion funciono, la piedra alrededor del hombre y la palanca comenzaron a resquebrajarse! ¡Esta debe ser la 'Pocion Restauradora'! Usando el cincel puedes liberar facilmente la piedra que rodea la palanca.";
+            story.innerHTML = "&iexcl;La pocion funciono, la piedra alrededor del hombre y la palanca comenzaron a resquebrajarse! &iexcl;Esta debe ser la 'Pocion Restauradora'! Usando el cincel puedes liberar facilmente la piedra que rodea la palanca.";
         }
         document.getElementById('choice1').innerHTML = "Pull Lever";
         document.getElementById('choice2').innerHTML = "N/A";
@@ -301,4 +301,5 @@ function endRoomChallenge() {
     boardDisplay.style.display = "revert";
     buttonDisplay.style.display = "revert";
     roomChoices.style.display = "none";
+    sfxChalWin.play();
 }

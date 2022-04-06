@@ -15,9 +15,9 @@ function prologue() {
     var dialogue = ["Welcome to the Oubliette " + characterName + "! There is a trapdoor in the corner of the maze somewhere, you have 5 minutes to find it and climb out to escape.",
         "But beware! You will face obstacles and challenges along the way which may set you back.",
         "You have five minutes before the trapdoor gets locked and you'll be trapped here forever! Good Luck!"]
-    var dialogueSpanish = ["¡Bienvenidos a la Mazmorra " + characterName + "! Hay una trampilla en la esquina del laberinto en algun lugar, tienes 5 minutos para encontrarla y salir para escapar.",
-        "¡Pero cuidado! Te enfrentaras a obstaculos y desafios en el camino que pueden hacerte retroceder.",
-        "¡Tienes cinco minutos antes de que se cierre la trampilla y te quedaras atrapado aqui para siempre! ¡Buena suerte!"]
+    var dialogueSpanish = ["&iexcl;Bienvenidos a la Mazmorra " + characterName + "! Hay una trampilla en la esquina del laberinto en algun lugar, tienes 5 minutos para encontrarla y salir para escapar.",
+        "&iexcl;Pero cuidado! Te enfrentaras a obstaculos y desafios en el camino que pueden hacerte retroceder.",
+        "&iexcl;Tienes cinco minutos antes de que se cierre la trampilla y te quedaras atrapado aqui para siempre! &iexcl;Buena suerte!"]
     var prologueImages = ["url(images/prologue_1.png)", "url(images/button_challenge.png)", "url(images/empty_room.png)"]
     var board = document.getElementById("challengeBoard");
     story = document.getElementById("storyText");
@@ -35,7 +35,7 @@ function prologue() {
         if (currentLanguage == 'English') {
             story.innerHTML = "Find the trapdoor!";
         } else if (currentLanguage == 'Spanish') {
-            story.innerHTML = "¡Encuentra la trampilla!";
+            story.innerHTML = "&iexcl;Encuentra la trampilla!";
         }
         cBoard.remove();
         resetButtons();
@@ -97,10 +97,18 @@ function startPrologue() {
     button2.onclick = button2Event;
     button3.onclick = button3Event;
     button4.onclick = button4Event;
-    button1.value = "Previous";
-    button2.value = "Continue";
-    button3.value = "Skip Prologue";
-    button4.value = "";
+    if(currentLanguage == 'English') {
+        button1.value = "Previous Slide";
+        button2.value = "Next Slide";
+        button3.value = "Skip Prologue";
+        button4.value = "";
+    }
+    if(currentLanguage == 'Spanish') {
+        button1.value = "Diapositiva anterior";
+        button2.value = "Siguiente diapositiva";
+        button3.value = "Saltar el prologo";
+        button4.value = "";
+    }
     story = document.getElementById("storyText")
     //var board = document.getElementById('gameScreen');
     //board.className = "hideMe";
@@ -117,10 +125,18 @@ function resetButtons() {
     button2.onclick = buttonLeft;
     button3.onclick = buttonDown;
     button4.onclick = buttonRight;
-    button1.value = "Up";
-    button2.value = "Left";
-    button3.value = "Down";
-    button4.value = "Right";
+    if(currentLanguage == 'English') {
+        button1.value="Up";
+        button2.value="Left";
+        button3.value="Down";
+        button4.value="Right";
+    }
+    else if(currentLanguage == 'Spanish') {
+        button1.value="Arriba";
+        button2.value="Izquierda";
+        button3.value="Abajo";
+        button4.value="Derecha";
+    }
 }
 
 function button1Event() {

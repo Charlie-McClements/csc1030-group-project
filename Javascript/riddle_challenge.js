@@ -9,6 +9,7 @@ var returnx = 0;
 var returny = 0;
 var first = true;
 var currentTorch;
+var notPlayedWinSound = true;
 
 function riddleChallenge(){
     var board = document.getElementById("challengeBoard");
@@ -24,7 +25,7 @@ function riddleChallenge(){
         if(currentLanguage == 'English') {
             story.innerHTML = "Find the trapdoor!";
         } else if(currentLanguage == 'Spanish') {
-            story.innerHTML = "¡Encuentra la trampilla!";
+            story.innerHTML = "&iexcl;Encuentra la trampilla!";
         }
         cBoard.remove();
         resetButtons();
@@ -32,21 +33,25 @@ function riddleChallenge(){
         charx = returnx;
         chary = returny;  
         torchStrength = currentTorch;    
-        torchStrength += 30;  
+        torchStrength += 40;
+        notPlayedWinSound = true;
     }
     else{
         if (option == 1){   
             var ansBox = document.getElementById("riddleAnswer");
             var answer = ansBox.value;
-            if(answer == "candle" || answer == "Candle"){
+            if(answer == "candle" || answer == "vela" || answer == "pencil" || answer == "lápiz" || answer == "lapiz" || answer == "l&aacute;piz" || answer == "chalk" || answer == "tiza"){
                 board.style.backgroundImage = "url(images/riddle_challenge_open.png)";
-                //story.innerHTML = "Well aren't you clever... Enjoy the extra flicker in your flame!";  
-                if(currentLanguage == 'English') {
-                    story.innerHTML = "Well aren't you clever... Enjoy the extra flicker in your flame!";
-                } else if(currentLanguage == 'Spanish') {
-                    story.innerHTML = "Bueno, ¿no eres inteligente? ¡Disfruta del parpadeo adicional en tu llama!";
+                if(notPlayedWinSound){
+                    notPlayedWinSound = false;
+                    sfxChalWin.play();
                 }
-                setTimeout(() => {completed = true;}, 3000);              
+                if(currentLanguage == 'English') {
+                    story.innerHTML = "Well aren't you clever... Enjoy the extra flicker in your flame!<br>You receive <b>+40</b> torch fuel!";
+                } else if(currentLanguage == 'Spanish') {
+                    story.innerHTML = "Bueno, &iquest;no eres inteligente? &iexcl;Disfruta del parpadeo adicional en tu llama!<br>&iexcl;Recibes <b>+40</b> de combustible para antorchas!";
+                }
+                setTimeout(() => {completed = true;}, 3000);             
             }         
             pass = true;
         }
@@ -54,10 +59,11 @@ function riddleChallenge(){
             //story.innerHTML = "Carry on, try not to lose your way!";
             if(currentLanguage == 'English') {
                 story.innerHTML = "Carry on, try not to lose your way!";
+                screen.style.backgroundImage = "url(images/riddle_challenge_open.png)";
             } else if(currentLanguage == 'Spanish') {
-                story.innerHTML = "¡Continua, trata de no perderte!";
+                story.innerHTML = "&iexcl;Continua, trata de no perderte!";
+                screen.style.backgroundImage = "url(images/riddle_challenge_open_es.png)";
             }
-            board.style.backgroundImage = "url(images/riddle_challenge_open.png)";
             currentTorch -= 50;         
             setTimeout(() => {completed = true;}, 3000);        
         }
@@ -91,7 +97,6 @@ function startRiddleChallenge(){
     screen.style.maxWidth = '610px';
     screen.style.height = '610px';
     screen.style.margin = "auto";
-    screen.style.backgroundImage = "url(images/riddle_challenge.png)";
     screen.id = 'challengeBoard';  
     var riddleAnswer = document.createElement('input');
     riddleAnswer.type = "text";
@@ -112,16 +117,22 @@ function startRiddleChallenge(){
     button2.onclick = button2Event;
     button3.onclick = button3Event;
     button4.onclick = button4Event;
-    button1.value="Submit Answer";
-    button2.value="Carry On";
-    button3.value="";
-    button4.value="";
     story = document.getElementById("storyText")
-    //story.innerHTML = "Solve the riddle to add flame to your torch. Carry on and you could turn wrong!";
     if(currentLanguage == 'English') {
         story.innerHTML = "Solve the riddle to add flame to your torch. Carry on and you could turn wrong!";
-    } else if(currentLanguage == 'Spanish') {
-        story.innerHTML = "Resuelve el acertijo para agregar llama a tu antorcha. ¡Continua y podrias equivocarte!";
+        screen.style.backgroundImage = "url(images/riddle_challenge.png)";
+        button1.value="Submit Answer";
+        button2.value="Carry On";
+        button3.value="";
+        button4.value="";
+    }
+    else if(currentLanguage == 'Spanish') {
+        story.innerHTML = "Resuelve el acertijo para agregar llama a tu antorcha. &iexcl;Continua y podrias equivocarte!";
+        screen.style.backgroundImage = "url(images/riddle_challenge_es.png)";
+        button1.value="Enviar respuesta";
+        button2.value="Continuar";
+        button3.value="";
+        button4.value="";
     }
     //var board = document.getElementById('gameScreen');
     //board.className = "hideMe";
@@ -138,24 +149,36 @@ function resetButtons(){
     button2.onclick = buttonLeft;
     button3.onclick = buttonDown;
     button4.onclick = buttonRight;
-    button1.value="Up";
-    button2.value="Left";
-    button3.value="Down";
-    button4.value="Right";
+    if(currentLanguage == 'English') {
+        button1.value="Up";
+        button2.value="Left";
+        button3.value="Down";
+        button4.value="Right";
+    }
+    else if(currentLanguage == 'Spanish') {
+        button1.value="Arriba";
+        button2.value="Izquierda";
+        button3.value="Abajo";
+        button4.value="Derecha";
+    }
 }
 
 function button1Event(){
+    sfxClick.play();
     option = 1;
 }
 
-function button2Event(){;
+function button2Event(){
+    sfxClick.play();
     option = 2;
 }
 
 function button3Event(){
+    sfxClick.play();
     option = 3;
 }
 
 function button4Event(){
+    sfxClick.play();
     option = 4;
 }

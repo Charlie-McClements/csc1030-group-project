@@ -9,6 +9,7 @@ var returnx = 0;
 var returny = 0;
 var first = true;
 var currentTorch;
+var notPlayedWinSound = true;
 
 function challenge1(){
     var board = document.getElementById("challengeBoard");
@@ -21,7 +22,7 @@ function challenge1(){
         if(currentLanguage == 'English') {
             story.innerHTML = "Find the trapdoor!";
         } else if(currentLanguage == 'Spanish') {
-            story.innerHTML = "¡Encuentra la trampilla!";
+            story.innerHTML = "&iexcl;Encuentra la trampilla!";
         }
         cBoard.remove();
         resetButtons();
@@ -29,7 +30,8 @@ function challenge1(){
         charx = returnx;
         chary = returny;  
         torchStrength = currentTorch;    
-        torchStrength += 20;  
+        torchStrength += 20;
+        notPlayedWinSound = true;
     }
     else{
         if(pass == true && pass1 == true){
@@ -37,9 +39,13 @@ function challenge1(){
             if(currentLanguage == 'English') {
                 story.innerHTML = "Well done! That's done the trick!";
             } else if(currentLanguage == 'Spanish') {
-                story.innerHTML = "¡Bien hecho! ¡Eso ha hecho el truco!";
+                story.innerHTML = "&iexcl;Bien hecho! &iexcl;Eso ha hecho el truco!";
             }
-            setTimeout(() => {completed = true;}, 3000);       
+            if(notPlayedWinSound){
+                notPlayedWinSound = false;
+                sfxChalWin.play();
+            }
+            setTimeout(() => {completed = true;}, 3000);     
                  
         }
         else if (option == 1 && pass != true){   
@@ -143,17 +149,21 @@ function resetButtons(){
 }
 
 function button1Event(){
+    sfxClick.play();
     option = 1;
 }
 
-function button2Event(){;
+function button2Event(){
+    sfxClick.play();
     option = 2;
 }
 
 function button3Event(){
+    sfxClick.play();
     option = 3;
 }
 
 function button4Event(){
+    sfxClick.play();
     option = 4;
 }

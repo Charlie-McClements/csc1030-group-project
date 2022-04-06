@@ -1,6 +1,6 @@
 var challengeProgress = false;
 var running;
-
+var notPlayedWinSound = true;
 
 function startPressurePChal() {
     challengeStarted = true;
@@ -18,7 +18,7 @@ function startPressurePChal() {
         story.innerHTML = "There appears to be a grid of Pressure Plates blocking the path in the corridor. There appears to be a trapdoor on the right saying: 'Skip but there will be consequences!'. Do you dare take on the challenge or risk the consequences?";
     } else if(currentLanguage == 'Spanish') {
         var story = document.getElementById("storyText")
-        story.innerHTML = "Parece que hay una cuadricula de placas de presion bloqueando el camino en el corredor. Parece haber una trampilla a la derecha que dice: '¡Saltate pero habra consecuencias!'. ¿Te atreves a asumir el reto o te arriesgas a las consecuencias?";
+        story.innerHTML = "Parece que hay una cuadricula de placas de presion bloqueando el camino en el corredor. Parece haber una trampilla a la derecha que dice: '&iexcl;Saltate pero habra consecuencias!'. &iquest;Te atreves a asumir el reto o te arriesgas a las consecuencias?";
     }
     
 }
@@ -53,11 +53,16 @@ function endPressurePChal() {
         pressurepGame.style.display = "none";
         boardDisplay.style.display = "revert";
         buttonDisplay.style.display = "revert";
+        if(notPlayedWinSound){
+            notPlayedWinSound = false;
+            sfxChalWin.play();
+        }
         if(currentLanguage == 'English') {
             story.innerHTML = "Phew, you made it";
         } else if(currentLanguage == 'Spanish') {
             story.innerHTML = "Uf, lo lograste";
         }
+        notPlayedWinSound = true;
         //visionTimer();
         torchStrength += 30;
     }
