@@ -84,6 +84,10 @@ function begin() {
 
     sfxClick.play();
 
+    // if(seedValue == "") {
+    //     seedValue = String(Math.floor(Math.random() * 1000000));
+    // }
+
     characterName = document.getElementById('characterName').value;
 
     challenge = document.getElementById('difficulty').value;
@@ -102,7 +106,7 @@ function begin() {
     startPrologue();
     startTimer();
     myTorchStrength = setInterval('decreaseTorch()', 1000);
-    
+    console.log(seedValue);
 
 }
 
