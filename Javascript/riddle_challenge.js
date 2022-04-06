@@ -59,10 +59,10 @@ function riddleChallenge(){
             //story.innerHTML = "Carry on, try not to lose your way!";
             if(currentLanguage == 'English') {
                 story.innerHTML = "Carry on, try not to lose your way!";
-                screen.style.backgroundImage = "url(images/riddle_challenge_open.png)";
+                board.style.backgroundImage = "url(images/riddle_challenge_open.png)";
             } else if(currentLanguage == 'Spanish') {
                 story.innerHTML = "&iexcl;Continua, trata de no perderte!";
-                screen.style.backgroundImage = "url(images/riddle_challenge_open_es.png)";
+                board.style.backgroundImage = "url(images/riddle_challenge_open_es.png)";
             }
             currentTorch -= 50;         
             setTimeout(() => {completed = true;}, 3000);        
