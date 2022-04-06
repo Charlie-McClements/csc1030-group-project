@@ -99,7 +99,7 @@ function begin() {
     startPrologue();
     startTimer();
     myTorchStrength = setInterval('decreaseTorch()', 1000);
-    
+    console.log(seedValue);
 
 }
 

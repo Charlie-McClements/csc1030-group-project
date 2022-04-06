@@ -71,11 +71,17 @@ function customizeButton() {
     document.getElementById('startScreen').className = "hideMe"
     document.getElementById('customise').className = "showMe"
     sfxClick.play();
+    console.log(seedValue);
+    seedValue = Math.floor(Math.random() * 1000000);
+    document.getElementById('changeSeed').value = String(seedValue)
 }
 
 function returnToMenu(){
     document.getElementById('startScreen').className = "showMe"
     document.getElementById('customise').className = "hideMe"
+    var newSeed = document.getElementById('changeSeed').value;
+    seedValue = String(newSeed);
+    console.log(seedValue);
 }
 
 function drawSprite(charx, chary, charSize){
