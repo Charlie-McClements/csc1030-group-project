@@ -23,6 +23,7 @@ var winOptions = [];
 var winSquare = 1;
 var distanceMoved = 0;
 var challengesEncountered = 0;
+var seedValue = "bugs";
 
 //colours
 var wallColour = 'rgba(128,128,128, 255)';
@@ -68,7 +69,7 @@ function mulberry32(a) {
     }
 }
 
-let seedFunction = xmur3("bugs");
+let seedFunction = xmur3(seedValue);
 let rand = mulberry32(seedFunction());
 function getRndInteger(max) {   //produces a random rumber between 0 and max based off the seed
     return Math.floor((rand() * max));
@@ -394,9 +395,6 @@ function update_ui() {
 
 // update function
 function update(move) {
-    if(challengeStarted){
-        console.log("challenge started");
-    };
     if(torchStrength < charSize *2)torchStrength = charSize*2;    
     // draw background      
     /*for(let inc = 0;inc<allCells.length;inc++){
