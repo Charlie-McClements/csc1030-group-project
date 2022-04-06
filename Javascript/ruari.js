@@ -84,6 +84,10 @@ function begin() {
 
     sfxClick.play();
 
+    // if(seedValue == "") {
+    //     seedValue = String(Math.floor(Math.random() * 1000000));
+    // }
+
     characterName = document.getElementById('characterName').value;
 
     challenge = document.getElementById('difficulty').value;
