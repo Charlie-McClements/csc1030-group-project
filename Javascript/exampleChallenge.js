@@ -1,5 +1,5 @@
-var completed = false;
-var running;
+var completed1 = false;
+var btnRunning;
 var option = 0;
 var story;
 var pass = false;
@@ -14,8 +14,8 @@ var notPlayedWinSound = true;
 function challenge1(){
     var board = document.getElementById("buttonBoard");
     story = document.getElementById("storyText")
-    if(completed === true){ //if the challenge is over and you want to go back to the main screen
-        clearInterval(running);
+    if(completed1 === true){ //if the challenge is over and you want to go back to the main screen
+        clearInterval(btnRunning);
         var cBoard = document.getElementById('buttonBoard');
         var mazeCanvas = document.getElementById("gameCanvas");
         mazeCanvas.className = "showMe";
@@ -45,7 +45,7 @@ function challenge1(){
                 notPlayedWinSound = false;
                 sfxChalWin.play();
             }
-            setTimeout(() => {completed = true;}, 3000);     
+            setTimeout(() => {completed1 = true;}, 3000);     
                  
         }
         else if (option == 1 && pass != true){   
@@ -65,7 +65,7 @@ function challenge1(){
             board.style.backgroundImage = "url(images/button_challenge_failed.png)";
             returnx = wallSize;
             returny = wallSize;            
-            setTimeout(() => {completed = true;}, 3000);  
+            setTimeout(() => {completed1 = true;}, 3000);  
             if(first == true){  //need this clause as this if statement is triggered more than once before the timeout finishes
                 first = false;
                 lives -= 1;
@@ -97,7 +97,7 @@ function startChallenge1(){
     option = 0;
     pass = false;
     pass1 = false;
-    completed = false;
+    completed1 = false;
     var screen = document.createElement('div');       
     screen.style.maxWidth = '610px';
     screen.style.height = '610px';
@@ -129,7 +129,7 @@ function startChallenge1(){
     }
     //var board = document.getElementById('gameScreen');
     //board.className = "hideMe";
-    running = setInterval(challenge1, 1000/FPS);
+    btnRunning = setInterval(challenge1, 1000/FPS);
     
 }
 

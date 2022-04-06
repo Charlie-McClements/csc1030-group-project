@@ -1,5 +1,4 @@
-var completed = false;
-var running;
+var completed2 = false;
 var option = 0;
 var story;
 var challengeStarted = false;
@@ -7,6 +6,7 @@ var returnx = 0;
 var returny = 0;
 var first = true;
 var currentTorch;
+var spiderRunning;
 var notPlayedWinSound = true;
 
 function spiderChallenge() {
@@ -16,10 +16,10 @@ function spiderChallenge() {
     buttonDisplay.style.display = "none";
     var spiderBoard = document.getElementById("spiderChallengeDiv");
     story = document.getElementById("storyText")
-    if (completed === true) { //if the challenge is over and you want to go back to the main screen
+    if (completed2 === true) { //if the challenge is over and you want to go back to the main screen
         sfxMusic.play();
         sfxMusicBattle.pause();
-        clearInterval(running);
+        clearInterval(spiderRunning);
         endChallenge();
        if(currentLanguage == 'English') {
             story.innerHTML = "You continue on your adventure. The incident with the deadly spider is in the past now."
@@ -47,7 +47,7 @@ function spiderChallenge() {
                 story.innerHTML = "&iexcl;Golpeas a la bestia con fuego! Ves c&oacute;mo se convierte en humo, junto con <b>-20</b> del combustible de tu antorcha."
             }
             torchStrength -= 20;
-            setTimeout(() => { completed = true; }, 4000);
+            setTimeout(() => { completed2 = true; }, 4000);
         }
         else if (option == 2) {
             if(currentLanguage == 'English') {
@@ -59,7 +59,7 @@ function spiderChallenge() {
             spiderBoard.style.backgroundImage = "url(images/spider_lose.png)";
             returnx = wallSize;
             returny = wallSize;
-            setTimeout(() => { completed = true; }, 4000);
+            setTimeout(() => { completed2 = true; }, 4000);
             if (first == true) {  //need this clause as this if statement is triggered more than once before the timeout finishes
                 first = false;
                 lives -= 1;
@@ -74,7 +74,7 @@ function spiderChallenge() {
                 story.innerHTML = "Saludas a la ara&ntilde;a con un golpe de derecha, pero &eacute;sta te devuelve el golpe y te roe una de las extremidades. Antes de que puedas contraatacar, se escapa."
             }
             spiderBoard.style.backgroundImage = "url(images/spider_lose.png)";
-            setTimeout(() => { completed = true; }, 4000);
+            setTimeout(() => { completed2 = true; }, 4000);
             if (first == true) { //need this clause as this if statement is triggered more than once before the timeout finishes
                 first = false;
                 lives -= 1;
@@ -90,7 +90,7 @@ function spiderChallenge() {
                 story.innerHTML = "Te retiras vergonzosamente a costa de tu honor y del combustible de la antorcha."
             }
             spiderBoard.style.backgroundImage = "url(images/spider_skip.png)";
-            setTimeout(() => { completed = true; }, 4000);
+            setTimeout(() => { completed2 = true; }, 4000);
             if (first == true) { //need this clause as this if statement is triggered more than once before the timeout finishes
                 first = false;
                 lives -= 1;
@@ -109,7 +109,7 @@ function endChallenge() {
     var boardDisplay = document.getElementById('board');
     var buttonDisplay = document.getElementById('buttons');
 
-    clearInterval(running);
+    clearInterval(spiderRunning);
     challengeStarted = false;
     charx = returnx;
     chary = returny;
@@ -136,7 +136,7 @@ function startSpiderChallenge() {
     returnx = charx;
     returny = chary;
     option = 0;
-    completed = false;
+    completed2 = false;
 
     var bg = document.getElementById('spiderChallengeDiv');
     bg.style.display = "flex";
@@ -172,7 +172,7 @@ function startSpiderChallenge() {
     story = document.getElementById("storyText")
     //var board = document.getElementById('gameScreen');
     //board.className = "hideMe";
-    running = setInterval(spiderChallenge, 1000 / FPS);
+    spiderRunning = setInterval(spiderChallenge, 1000 / FPS);
 
 }
 

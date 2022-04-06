@@ -1,4 +1,4 @@
-var completed = false;
+var completed3 = false;
 var running;
 var option = 0;
 var story;
@@ -14,7 +14,7 @@ var notPlayedWinSound = true;
 function riddleChallenge(){
     var riddleBoard = document.getElementById("challengeBoard");
     story = document.getElementById("storyText")
-    if(completed === true){ //if the challenge is over and you want to go back to the main screen
+    if(completed3 === true){ //if the challenge is over and you want to go back to the main screen
         clearInterval(running);
         var cBoard = document.getElementById('challengeBoard');
         var aBox = document.getElementById('riddleAnswer');
@@ -51,7 +51,7 @@ function riddleChallenge(){
                 } else if(currentLanguage == 'Spanish') {
                     story.innerHTML = "Bueno, &iquest;no eres inteligente? &iexcl;Disfruta del parpadeo adicional en tu llama!<br>&iexcl;Recibes <b>+40</b> de combustible para antorchas!";
                 }
-                setTimeout(() => {completed = true;}, 3000);             
+                setTimeout(() => {completed3 = true;}, 3000);             
             }         
             pass = true;
         }
@@ -65,7 +65,7 @@ function riddleChallenge(){
                 riddleBoard.style.backgroundImage = "url(images/riddle_challenge_open_es.png)";
             }
             currentTorch -= 50;         
-            setTimeout(() => {completed = true;}, 3000);        
+            setTimeout(() => {completed3 = true;}, 3000);        
         }
         else if(option == 3){
             //story.innerHTML = "I'm sure it did something...";
@@ -92,7 +92,7 @@ function startRiddleChallenge(){
     option = 0;
     pass = false;
     pass1 = false;
-    completed = false;
+    completed3 = false;
     var screen = document.createElement('div');       
     screen.style.maxWidth = '610px';
     screen.style.height = '610px';
