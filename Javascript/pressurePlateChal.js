@@ -14,6 +14,14 @@ function startPressurePChal() {
     buttonDisplay.style.display = "none";
 
     if(currentLanguage == 'English') {
+        var image = document.getElementById("platesImage")
+        image.setAttribute('src', "images/plates_challenge.png");
+    } else if(currentLanguage == 'Spanish') {
+        var image = document.getElementById("platesImage")
+        image.setAttribute('src', "images/plates_challenge_es.png");
+    }
+
+    if(currentLanguage == 'English') {
         var story = document.getElementById("storyText")
         story.innerHTML = "There appears to be a grid of Pressure Plates blocking the path in the corridor. There appears to be a trapdoor on the right saying: 'Skip but there will be consequences!'. Do you dare take on the challenge or risk the consequences?";
     } else if(currentLanguage == 'Spanish') {
@@ -80,7 +88,8 @@ function skipPlateChallenge() {
     challengeStarted = false;
     charx = returnx;
     chary = returny;
-    torchStrength = 50;
+    torchStrength -= 50;
+    lives -= 1;
     if(currentLanguage == 'English') {
         var story = document.getElementById("storyText")
         story.innerHTML = "You skipped and your torch was weakened squeezing in the trapdoor, now enjoy a lack of visibility";

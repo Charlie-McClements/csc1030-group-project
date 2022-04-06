@@ -226,7 +226,7 @@ function submitChoice() {
         choiceNo = 2;
     }
 
-    if(choiceChosen.value == "Use Potion 1" || choiceChosen.value == "Use Potion 3" || choiceChosen.value == "Use Potion 4") {
+    if(choiceChosen.value == "Use Potion 1" || choiceChosen.value == "Use Potion 4") {
         var text = document.getElementById('decision');
         text.value = "";
         if(currentLanguage == 'English') {
@@ -237,6 +237,18 @@ function submitChoice() {
             story.innerHTML = "La pocion no tuvo efecto en la estatua.";
         }
         wrongPotion--;
+    } else if(choiceChosen.value == "Use Potion 3") {
+        var text = document.getElementById('decision');
+        text.value = "";
+        if(currentLanguage == 'English') {
+            var story = document.getElementById("storyText")
+            story.innerHTML = "Potion backfired and hurt you";
+        } else if(currentLanguage == 'Spanish') {
+            var story = document.getElementById("storyText")
+            story.innerHTML = "La pocion no tuvo efecto en la estatua.";
+        }
+        wrongPotion--;
+        lives -= 1;
     } else if (choiceChosen.value == "Use Potion 2") {
         var text = document.getElementById('decision');
         text.value = "";
