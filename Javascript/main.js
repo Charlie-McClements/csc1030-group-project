@@ -30,8 +30,8 @@ var wallColour = 'rgba(128,128,128, 255)';
 var wallColourQ = [128, 128, 128, 255];
 var floorColour = 'rgba(18,5,23, 255)';
 var floorColourQ = [18, 5, 23, 255];
-var winColour = 'rgba(0,256,0, 256)';
-var winColourQ = [0, 255, 0, 255];
+var winColour = 'rgba(59, 38, 32, 255)';
+var winColourQ = [59, 38, 32, 255];
 var charColour = 'rgb(255,128,0)';
 
 // character starting position
@@ -69,8 +69,8 @@ function mulberry32(a) {
     }
 }
 
-let seedFunction = xmur3(seedValue);
-let rand = mulberry32(seedFunction());
+var seedFunction = xmur3(seedValue);
+var rand = mulberry32(seedFunction());
 function getRndInteger(max) {   //produces a random rumber between 0 and max based off the seed
     return Math.floor((rand() * max));
   }
@@ -201,6 +201,9 @@ function win_check() {
         charx = wallSize;
         chary = wallSize;
         sfxVictory.play();
+    }
+    if(lives <= 0){
+        endScreen('Bad luck, ' + characterName + '. You ran out of lives!');
     }
 }
 
