@@ -12,7 +12,7 @@ var currentTorch;
 var notPlayedWinSound = true;
 
 function riddleChallenge(){
-    var board = document.getElementById("challengeBoard");
+    var riddleBoard = document.getElementById("challengeBoard");
     story = document.getElementById("storyText")
     if(completed === true){ //if the challenge is over and you want to go back to the main screen
         clearInterval(running);
@@ -41,7 +41,7 @@ function riddleChallenge(){
             var ansBox = document.getElementById("riddleAnswer");
             var answer = ansBox.value;
             if(answer == "candle" || answer == "vela" || answer == "pencil" || answer == "lápiz" || answer == "lapiz" || answer == "l&aacute;piz" || answer == "chalk" || answer == "tiza"){
-                board.style.backgroundImage = "url(images/riddle_challenge_open.png)";
+                riddleBoard.style.backgroundImage = "url(images/riddle_challenge_open.png)";
                 if(notPlayedWinSound){
                     notPlayedWinSound = false;
                     sfxChalWin.play();
@@ -59,10 +59,10 @@ function riddleChallenge(){
             //story.innerHTML = "Carry on, try not to lose your way!";
             if(currentLanguage == 'English') {
                 story.innerHTML = "Carry on, try not to lose your way!";
-                board.style.backgroundImage = "url(images/riddle_challenge_open.png)";
+                riddleBoard.style.backgroundImage = "url(images/riddle_challenge_open.png)";
             } else if(currentLanguage == 'Spanish') {
                 story.innerHTML = "&iexcl;Continua, trata de no perderte!";
-                board.style.backgroundImage = "url(images/riddle_challenge_open_es.png)";
+                riddleBoard.style.backgroundImage = "url(images/riddle_challenge_open_es.png)";
             }
             currentTorch -= 50;         
             setTimeout(() => {completed = true;}, 3000);        

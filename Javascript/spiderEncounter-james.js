@@ -14,7 +14,7 @@ function spiderChallenge() {
     boardDisplay.style.display = "none";
     var buttonDisplay = document.getElementById('buttons');
     buttonDisplay.style.display = "none";
-
+    var spiderBoard = document.getElementById("spiderChallengeDiv");
     story = document.getElementById("storyText")
     if (completed === true) { //if the challenge is over and you want to go back to the main screen
         sfxMusic.play();
@@ -35,7 +35,7 @@ function spiderChallenge() {
     }
     else {
         if (option == 1) {
-            board.style.backgroundImage = "url(images/spider_fire.png)"; // doesn't work
+            spiderBoard.style.backgroundImage = "url(images/spider_fire.png)"; // doesn't work
             if(notPlayedWinSound){
                 notPlayedWinSound = false;
                 sfxChalWin.play();
@@ -56,7 +56,7 @@ function spiderChallenge() {
             else if(currentLanguage == 'Spanish') {
                 story.innerHTML = "Intentas huir de la ara&ntilde;a, pero &eacute;sta te hace tropezar y te roe una de las extremidades. Antes de que puedas contraatacar, se escapa."
             }
-            board.style.backgroundImage = "url(images/spider_lose.png)";
+            spiderBoard.style.backgroundImage = "url(images/spider_lose.png)";
             returnx = wallSize;
             returny = wallSize;
             setTimeout(() => { completed = true; }, 4000);
@@ -73,7 +73,7 @@ function spiderChallenge() {
             else if(currentLanguage == 'Spanish') {
                 story.innerHTML = "Saludas a la ara&ntilde;a con un golpe de derecha, pero &eacute;sta te devuelve el golpe y te roe una de las extremidades. Antes de que puedas contraatacar, se escapa."
             }
-            board.style.backgroundImage = "url(images/spider_lose.png)";
+            spiderBoard.style.backgroundImage = "url(images/spider_lose.png)";
             setTimeout(() => { completed = true; }, 4000);
             if (first == true) { //need this clause as this if statement is triggered more than once before the timeout finishes
                 first = false;
@@ -89,7 +89,7 @@ function spiderChallenge() {
             else if(currentLanguage == 'Spanish') {
                 story.innerHTML = "Te retiras vergonzosamente a costa de tu honor y del combustible de la antorcha."
             }
-            board.style.backgroundImage = "url(images/spider_skip.png)";
+            spiderBoard.style.backgroundImage = "url(images/spider_skip.png)";
             setTimeout(() => { completed = true; }, 4000);
             if (first == true) { //need this clause as this if statement is triggered more than once before the timeout finishes
                 first = false;
