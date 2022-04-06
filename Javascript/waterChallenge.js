@@ -12,12 +12,13 @@ var bigJ=  0;
 var smallJ = 0;
 var waterRunning;
 var notPlayedWinSound = true;
+var board;
 
 function waterChallenge(){
     console.log("you are here");
     console.log(running);
     isInWaterChal = true;
-    var board = document.getElementById("challengeBoard");
+    console
     story = document.getElementById("storyText")
     if(bigJ == 0 && smallJ == 0) { board.style.backgroundImage = "url(images/water/water_challenge0-0.png)"; }
     else if(bigJ == 0 && smallJ == 1) { board.style.backgroundImage = "url(images/water/water_challenge0-1.png)"; }
@@ -135,8 +136,6 @@ function startWaterChallenge(){
     returnx = charx;
     returny = chary;
     option = 0;
-    pass = false;
-    pass1 = false;
     bigJ = 0;
     smallJ = 0;
     completed = false;
@@ -145,7 +144,8 @@ function startWaterChallenge(){
     screen.style.height = '610px';
     screen.style.margin = "auto";
     screen.style.backgroundImage = "url(images/water/water_challenge.png)";
-    screen.id = 'challengeBoard';   
+    screen.id = 'challengeBoard'; 
+    board = document.getElementById("challengeBoard");  
     var mazeCanvas = document.getElementById("gameCanvas");
     mazeCanvas.className = "hideMe";
     var boardDiv = document.getElementById("board");
