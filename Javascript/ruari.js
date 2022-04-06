@@ -86,7 +86,12 @@ function begin() {
 
     // if(seedValue == "") {
     //     seedValue = String(Math.floor(Math.random() * 1000000));
+            //seedFunction = xmur3(seedValue);
+            //rand = mulberry32(seedFunction());
     // }
+
+    seedFunction = xmur3(seedValue);
+    rand = mulberry32(seedFunction());
 
     characterName = document.getElementById('characterName').value;
 
