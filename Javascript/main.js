@@ -71,13 +71,13 @@ function mulberry32(a) {
 
 let seedFunction = xmur3(seedValue);
 let rand = mulberry32(seedFunction());
-function getRndInteger(max) {   //produces a random rumber between 0 and max based off the seed
+/*function getRndInteger(max) {   //produces a random rumber between 0 and max based off the seed
     return Math.floor((rand() * max));
-  }
+  }*/
 
-/*function getRndInteger(max) {
+function getRndInteger(max) {
     return Math.floor(Math.random() * max);
-}*/
+}
 
 function setDifficulty(number){
     difficulty = number;
@@ -205,6 +205,7 @@ function win_check() {
 }
 
 function resetGame(){
+    gameOver = false;
     window.location.reload();
 }
 

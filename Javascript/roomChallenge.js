@@ -3,6 +3,8 @@ var choiceSelection = 0;
 var wrongPotion = 3;
 
 function startRoomChal() {
+    returnx = charx;
+    returny = chary;
     challengeStarted = true;
     var chalStartVisuals = document.getElementById('startRoomVisualiser')
     chalStartVisuals.style.display = "initial";
@@ -304,8 +306,9 @@ function endRoomChallenge() {
     document.getElementById('choice1').innerHTML = "Search";
     document.getElementById('choice2').innerHTML = "Investigate";
     document.getElementById('choice3').innerHTML = "N/A";
-    document.getElementById('choice4').innerHTML = "N/A";
-
+    document.getElementById('choice4').innerHTML = "N/A";    
+    charx = returnx;
+    chary = returny;
     var boardDisplay = document.getElementById('board');
     var buttonDisplay = document.getElementById('buttons');
     var roomChoices = document.getElementById('roomTextChoice')

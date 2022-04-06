@@ -1,6 +1,8 @@
+gameOver = false;
+
 function endScreen(message) {
     
-
+    gameOver = true;
     document.getElementById('GameOverText').innerHTML = message;
 
     // minutes and seconds left 
