@@ -46,7 +46,7 @@ function spiderChallenge() {
             else if(currentLanguage == 'Spanish') {
                 story.innerHTML = "&iexcl;Golpeas a la bestia con fuego! Ves c&oacute;mo se convierte en humo, junto con <b>-20</b> del combustible de tu antorcha."
             }
-            torchStrength -= 20;
+            torchStrength += 50;
             setTimeout(() => { completed = true; }, 4000);
         }
         else if (option == 2) {
