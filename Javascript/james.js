@@ -1,4 +1,5 @@
 gameOver = false;
+var customiseButtonClicks = 0
 
 function endScreen(message) {
     
@@ -73,9 +74,11 @@ function customizeButton() {
     document.getElementById('startScreen').className = "hideMe"
     document.getElementById('customise').className = "showMe"
     sfxClick.play();
-    console.log(seedValue);
-    seedValue = Math.floor(Math.random() * 1000000);
-    document.getElementById('changeSeed').value = String(seedValue)
+    if(customiseButtonClicks == 0) {
+        seedValue = Math.floor(Math.random() * 1000000);
+        document.getElementById('changeSeed').value = String(seedValue);
+        customiseButtonClicks++;
+    }
 }
 
 function returnToMenu(){
@@ -83,7 +86,6 @@ function returnToMenu(){
     document.getElementById('customise').className = "hideMe"
     var newSeed = document.getElementById('changeSeed').value;
     seedValue = String(newSeed);
-    console.log(seedValue);
 }
 
 function drawSprite(charx, chary, charSize){
