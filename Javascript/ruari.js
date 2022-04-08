@@ -44,6 +44,7 @@ function countdown() {
         document.getElementById('minutes').innerHTML = minutes;
         document.getElementById('seconds').innerHTML = seconds;
     } else {
+        gameOver = true;
         if(gameOver){
             endScreen('Unlucky, '+characterName+'. Out of time!');
             stopTimer();
