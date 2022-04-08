@@ -249,6 +249,11 @@ function submitChoice() {
         }
         wrongPotion--;
         lives -= 1;
+        if(lives <= 0){
+            endScreen('Bad luck, ' + characterName + '. You ran out of lives!');
+            sfxMusic.pause();
+            sfxDamage.play();
+        }
     } else if (choiceChosen.value == "Use Potion 2") {
         var text = document.getElementById('decision');
         text.value = "";

@@ -2,7 +2,7 @@ var challenges = ["buttons", "maze", "spider", "jugs", "riddle", "room"];
 
 function randomChallenge() {
     if (challengeStarted == true) return; //prevents multiple challenges spawning at once
-    if (getRndInteger(100) > 85) { // 30% chance of encountering a challenge
+    if (getRndInteger(100) > 85) {
         if (challengeStarted == false) {
             var r = challenges[getRndInteger(challenges.length)];
             var index;

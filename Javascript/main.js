@@ -41,8 +41,8 @@ chary = wallSize;
 // sound
 var sfxMove = new Audio('sfx/sfxMove.wav');
 var sfxClick = new Audio('sfx/sfxClick.wav');
-var sfxHover = new Audio('sfx/sfxHover.wav'); //unused, add with onmouseover
-var sfxDamage = new Audio('sfx/sfxDamage.wav'); // unused, for losing hearts
+var sfxHover = new Audio('sfx/sfxHover.wav');
+var sfxDamage = new Audio('sfx/sfxDamage.wav');
 var sfxVictory = new Audio('sfx/sfxVictory.wav');
 var sfxChalWin = new Audio('sfx/sfxChalWin.wav');
 var sfxWater = new Audio('sfx/sfxWater.mp3');
@@ -172,6 +172,8 @@ function win_check() {
     }
     if(lives <= 0){
         endScreen('Bad luck, ' + characterName + '. You ran out of lives!');
+        sfxMusic.pause();
+        sfxDamage.play();
     }
 }
 

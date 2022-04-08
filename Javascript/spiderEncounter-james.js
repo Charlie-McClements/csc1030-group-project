@@ -32,10 +32,16 @@ function spiderChallenge() {
         charx = returnx;
         chary = returny;
         notPlayedWinSound = true;
+
+        if(lives <= 0){
+            endScreen('Bad luck, ' + characterName + '. You ran out of lives!');
+            sfxMusic.pause();
+            sfxDamage.play();
+        }
     }
     else {
         if (option == 1) {
-            spiderBoard.style.backgroundImage = "url(images/spider_fire.png)"; // doesn't work
+            spiderBoard.style.backgroundImage = "url(images/spider_fire.png)";
             if(notPlayedWinSound){
                 notPlayedWinSound = false;
                 sfxChalWin.play();
